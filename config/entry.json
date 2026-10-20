@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "bounds_xy": [0.0, 12.0, 1.5, 10.4],
+  "wall_thickness": 0.16,
+  "wall_height": 3.9,
+  "door": {"center_x": 1.0, "width": 1.4, "height": 1.05},
+  "windows": [
+    {"id": 1, "center_x": 4.0, "center_z": 1.8, "width": 1.4, "height": 1.1},
+    {"id": 2, "center_x": 7.0, "center_z": 1.8, "width": 1.4, "height": 1.1},
+    {"id": 3, "center_x": 10.0, "center_z": 1.8, "width": 1.4, "height": 1.1}
+  ],
+  "fire_window_id": 2,
+  "uav_margin_xy": 0.14,
+  "uav_margin_z": 0.08,
+  "dog_half_length": 0.48,
+  "dog_half_width": 0.24
+}

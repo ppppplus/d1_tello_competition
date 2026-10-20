@@ -59,6 +59,60 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   double ballSpawnTime=-100.;bool ballRetired=false;
   std::vector<sim::Entity> velocityCommands;
   std::ofstream actors,missionTrace;
+  bool haveEntryPose=false,airEntering=false,dogEntering=false,airLeaving=false;
+  bool airEntered=false,dogEntered=false,airExited=false;
+  Vec previousAir,previousDog;
+  int returnWaypoint=0;
+  std::string airPhase="takeoff";
+  bool insideBuilding(const Vec &p)const{
+    const auto b=config["entry"]["bounds_xy"];
+    return p.X()>double(b[0])&&p.X()<double(b[1])&&p.Y()>double(b[2])&&p.Y()<double(b[3]);
+  }
+  bool throughFront(const Vec &a,const Vec &b,bool entering)const{
+    const double front=config["entry"]["bounds_xy"][2];
+    return entering?(a.Y()<=front&&b.Y()>front):(a.Y()>=front&&b.Y()<front);
+  }
+  Vec facadeIntersection(const Vec &a,const Vec &b)const{
+    double y=config["entry"]["bounds_xy"][2];
+    return a+(b-a)*((y-a.Y())/(b.Y()-a.Y()));
+  }
+  bool inFireWindow(const Vec &p)const{
+    const auto e=config["entry"],w=e["selected_window"];
+    return std::abs(p.X()-double(w["center_x"]))<=double(w["width"])/2-double(e["uav_margin_xy"])
+      &&std::abs(p.Z()-double(w["center_z"]))<=double(w["height"])/2-double(e["uav_margin_z"]);
+  }
+  void observeEntry(sim::EntityComponentManager &ecm){
+    auto ap=air.WorldPose(ecm),dp=base.WorldPose(ecm);if(!ap||!dp||ap->Pos().Length()<.1||dp->Pos().Length()<.1)return;
+    const Vec a=ap->Pos(),d=dp->Pos();const auto e=config["entry"],door=e["door"];
+    const double front=e["bounds_xy"][2],halfWall=double(e["wall_thickness"])/2;
+    if(haveEntryPose){
+      if(!insideBuilding(previousAir)&&insideBuilding(a)){
+        if(airEntered||!throughFront(previousAir,a,true)||!inFireWindow(facadeIntersection(previousAir,a))){finish("uav_invalid_window_entry",ecm);return;}
+        airEntering=true;event("uav_window_crossed",{{"window_id",e["fire_window_id"]},{"position",{a.X(),a.Y(),a.Z()}}});
+      }
+      if(insideBuilding(previousAir)&&!insideBuilding(a)){
+        if(!airEntered||completed!=int(config["tasks"].size())||!throughFront(previousAir,a,false)||!inFireWindow(facadeIntersection(previousAir,a))){finish("uav_invalid_window_exit",ecm);return;}
+        airLeaving=true;event("uav_exit_window_crossed",{{"window_id",e["fire_window_id"]}});
+      }
+      if(!insideBuilding(previousDog)&&insideBuilding(d)){
+        double yaw=dp->Rot().Yaw();
+        double radius=std::abs(std::cos(yaw))*double(e["dog_half_length"])+std::abs(std::sin(yaw))*double(e["dog_half_width"]);
+        bool frontCross=throughFront(previousDog,d,true);auto p=frontCross?facadeIntersection(previousDog,d):d;
+        if(!airEntered||!scout||dogEntered||!frontCross||std::abs(p.X()-double(door["center_x"]))+radius>double(door["width"])/2||p.Z()<.15||p.Z()+.44>double(door["height"])){
+          finish("d1_invalid_door_entry",ecm);return;
+        }
+        dogEntering=true;event("d1_door_crossed",{{"position",{p.X(),p.Y(),p.Z()}}});
+      }
+      if(dogEntered&&insideBuilding(previousDog)&&!insideBuilding(d)){finish("d1_left_building",ecm);return;}
+    }
+    if(airEntering&&!airEntered&&a.Y()>front+halfWall+double(e["uav_margin_xy"])+.04){airEntered=true;event("uav_entered_building",{{"window_id",e["fire_window_id"]}});}
+    if(dogEntering&&!dogEntered){
+      double yaw=dp->Rot().Yaw();double radius=std::abs(std::sin(yaw))*double(e["dog_half_length"])+std::abs(std::cos(yaw))*double(e["dog_half_width"]);
+      if(d.Y()>front+halfWall+radius+.04){dogEntered=true;event("d1_entered_building");}
+    }
+    if(airLeaving&&!airExited&&a.Y()<front-halfWall-double(e["uav_margin_xy"])-.04){airExited=true;event("uav_exited_building");}
+    previousAir=a;previousDog=d;haveEntryPose=true;
+  }
   void event(const std::string &name,json extra=json::object()){
     extra["event"]=name;extra["time"]=now;if(active>=0&&!extra.contains("task"))extra["task"]=active;
     events.push_back(extra);
@@ -97,10 +151,12 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     if(finished)return;finished=true;command=Vec::Zero;
     geometry_msgs::msg::Twist msg;commands->publish(msg);
     auto p=base.WorldPose(ecm).value_or(Pose());
-    json result={{"task_completed",reason.empty()},{"strict_pass",reason.empty()&&completed==int(config["tasks"].size())},
+    bool entryPass=airEntered&&dogEntered&&airExited;
+    json result={{"task_completed",reason.empty()},{"strict_pass",reason.empty()&&completed==int(config["tasks"].size())&&entryPass},
       {"failure",reason},{"simulation_seconds",now},{"stage",stage},{"completed_count",completed},
       {"position",{p.Pos().X(),p.Pos().Y(),p.Pos().Z()}},{"yaw",p.Rot().Yaw()},
       {"task_results",tasks},{"mission_events",events},{"stages",stages},{"uav_landed",landedUav},
+      {"entry_validation",{{"passed",entryPass},{"fire_window_id",config["entry"]["fire_window_id"]},{"uav_entered",airEntered},{"d1_entered",dogEntered},{"uav_exited",airExited}}},
       {"robot_pose_overrides_after_initialization",0},{"external_lift_forces",0},
       {"controller","frozen D1 phase_joint_v12 policy; 50 Hz inference / 1000 Hz PD"},
       {"mission_controller","preset waypoints and known-map observations; no onboard image autonomy"}};
@@ -155,6 +211,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void requestAction(const std::string &kind,std_srvs::srv::Trigger::Response &res){
     if(!student||finished||studentBusy){res.message="Requires idle student mode";return;}
+    if(!dogEntered){res.message="D1 must enter through the door after the first UAV target report";return;}
     if(kind=="drop"&&delivered>=3){res.message="No parcels remaining";return;}
     int best=-1;double distance=2.;
     for(int i=0;i<int(config["tasks"].size());++i){
@@ -222,23 +279,43 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void fly(double dt,sim::EntityComponentManager &ecm){
     auto p=air.WorldPose(ecm);auto v=air.WorldLinearVelocity(ecm);auto w=air.WorldAngularVelocity(ecm);if(!p||!v||!w)return;
-    Vec goal(2.6,.85,3.45);landing=false;
+    Vec goal(2.6,.85,3.45);landing=false;double speed=.8;
     if(now<1.){auto q=config["uav_initial_pose"];goal.Set(q[0],q[1],q[2]);}
     else if(waypoint<int(config["patrol"].size())){
       auto wp=config["patrol"][waypoint],q=wp["position"];goal.Set(q[0],q[1],q[2]);
+      airPhase=wp.value("phase",std::string("indoor_search"));speed=wp.value("speed",.8);
       if((goal-p->Pos()).Length()<.07&&v->Length()<.08)hold+=dt;else hold=0;
       if(hold>=.7){
         event("uav_waypoint_reached",{{"index",waypoint}});int task=wp["task"];
-        if(task>=0){reported.at(task)=true;event("teacher_target_report",{{"task",task}});if(!scout){scout=true;event("scout_ready");}}
+        if(task>=0){if(!airEntered){finish("target_report_before_window_entry",ecm);return;}reported.at(task)=true;event("teacher_target_report",{{"task",task}});if(!scout){scout=true;event("scout_ready");}}
         ++waypoint;hold=0;
       }
     }else if(completed==int(config["tasks"].size())){
-      auto q=config["landing_point"];goal.Set(q[0],q[1],3.45);landing=xy(goal-p->Pos())<.08;if(landing)goal.Z()=0.;
-    }else if(active>=0){auto q=config["tasks"][active]["position"];goal.Set(q[0],q[1],3.45);}
+      const auto &path=config["egress"];int i=std::min(returnWaypoint,int(path.size())-1);
+      auto wp=path[i],q=wp["position"];goal.Set(q[0],q[1],q[2]);speed=wp.value("speed",.8);airPhase=wp["phase"];
+      landing=airPhase=="landing";
+      if(!landing){
+        if((goal-p->Pos()).Length()<.07&&v->Length()<.08)hold+=dt;else hold=0;
+        if(hold>=.7){event("uav_return_waypoint_reached",{{"index",i},{"phase",airPhase}});++returnWaypoint;hold=0;}
+      }
+    }else if(active>=0){airPhase="indoor_escort";auto q=config["tasks"][active]["position"];goal.Set(q[0],q[1],3.45);}
+    else{
+      // A student may still be planning after the scout finishes its patrol.
+      // Wait inside instead of falling back to the outdoor takeoff position.
+      auto q=config["patrol"].back()["position"];goal.Set(q[0],q[1],q[2]);airPhase="indoor_waiting";
+    }
     if(!landedUav){
-      auto e=goal-p->Pos();Vec desired(clip(e.X(),-.8,.8),clip(e.Y(),-.8,.8),clip(e.Z(),-.45,.45));
+      auto e=goal-p->Pos();Vec desired(clip(e.X(),-speed,speed),clip(e.Y(),-speed,speed),clip(e.Z(),-.45,.45));
       auto acc=3.5*(desired-*v);for(int i=0;i<3;i++)acc[i]=clip(acc[i],-2.,2.);
-      auto torque=.004*(Vec(-acc.Y()/9.80665,acc.X()/9.80665,0)-p->Rot().Euler())-.001*(*w);
+      // AddWorldWrench takes a world-frame torque. Euler roll/pitch errors
+      // cannot be used directly after yawing the body to face the facade.
+      constexpr double heading=M_PI/2;
+      double forward=std::cos(heading)*acc.X()+std::sin(heading)*acc.Y();
+      double left=-std::sin(heading)*acc.X()+std::cos(heading)*acc.Y();
+      ignition::math::Quaterniond desiredAttitude(-left/9.80665,forward/9.80665,heading);
+      auto error=desiredAttitude*p->Rot().Inverse();
+      auto rotationError=2.*(error.W()<0?-1.:1.)*Vec(error.X(),error.Y(),error.Z());
+      auto torque=.004*rotationError-.001*(*w);
       air.AddWorldWrench(ecm,config.value("uav_mass_kg",.085)*(acc+Vec(0,0,9.80665)),torque);
     }
     for(int i=0;i<4;i++){
@@ -252,6 +329,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     json state={{"time",now},{"stage",stage},{"phase",phase},{"view",view},{"stage_elapsed",now-start},{"active_task",active},
       {"completed_count",completed},{"delivered_count",delivered},{"hit",hit},{"dropped",dropped},{"landed",parcelLanded},{"uav_landed",landedUav},{"events",events}};
     state["mode"]=student?"student":"demo";state["targets"]=config["tasks"];state["reported"]=reported;state["task_results"]=tasks;state["action_busy"]=studentBusy;state["finished"]=finished;
+    state["entry"]=config["entry"];state["uav_entered"]=airEntered;state["d1_entered"]=dogEntered;state["uav_exited"]=airExited;state["uav_phase"]=airPhase;
     std_msgs::msg::String feedback;feedback.data=state.dump();statePub->publish(feedback);
     std::ofstream(out+"/mission_state.tmp")<<state.dump()<<'\n';std::rename((out+"/mission_state.tmp").c_str(),(out+"/mission_state.json").c_str());
     json row={{"time",now},{"stage",stage},{"completed_count",completed},{"active_task",active}};
@@ -289,6 +367,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
       }
     }
     if(!base.WorldPose(ecm)||!base.WorldLinearVelocity(ecm))return;
+    if(!finished)observeEntry(ecm);
     // VelocityCmd is persistent in Fortress. Remove it on the next physics
     // tick so gravity and contact impulses control the released body freely.
     for(auto entity:velocityCommands)ecm.RemoveComponent<sim::components::LinearVelocityCmd>(entity);
@@ -301,7 +380,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     if(initializeParcel){auto link=sim::Link(sim::Model(parcel).LinkByName(ecm,"body"));auto p=link.WorldPose(ecm);if(p&&p->Pos().Length()>.1){link.SetLinearVelocity(ecm,p->Rot().RotateVectorReverse(base.WorldLinearVelocity(ecm).value_or(Vec::Zero)));velocityCommands.push_back(link.Entity());initializeParcel=false;event("parcel_released",{{"model",parcelName}});}}
     if(!finished){
       auto p=base.WorldPose(ecm).value();if(now>1.5&&(p.Rot().RotateVector(Vec(0,0,1)).Z()<.55||p.Pos().Z()<.15)){finish("fall",ecm);}
-      fly(dt,ecm);if(now+1e-8>=next){next=now+.02;currentPosition=base.WorldPose(ecm)->Pos();executor->spin_some();if(student)studentStep(ecm);else drive(ecm);}
+      fly(dt,ecm);if(!finished&&now+1e-8>=next){next=now+.02;currentPosition=base.WorldPose(ecm)->Pos();executor->spin_some();if(student)studentStep(ecm);else drive(ecm);}
     }
     if(now+1e-8>=nextLog){nextLog=now+.02;log(ecm);}
     // Only massless inventory visuals move on the conveyor. The parcel gets
@@ -324,7 +403,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void PostUpdate(const sim::UpdateInfo &info,const sim::EntityComponentManager &ecm)override{
     if(info.paused||finished||!base.Valid(ecm))return;
-    bool touchGround=false,obstacle=false;
+    bool touchGround=false,obstacle=false,dogWall=false;
     ecm.Each<sim::components::ContactSensorData>([&](const sim::Entity &,const sim::components::ContactSensorData *data){
       for(const auto &c:data->Data().contact()){
         if(c.position_size()==0)continue;const auto &a=c.collision1(),&b=c.collision2();
@@ -337,11 +416,13 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
         }
         bool airA=contactModel(a,uav.Entity(),"uav",ecm),airB=contactModel(b,uav.Entity(),"uav",ecm);
         if(airA||airB){const auto &other=airA?b:a;if(contactModel(other,named("arena_floor",ecm),"arena_floor",ecm))touchGround=true;else if(!contactModel(other,uav.Entity(),"uav",ecm))obstacle=true;}
+        dogWall=dogWall||pair(dog.Entity(),"d1",named("building_envelope",ecm),"building_envelope");
       }return true;
     });
     if(obstacle&&now>1.){finish("uav_obstacle_contact",ecm);return;}
+    if(dogWall&&now>1.){finish("d1_building_contact",ecm);return;}
     if(landing&&touchGround&&air.WorldLinearVelocity(ecm).value_or(Vec::Zero).Length()<.1)landingHold+=std::chrono::duration<double>(info.dt).count();else landingHold=0;
-    if(!landedUav&&landingHold>.25){landedUav=true;event("uav_landed_rotors_stopped");}
+    if(!landedUav&&landingHold>.25){if(!airExited){finish("landing_before_window_exit",ecm);return;}landedUav=true;event("uav_landed_rotors_stopped");}
   }
 };
 IGNITION_ADD_PLUGIN(D1Mission,sim::System,D1Mission::ISystemConfigure,D1Mission::ISystemPreUpdate,D1Mission::ISystemPostUpdate)

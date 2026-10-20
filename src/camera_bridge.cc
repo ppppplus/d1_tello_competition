@@ -1,4 +1,4 @@
-// The four fixed RGB cameras use this small Gazebo Transport -> ROS 2 adapter.
+// RGB cameras use this small Gazebo Transport -> ROS 2 adapter.
 #include <ignition/transport/Node.hh>
 #include <ignition/msgs/image.pb.h>
 #include <rclcpp/rclcpp.hpp>
@@ -11,7 +11,7 @@ int main(int argc,char **argv){
   auto node=std::make_shared<rclcpp::Node>("competition_cameras");
   ignition::transport::Node transport;
   std::map<std::string,rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr> publishers;
-  for(std::string role:{"overview","dog","uav","fpv"}){
+  for(std::string role:{"overview","dog","uav","fpv","uav_front","entry"}){
     const std::string topic="/competition/"+role+"/image";
     auto publisher=node->create_publisher<sensor_msgs::msg::Image>(topic,rclcpp::SensorDataQoS());
     publishers[role]=publisher;

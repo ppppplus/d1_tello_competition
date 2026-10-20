@@ -12,6 +12,7 @@ import time
 import xml.etree.ElementTree as ET
 
 from ament_index_python.packages import get_package_prefix, get_package_share_directory
+from entry_scene import adapt_entry
 
 
 def boolean(value):
@@ -29,6 +30,9 @@ def main():
     parser.add_argument('--output', default='')
     parser.add_argument('--max-sim-time', type=float, default=0.)
     parser.add_argument('--exit-on-finish', type=boolean, default=False)
+    parser.add_argument('--fire-window', type=int, choices=(0, 1, 2, 3), default=0)
+    parser.add_argument('--camera-views', default='all')
+    parser.add_argument('--camera-fps', type=int, choices=range(1, 61), default=20)
     args, unknown = parser.parse_known_args()
     if unknown and unknown != ['--ros-args']:
         parser.error('unexpected arguments: ' + ' '.join(unknown))
@@ -44,7 +48,6 @@ def main():
         raise RuntimeError('Policy checksum mismatch')
     config = json.loads((share / 'config/mission.json').read_text())
     config.update(output=str(out), mode=args.mode)
-    (out / 'config.json').write_text(json.dumps(config, ensure_ascii=False, indent=2))
     text = (share / 'worlds/competition.sdf.in').read_text()
     # Resolve paths as XML text so install directories containing & also work.
     tree = ET.ElementTree(ET.fromstring(text))
@@ -52,7 +55,21 @@ def main():
         if element.text:
             element.text = element.text.replace('@SHARE@', str(share)).replace('@OUTPUT@', str(out))
     world = tree.find('world')
+    adapt_entry(world, config, json.loads((share / 'config/entry.json').read_text()), args.fire_window)
+    (out / 'config.json').write_text(json.dumps(config, ensure_ascii=False, indent=2))
     world.find('physics/real_time_factor').text = str(args.rate)
+    views = set(args.camera_views.split(','))
+    if not views <= {'all', 'overview', 'dog', 'uav', 'fpv', 'uav_front', 'entry'}:
+        parser.error('unknown camera view')
+    for parent in tree.iter():
+        for sensor in list(parent):
+            if sensor.tag != 'sensor' or sensor.get('type') != 'camera':
+                continue
+            role = sensor.findtext('topic', '').split('/')[-2]
+            if 'all' not in views and role not in views:
+                parent.remove(sensor)
+            else:
+                sensor.find('update_rate').text = str(args.camera_fps)
     if not args.cameras:
         for parent in tree.iter():
             for child in list(parent):
