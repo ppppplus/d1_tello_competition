@@ -73,8 +73,8 @@ def adapt_entry(world, config, entry, fire_window=0):
         for side, z in enumerate((low-.025, high+.025)):
             box(model, f'window_{w["id"]}_horizontal_{side}', (w['center_x'], front-.095, z), (w['width']+.1, .035, .05), color, False)
     for side, x in enumerate((door['center_x']-door['width']/2-.025, door['center_x']+door['width']/2+.025)):
-        box(model, f'door_frame_{side}', (x, front-.095, door['height']/2), (.05, .035, door['height']), '.15 .65 .3 1', False)
-    box(model, 'door_header', (door['center_x'], front-.095, door['height']+.025), (door['width']+.1, .035, .05), '.15 .65 .3 1', False)
+        box(model, f'door_frame_{side}', (x, front-.095, door['height']/2), (.05, .035, door['height']), '.98 .75 .05 1', False)
+    box(model, 'door_header', (door['center_x'], front-.095, door['height']+.025), (door['width']+.1, .035, .05), '.98 .75 .05 1', False)
     marker = element(model, 'link', name='fire_window_marker')
     marker_z = selected['center_z']+selected['height']/2+.3
     element(marker, 'pose', f'{selected["center_x"]} {front-thickness/2-.012} {marker_z} {math.pi/2} 0 0')

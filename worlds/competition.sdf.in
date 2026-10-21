@@ -354,8 +354,8 @@
             </box>
           </geometry>
           <material>
-            <ambient>.08 .55 .82 1</ambient>
-            <diffuse>.08 .55 .82 1</diffuse>
+            <ambient>.015 .015 .015 1</ambient>
+            <diffuse>.015 .015 .015 1</diffuse>
             <specular>.18 .18 .18 1</specular>
           </material>
         </visual>
@@ -370,8 +370,8 @@
             </box>
           </geometry>
           <material>
-            <ambient>.08 .55 .82 1</ambient>
-            <diffuse>.08 .55 .82 1</diffuse>
+            <ambient>.015 .015 .015 1</ambient>
+            <diffuse>.015 .015 .015 1</diffuse>
             <specular>.18 .18 .18 1</specular>
           </material>
         </visual>
@@ -386,8 +386,8 @@
             </box>
           </geometry>
           <material>
-            <ambient>.08 .55 .82 1</ambient>
-            <diffuse>.08 .55 .82 1</diffuse>
+            <ambient>.015 .015 .015 1</ambient>
+            <diffuse>.015 .015 .015 1</diffuse>
             <specular>.18 .18 .18 1</specular>
           </material>
         </visual>
@@ -402,8 +402,8 @@
             </box>
           </geometry>
           <material>
-            <ambient>.08 .55 .82 1</ambient>
-            <diffuse>.08 .55 .82 1</diffuse>
+            <ambient>.015 .015 .015 1</ambient>
+            <diffuse>.015 .015 .015 1</diffuse>
             <specular>.18 .18 .18 1</specular>
           </material>
         </visual>
@@ -2956,12 +2956,12 @@
         </visual>
       </link>
       <link name="upper_rally_pad">
-        <pose>2.7 8 0.812 0 0 -0</pose>
+        <pose>1 8 0.812 0 0 0</pose>
         <visual name="upper_rally_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.1 1.1 .02</size>
+              <size>.9 .8 .02</size>
             </box>
           </geometry>
           <material>
@@ -2971,12 +2971,12 @@
         </visual>
       </link>
     <link name="upper_uav_rally_pad">
-        <pose>1.2 8 0.812 0 0 -0</pose>
+        <pose>1 6.85 0.812 0 0 0</pose>
         <visual name="upper_uav_rally_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.1 1.1 .02</size>
+              <size>.7 .7 .02</size>
             </box>
           </geometry>
           <material>
