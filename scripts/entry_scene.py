@@ -80,7 +80,7 @@ def adapt_entry(world, config, entry, fire_window=0):
     element(marker, 'pose', f'{selected["center_x"]} {front-thickness/2-.012} {marker_z} {math.pi/2} 0 0')
     visual = element(marker, 'visual', name='red_fire_circle')
     cylinder = element(element(visual, 'geometry'), 'cylinder')
-    element(cylinder, 'radius', .15)
+    element(cylinder, 'radius', entry.get('fire_marker_radius', .15))
     element(cylinder, 'length', .012)
     material = element(visual, 'material')
     element(material, 'ambient', '1 .015 .01 1')

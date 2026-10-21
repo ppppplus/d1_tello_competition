@@ -14,7 +14,7 @@ def generate_launch_description():
         'output': ('', 'New run directory; empty creates a timestamped ~/.ros run'),
         'max_sim_time': ('0', 'Stop after this many simulated seconds; 0 disables the limit'),
         'exit_on_finish': ('false', 'Stop the simulator when result.json is written'),
-        'fire_window': ('0', 'Fire window 1/2/3; 0 uses config/entry.json'),
+        'fire_window': ('0', 'Fire window 1 through 6; 0 uses config/entry.json'),
         'camera_views': ('all', 'all or comma-separated overview,dog,uav,fpv,uav_front,entry'),
         'camera_fps': ('20', 'Native camera sample rate, 1 through 60 Hz'),
     }

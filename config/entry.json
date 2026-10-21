@@ -5,11 +5,15 @@
   "wall_height": 3.9,
   "door": {"center_x": 1.0, "width": 1.4, "height": 1.05},
   "windows": [
-    {"id": 1, "center_x": 4.0, "center_z": 1.8, "width": 1.4, "height": 1.1},
-    {"id": 2, "center_x": 7.0, "center_z": 1.8, "width": 1.4, "height": 1.1},
-    {"id": 3, "center_x": 10.0, "center_z": 1.8, "width": 1.4, "height": 1.1}
+    {"id": 1, "center_x": 4.0, "center_z": 1.3, "width": 0.6, "height": 0.6},
+    {"id": 2, "center_x": 7.0, "center_z": 1.3, "width": 0.6, "height": 0.6},
+    {"id": 3, "center_x": 10.0, "center_z": 1.3, "width": 0.6, "height": 0.6},
+    {"id": 4, "center_x": 4.0, "center_z": 2.5, "width": 0.6, "height": 0.6},
+    {"id": 5, "center_x": 7.0, "center_z": 2.5, "width": 0.6, "height": 0.6},
+    {"id": 6, "center_x": 10.0, "center_z": 2.5, "width": 0.6, "height": 0.6}
   ],
   "fire_window_id": 2,
+  "fire_marker_radius": 0.10,
   "uav_margin_xy": 0.14,
   "uav_margin_z": 0.08,
   "dog_half_length": 0.48,

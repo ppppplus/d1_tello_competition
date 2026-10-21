@@ -5,7 +5,7 @@
 机器狗完成平地行走、转向、8 级楼梯、1 次打靶、2 次投放及集合；无人机从原窗飞出并返回楼外降落。
 **无需训练、PyTorch 或 CUDA。** 源码、地图、模型与推理权重均在本包内，运行时不下载模型。
 
-![楼外入口：绿色地面门与三扇候选窗，红圆标出本轮着火窗](docs/entry_facade.png)
+![楼外入口：绿色地面门与两排六扇小窗，红圆标出本轮着火窗](docs/entry_facade.png)
 
 ## 1. 安装与编译
 
@@ -24,7 +24,7 @@ sudo apt install build-essential cmake python3-colcon-common-extensions \
 
 mkdir -p ~/d1_ws/src
 # 将收到的压缩包放入当前目录；解压后为 src/d1_tello_competition
-tar -xzf d1_tello_competition_student_20261021.tar.gz -C ~/d1_ws/src
+tar -xzf d1_tello_competition_student_20261021_v1.2.0.tar.gz -C ~/d1_ws/src
 cd ~/d1_ws
 colcon build --packages-select d1_tello_competition --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
@@ -44,7 +44,10 @@ ros2 launch d1_tello_competition competition.launch.py
 场地为 12 × 10.4 m，二层高 0.8 m，楼梯高 0.1 m、踏面 0.3 m。
 六个候选位置中固定启用 1 号红靶、4/6 号绿投放点；此版本不随机抽取目标。
 外立面位于 `Y=1.5 m`，机器狗与无人机起点均在楼外。绿色门宽 1.4 m、高 1.05 m，无门槛；
-三扇窗中心分别为 `X=4/7/10 m, Z=1.8 m`，净宽 1.4 m、净高 1.1 m。默认第二扇窗上方有红圆着火标记。
+六扇窗分为上下两排，每排三扇，中心横坐标均为 `X=4/7/10 m`。
+下排 1–3 号窗中心高 `Z=1.3 m`，上排 4–6 号窗中心高 `Z=2.5 m`，净开口均为 **0.6 × 0.6 m**。
+默认下排 2 号窗上方有红圆着火标记，可用 `fire_window:=1` 至 `fire_window:=6` 切换。
+模型尺寸保持原样：无人机含护圈碰撞外廓约 17.8 × 19.3 cm；缩窗后窗宽约为机宽的 3.1 倍。
 选择其他着火窗会同时改变红圆位置、入楼航点、出楼航点和通行判定：
 
 ```bash

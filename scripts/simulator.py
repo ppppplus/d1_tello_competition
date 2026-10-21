@@ -30,7 +30,7 @@ def main():
     parser.add_argument('--output', default='')
     parser.add_argument('--max-sim-time', type=float, default=0.)
     parser.add_argument('--exit-on-finish', type=boolean, default=False)
-    parser.add_argument('--fire-window', type=int, choices=(0, 1, 2, 3), default=0)
+    parser.add_argument('--fire-window', type=int, choices=range(7), default=0)
     parser.add_argument('--camera-views', default='all')
     parser.add_argument('--camera-fps', type=int, choices=range(1, 61), default=20)
     args, unknown = parser.parse_known_args()
