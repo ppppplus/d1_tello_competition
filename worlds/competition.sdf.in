@@ -1591,1338 +1591,6 @@
           </material>
         </visual>
       </link>
-      <link name="station_1_side-1">
-        <pose>1.85 4.3 0.325 0 0 0</pose>
-        <visual name="station_1_side-1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_1_side-1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_1_side1">
-        <pose>3.15 4.3 0.325 0 0 0</pose>
-        <visual name="station_1_side1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_1_side1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_1_back">
-        <pose>2.5 4.85 0.125 0 0 0</pose>
-        <visual name="station_1_back_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 .25</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_1_back_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 .25</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_1_pad">
-        <pose>2.5 4 0.012 0 0 0</pose>
-        <visual name="station_1_pad_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.65 0.65 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.88 .12 .12 1</ambient>
-            <diffuse>.88 .12 .12 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_1_tag_post">
-        <pose>2.85 4.7 0.46 0 0 0</pose>
-        <visual name="station_1_tag_post_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_1_tag_post_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_1_tag">
-        <pose>2.5 4.7 0.93 0 0 0</pose>
-        <visual name="station_1_tag_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.88 .12 .12 1</ambient>
-            <diffuse>.88 .12 .12 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_1_tag_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_1_digit_b">
-        <pose>2.59 4.775 0.942 0 0 0</pose>
-        <visual name="station_1_digit_b_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_1_digit_c">
-        <pose>2.59 4.625 0.942 0 0 0</pose>
-        <visual name="station_1_digit_c_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_1_pedestal">
-        <pose>2.5 4.58 0.15 0 0 0</pose>
-        <visual name="station_1_pedestal_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.54 0.24 0.3</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_1_pedestal_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.54 0.24 0.3</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_2_side-1">
-        <pose>4.05 4.3 0.325 0 0 0</pose>
-        <visual name="station_2_side-1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_2_side-1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_2_side1">
-        <pose>5.35 4.3 0.325 0 0 0</pose>
-        <visual name="station_2_side1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_2_side1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_2_back">
-        <pose>4.7 4.85 0.325 0 0 0</pose>
-        <visual name="station_2_back_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_2_back_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_2_pad">
-        <pose>4.7 4 0.012 0 0 0</pose>
-        <visual name="station_2_pad_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.65 0.65 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.40 .45 .48 1</ambient>
-            <diffuse>.40 .45 .48 1</diffuse>
-            <specular>.40 .45 .48 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_2_tag_post">
-        <pose>4.94 4.7 0.46 0 0 0</pose>
-        <visual name="station_2_tag_post_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_2_tag_post_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_2_tag">
-        <pose>4.7 4.7 0.93 0 0 0</pose>
-        <visual name="station_2_tag_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.40 .45 .48 1</ambient>
-            <diffuse>.40 .45 .48 1</diffuse>
-            <specular>.40 .45 .48 1</specular>
-          </material>
-        </visual>
-        <collision name="station_2_tag_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_2_digit_a">
-        <pose>4.7 4.85 0.942 0 0 0</pose>
-        <visual name="station_2_digit_a_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_2_digit_b">
-        <pose>4.79 4.775 0.942 0 0 0</pose>
-        <visual name="station_2_digit_b_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_2_digit_d">
-        <pose>4.7 4.55 0.942 0 0 0</pose>
-        <visual name="station_2_digit_d_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_2_digit_e">
-        <pose>4.61 4.625 0.942 0 0 0</pose>
-        <visual name="station_2_digit_e_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_2_digit_g">
-        <pose>4.7 4.7 0.942 0 0 0</pose>
-        <visual name="station_2_digit_g_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_side-1">
-        <pose>6.25 4.3 0.325 0 0 0</pose>
-        <visual name="station_3_side-1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_3_side-1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_3_side1">
-        <pose>7.55 4.3 0.325 0 0 0</pose>
-        <visual name="station_3_side1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_3_side1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_3_back">
-        <pose>6.9 4.85 0.125 0 0 0</pose>
-        <visual name="station_3_back_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 .25</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_3_back_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 .25</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_3_pad">
-        <pose>6.9 4 0.012 0 0 0</pose>
-        <visual name="station_3_pad_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.65 0.65 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.40 .45 .48 1</ambient>
-            <diffuse>.40 .45 .48 1</diffuse>
-            <specular>.40 .45 .48 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_tag_post">
-        <pose>7.25 4.7 0.46 0 0 0</pose>
-        <visual name="station_3_tag_post_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_3_tag_post_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_3_tag">
-        <pose>6.9 4.7 0.93 0 0 0</pose>
-        <visual name="station_3_tag_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.40 .45 .48 1</ambient>
-            <diffuse>.40 .45 .48 1</diffuse>
-            <specular>.40 .45 .48 1</specular>
-          </material>
-        </visual>
-        <collision name="station_3_tag_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_3_digit_a">
-        <pose>6.9 4.85 0.942 0 0 0</pose>
-        <visual name="station_3_digit_a_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_digit_b">
-        <pose>6.99 4.775 0.942 0 0 0</pose>
-        <visual name="station_3_digit_b_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_digit_c">
-        <pose>6.99 4.625 0.942 0 0 0</pose>
-        <visual name="station_3_digit_c_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_digit_d">
-        <pose>6.9 4.55 0.942 0 0 0</pose>
-        <visual name="station_3_digit_d_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_digit_g">
-        <pose>6.9 4.7 0.942 0 0 0</pose>
-        <visual name="station_3_digit_g_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_3_pedestal">
-        <pose>6.9 4.58 0.15 0 0 0</pose>
-        <visual name="station_3_pedestal_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.54 0.24 0.3</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_3_pedestal_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.54 0.24 0.3</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_4_side-1">
-        <pose>1.85 6.5 1.125 0 0 0</pose>
-        <visual name="station_4_side-1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_4_side-1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_4_side1">
-        <pose>3.15 6.5 1.125 0 0 0</pose>
-        <visual name="station_4_side1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_4_side1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_4_back">
-        <pose>2.5 5.95 1.125 0 0 0</pose>
-        <visual name="station_4_back_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_4_back_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_4_pad">
-        <pose>2.5 6.8 0.812 0 0 0</pose>
-        <visual name="station_4_pad_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.65 0.65 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.06 .65 .34 1</ambient>
-            <diffuse>.06 .65 .34 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_4_tag_post">
-        <pose>2.74 6.1 1.26 0 0 0</pose>
-        <visual name="station_4_tag_post_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_4_tag_post_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_4_tag">
-        <pose>2.5 6.1 1.73 0 0 0</pose>
-        <visual name="station_4_tag_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.06 .65 .34 1</ambient>
-            <diffuse>.06 .65 .34 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_4_tag_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_4_digit_b">
-        <pose>2.59 6.175 1.742 0 0 0</pose>
-        <visual name="station_4_digit_b_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_4_digit_c">
-        <pose>2.59 6.025 1.742 0 0 0</pose>
-        <visual name="station_4_digit_c_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_4_digit_f">
-        <pose>2.41 6.175 1.742 0 0 0</pose>
-        <visual name="station_4_digit_f_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_4_digit_g">
-        <pose>2.5 6.1 1.742 0 0 0</pose>
-        <visual name="station_4_digit_g_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_side-1">
-        <pose>4.05 6.5 1.125 0 0 0</pose>
-        <visual name="station_5_side-1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_5_side-1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_5_side1">
-        <pose>5.35 6.5 1.125 0 0 0</pose>
-        <visual name="station_5_side1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_5_side1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_5_back">
-        <pose>4.7 5.95 0.925 0 0 0</pose>
-        <visual name="station_5_back_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 .25</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_5_back_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 .25</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_5_pad">
-        <pose>4.7 6.8 0.812 0 0 0</pose>
-        <visual name="station_5_pad_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.65 0.65 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.40 .45 .48 1</ambient>
-            <diffuse>.40 .45 .48 1</diffuse>
-            <specular>.40 .45 .48 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_tag_post">
-        <pose>5.05 6.1 1.26 0 0 0</pose>
-        <visual name="station_5_tag_post_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_5_tag_post_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_5_tag">
-        <pose>4.7 6.1 1.73 0 0 0</pose>
-        <visual name="station_5_tag_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.40 .45 .48 1</ambient>
-            <diffuse>.40 .45 .48 1</diffuse>
-            <specular>.40 .45 .48 1</specular>
-          </material>
-        </visual>
-        <collision name="station_5_tag_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_5_digit_a">
-        <pose>4.7 6.25 1.742 0 0 0</pose>
-        <visual name="station_5_digit_a_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_digit_c">
-        <pose>4.79 6.025 1.742 0 0 0</pose>
-        <visual name="station_5_digit_c_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_digit_d">
-        <pose>4.7 5.95 1.742 0 0 0</pose>
-        <visual name="station_5_digit_d_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_digit_f">
-        <pose>4.61 6.175 1.742 0 0 0</pose>
-        <visual name="station_5_digit_f_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_digit_g">
-        <pose>4.7 6.1 1.742 0 0 0</pose>
-        <visual name="station_5_digit_g_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_5_pedestal">
-        <pose>4.7 6.22 0.95 0 0 0</pose>
-        <visual name="station_5_pedestal_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.54 0.24 0.3</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_5_pedestal_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.54 0.24 0.3</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_6_side-1">
-        <pose>6.25 6.5 1.125 0 0 0</pose>
-        <visual name="station_6_side-1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_6_side-1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_6_side1">
-        <pose>7.55 6.5 1.125 0 0 0</pose>
-        <visual name="station_6_side1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.79 .83 .84 1</ambient>
-            <diffuse>.79 .83 .84 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-          <visibility_flags>16777216</visibility_flags>
-        </visual>
-        <collision name="station_6_side1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.055 1.15 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_6_back">
-        <pose>6.9 5.95 1.125 0 0 0</pose>
-        <visual name="station_6_back_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 0.65</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_6_back_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>1.35 0.055 0.65</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_6_pad">
-        <pose>6.9 6.8 0.812 0 0 0</pose>
-        <visual name="station_6_pad_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.65 0.65 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.06 .65 .34 1</ambient>
-            <diffuse>.06 .65 .34 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_6_tag_post">
-        <pose>7.14 6.1 1.26 0 0 0</pose>
-        <visual name="station_6_tag_post_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_6_tag_post_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.92</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_6_tag">
-        <pose>6.9 6.1 1.73 0 0 0</pose>
-        <visual name="station_6_tag_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.06 .65 .34 1</ambient>
-            <diffuse>.06 .65 .34 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="station_6_tag_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.5 0.5 0.02</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="station_6_digit_a">
-        <pose>6.9 6.25 1.742 0 0 0</pose>
-        <visual name="station_6_digit_a_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_6_digit_c">
-        <pose>6.99 6.025 1.742 0 0 0</pose>
-        <visual name="station_6_digit_c_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_6_digit_d">
-        <pose>6.9 5.95 1.742 0 0 0</pose>
-        <visual name="station_6_digit_d_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_6_digit_e">
-        <pose>6.81 6.025 1.742 0 0 0</pose>
-        <visual name="station_6_digit_e_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_6_digit_f">
-        <pose>6.81 6.175 1.742 0 0 0</pose>
-        <visual name="station_6_digit_f_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.03 0.13 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="station_6_digit_g">
-        <pose>6.9 6.1 1.742 0 0 0</pose>
-        <visual name="station_6_digit_g_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.17 0.03 0.003</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 1 1 1</ambient>
-            <diffuse>1 1 1 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
       <link name="d1_start">
         <pose>1 0.85 0.012 0 0 0</pose>
         <visual name="d1_start_visual">
@@ -2985,298 +1653,979 @@
           </material>
         </visual>
       </link>
-    </model>
-    <model name="demo_target_0">
-      <static>false</static>
-      <pose>2.5 4.3 0.3 0 0 1.570796327</pose>
-      <link name="plate">
-        <pose>.28 0 .28 0 0 0</pose>
-        <inertial>
-          <mass>.04</mass>
-          <inertia>
-            <ixx>0.0015386666666666667</ixx>
-            <iyy>0.0008374166666666665</iyy>
-            <izz>0.0007094166666666668</izz>
-          </inertia>
-        </inertial>
-        <collision name="plate_collision">
+    <link name="station_1_side-1">
+        <pose>1.85 4.3 0.325 0.0 0.0 0</pose>
+        <visual name="station_1_side-1_visual">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>.035 .46 .50</size>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_1_side-1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
             </box>
           </geometry>
         </collision>
-        <visual name="board">
+      </link>
+      <link name="station_1_side1">
+        <pose>3.15 4.3 0.325 0.0 0.0 0</pose>
+        <visual name="station_1_side1_visual">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>.035 .46 .50</size>
+              <size>0.055 1.15 0.65</size>
             </box>
           </geometry>
           <material>
-            <ambient>.25 .27 .29 1</ambient>
-            <diffuse>.25 .27 .29 1</diffuse>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
           </material>
+          <visibility_flags>16777216</visibility_flags>
         </visual>
-        <visual name="bullseye_0">
-          <pose>-0.021 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.95 .95 .95 1</ambient>
-            <diffuse>.95 .95 .95 1</diffuse>
-          </material>
-        </visual>
-        <visual name="bullseye_1">
-          <pose>-0.024 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.13</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.25 .27 .29 1</ambient>
-            <diffuse>.25 .27 .29 1</diffuse>
-          </material>
-        </visual>
-        <visual name="bullseye_2">
-          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.055</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.95 .95 .95 1</ambient>
-            <diffuse>.95 .95 .95 1</diffuse>
-          </material>
-        </visual>
-        <sensor name="plate_collision_competition_contact" type="contact">
-          <always_on>true</always_on>
-          <update_rate>1000</update_rate>
-          <contact>
-            <collision>plate_collision</collision>
-          </contact>
-        </sensor>
-      </link>
-      <joint name="knockdown_hinge" type="revolute">
-        <parent>world</parent>
-        <child>plate</child>
-        <pose>0 0 -.25 0 0 0</pose>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>1.55</upper>
-            <effort>1</effort>
-            <velocity>8</velocity>
-          </limit>
-          <dynamics>
-            <damping>.001</damping>
-            <friction>.0005</friction>
-          </dynamics>
-        </axis>
-      </joint>
-    </model>
-    <model name="demo_target_2">
-      <static>false</static>
-      <pose>6.9 4.3 0.3 0 0 1.570796327</pose>
-      <link name="plate">
-        <pose>.28 0 .28 0 0 0</pose>
-        <inertial>
-          <mass>.04</mass>
-          <inertia>
-            <ixx>0.0015386666666666667</ixx>
-            <iyy>0.0008374166666666665</iyy>
-            <izz>0.0007094166666666668</izz>
-          </inertia>
-        </inertial>
-        <collision name="plate_collision">
+        <collision name="station_1_side1_collision">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>.035 .46 .50</size>
+              <size>0.055 1.15 0.65</size>
             </box>
           </geometry>
         </collision>
-        <visual name="board">
+      </link>
+      <link name="station_1_back">
+        <pose>2.5 4.85 0.125 0.0 0.0 0</pose>
+        <visual name="station_1_back_visual">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>.035 .46 .50</size>
+              <size>1.35 0.055 .25</size>
             </box>
           </geometry>
           <material>
-            <ambient>.25 .27 .29 1</ambient>
-            <diffuse>.25 .27 .29 1</diffuse>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
           </material>
         </visual>
-        <visual name="bullseye_0">
-          <pose>-0.021 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.95 .95 .95 1</ambient>
-            <diffuse>.95 .95 .95 1</diffuse>
-          </material>
-        </visual>
-        <visual name="bullseye_1">
-          <pose>-0.024 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.13</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.25 .27 .29 1</ambient>
-            <diffuse>.25 .27 .29 1</diffuse>
-          </material>
-        </visual>
-        <visual name="bullseye_2">
-          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.055</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.95 .95 .95 1</ambient>
-            <diffuse>.95 .95 .95 1</diffuse>
-          </material>
-        </visual>
-        <sensor name="plate_collision_competition_contact" type="contact">
-          <always_on>true</always_on>
-          <update_rate>1000</update_rate>
-          <contact>
-            <collision>plate_collision</collision>
-          </contact>
-        </sensor>
-      </link>
-      <joint name="knockdown_hinge" type="revolute">
-        <parent>world</parent>
-        <child>plate</child>
-        <pose>0 0 -.25 0 0 0</pose>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>1.55</upper>
-            <effort>1</effort>
-            <velocity>8</velocity>
-          </limit>
-          <dynamics>
-            <damping>.001</damping>
-            <friction>.0005</friction>
-          </dynamics>
-        </axis>
-      </joint>
-    </model>
-    <model name="demo_target_4">
-      <static>false</static>
-      <pose>4.7 6.5 1.1 0 0 -1.570796327</pose>
-      <link name="plate">
-        <pose>.28 0 .28 0 0 0</pose>
-        <inertial>
-          <mass>.04</mass>
-          <inertia>
-            <ixx>0.0015386666666666667</ixx>
-            <iyy>0.0008374166666666665</iyy>
-            <izz>0.0007094166666666668</izz>
-          </inertia>
-        </inertial>
-        <collision name="plate_collision">
+        <collision name="station_1_back_collision">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>.035 .46 .50</size>
+              <size>1.35 0.055 .25</size>
             </box>
           </geometry>
         </collision>
-        <visual name="board">
+      </link>
+      <link name="station_1_pad">
+        <pose>2.5 4.0 0.012 0.0 0.0 0</pose>
+        <visual name="station_1_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>.035 .46 .50</size>
+              <size>0.65 0.65 0.02</size>
             </box>
           </geometry>
           <material>
-            <ambient>.25 .27 .29 1</ambient>
-            <diffuse>.25 .27 .29 1</diffuse>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
           </material>
         </visual>
-        <visual name="bullseye_0">
-          <pose>-0.021 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.95 .95 .95 1</ambient>
-            <diffuse>.95 .95 .95 1</diffuse>
-          </material>
-        </visual>
-        <visual name="bullseye_1">
-          <pose>-0.024 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.13</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.25 .27 .29 1</ambient>
-            <diffuse>.25 .27 .29 1</diffuse>
-          </material>
-        </visual>
-        <visual name="bullseye_2">
-          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.055</radius>
-              <length>.003</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>.95 .95 .95 1</ambient>
-            <diffuse>.95 .95 .95 1</diffuse>
-          </material>
-        </visual>
-        <sensor name="plate_collision_competition_contact" type="contact">
-          <always_on>true</always_on>
-          <update_rate>1000</update_rate>
-          <contact>
-            <collision>plate_collision</collision>
-          </contact>
-        </sensor>
       </link>
-      <joint name="knockdown_hinge" type="revolute">
-        <parent>world</parent>
-        <child>plate</child>
-        <pose>0 0 -.25 0 0 0</pose>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>1.55</upper>
-            <effort>1</effort>
-            <velocity>8</velocity>
-          </limit>
-          <dynamics>
-            <damping>.001</damping>
-            <friction>.0005</friction>
-          </dynamics>
-        </axis>
-      </joint>
-    </model>
+      <link name="station_1_tag_post">
+        <pose>2.85 4.7 0.46 0.0 0.0 0</pose>
+        <visual name="station_1_tag_post_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_1_tag_post_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_1_tag">
+        <pose>2.5 4.7 0.93 0.0 0.0 0</pose>
+        <visual name="station_1_tag_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_1_tag_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+      <visual name="task_top"><pose>0 0 .0105 0 0 0</pose><geometry><plane><normal>0 0 1</normal><size>.48 .48</size></plane></geometry><material><ambient>.48 .48 .48 1</ambient><diffuse>.48 .48 .48 1</diffuse></material><visibility_flags>1073741824</visibility_flags></visual></link>
+      <link name="station_1_pedestal">
+        <pose>2.5 4.58 0.15 0.0 0.0 0</pose>
+        <visual name="station_1_pedestal_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_1_pedestal_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_2_side-1">
+        <pose>4.050000000000001 4.3 0.325 0.0 0.0 0</pose>
+        <visual name="station_2_side-1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_2_side-1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_2_side1">
+        <pose>5.35 4.3 0.325 0.0 0.0 0</pose>
+        <visual name="station_2_side1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_2_side1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_2_back">
+        <pose>4.7 4.85 0.125 0.0 0.0 0</pose>
+        <visual name="station_2_back_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_2_back_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_2_pad">
+        <pose>4.7 4.0 0.012 0.0 0.0 0</pose>
+        <visual name="station_2_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.65 0.65 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+      </link>
+      <link name="station_2_tag_post">
+        <pose>5.050000000000001 4.7 0.46 0.0 0.0 0</pose>
+        <visual name="station_2_tag_post_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_2_tag_post_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_2_tag">
+        <pose>4.7 4.7 0.93 0.0 0.0 0</pose>
+        <visual name="station_2_tag_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_2_tag_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+      <visual name="task_top"><pose>0 0 .0105 0 0 0</pose><geometry><plane><normal>0 0 1</normal><size>.48 .48</size></plane></geometry><material><ambient>.48 .48 .48 1</ambient><diffuse>.48 .48 .48 1</diffuse></material><visibility_flags>1073741824</visibility_flags></visual></link>
+      <link name="station_2_pedestal">
+        <pose>4.7 4.58 0.15 0.0 0.0 0</pose>
+        <visual name="station_2_pedestal_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_2_pedestal_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_3_side-1">
+        <pose>6.25 4.3 0.325 0.0 0.0 0</pose>
+        <visual name="station_3_side-1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_3_side-1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_3_side1">
+        <pose>7.550000000000001 4.3 0.325 0.0 0.0 0</pose>
+        <visual name="station_3_side1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_3_side1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_3_back">
+        <pose>6.9 4.85 0.125 0.0 0.0 0</pose>
+        <visual name="station_3_back_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_3_back_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_3_pad">
+        <pose>6.9 4.0 0.012 0.0 0.0 0</pose>
+        <visual name="station_3_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.65 0.65 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+      </link>
+      <link name="station_3_tag_post">
+        <pose>7.25 4.7 0.46 0.0 0.0 0</pose>
+        <visual name="station_3_tag_post_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_3_tag_post_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_3_tag">
+        <pose>6.9 4.7 0.93 0.0 0.0 0</pose>
+        <visual name="station_3_tag_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_3_tag_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+      <visual name="task_top"><pose>0 0 .0105 0 0 0</pose><geometry><plane><normal>0 0 1</normal><size>.48 .48</size></plane></geometry><material><ambient>.48 .48 .48 1</ambient><diffuse>.48 .48 .48 1</diffuse></material><visibility_flags>1073741824</visibility_flags></visual></link>
+      <link name="station_3_pedestal">
+        <pose>6.9 4.58 0.15 0.0 0.0 0</pose>
+        <visual name="station_3_pedestal_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_3_pedestal_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_4_side-1">
+        <pose>3.15 6.5 1.125 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_side-1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_4_side-1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_4_side1">
+        <pose>1.85 6.5 1.125 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_side1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_4_side1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_4_back">
+        <pose>2.5 5.95 0.925 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_back_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_4_back_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_4_pad">
+        <pose>2.5 6.8 0.812 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.65 0.65 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+      </link>
+      <link name="station_4_tag_post">
+        <pose>2.15 6.1 1.26 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_tag_post_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_4_tag_post_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_4_tag">
+        <pose>2.5 6.1 1.73 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_tag_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_4_tag_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+      <visual name="task_top"><pose>0 0 .0105 0 0 0</pose><geometry><plane><normal>0 0 1</normal><size>.48 .48</size></plane></geometry><material><ambient>.48 .48 .48 1</ambient><diffuse>.48 .48 .48 1</diffuse></material><visibility_flags>1073741824</visibility_flags></visual></link>
+      <link name="station_4_pedestal">
+        <pose>2.5 6.22 0.9500000000000001 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_4_pedestal_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_4_pedestal_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_5_side-1">
+        <pose>5.35 6.5 1.125 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_side-1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_5_side-1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_5_side1">
+        <pose>4.050000000000001 6.5 1.125 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_side1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_5_side1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_5_back">
+        <pose>4.7 5.95 0.925 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_back_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_5_back_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_5_pad">
+        <pose>4.7 6.8 0.812 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.65 0.65 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+      </link>
+      <link name="station_5_tag_post">
+        <pose>4.35 6.1 1.26 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_tag_post_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_5_tag_post_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_5_tag">
+        <pose>4.7 6.1 1.73 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_tag_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_5_tag_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+      <visual name="task_top"><pose>0 0 .0105 0 0 0</pose><geometry><plane><normal>0 0 1</normal><size>.48 .48</size></plane></geometry><material><ambient>.48 .48 .48 1</ambient><diffuse>.48 .48 .48 1</diffuse></material><visibility_flags>1073741824</visibility_flags></visual></link>
+      <link name="station_5_pedestal">
+        <pose>4.7 6.22 0.9500000000000001 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_5_pedestal_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_5_pedestal_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_6_side-1">
+        <pose>7.550000000000001 6.5 1.125 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_side-1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_6_side-1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_6_side1">
+        <pose>6.25 6.5 1.125 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_side1_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.79 .83 .84 1</ambient>
+            <diffuse>.79 .83 .84 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+          <visibility_flags>16777216</visibility_flags>
+        </visual>
+        <collision name="station_6_side1_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.055 1.15 0.65</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_6_back">
+        <pose>6.9 5.95 0.925 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_back_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_6_back_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.35 0.055 .25</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_6_pad">
+        <pose>6.9 6.8 0.812 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.65 0.65 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+      </link>
+      <link name="station_6_tag_post">
+        <pose>6.550000000000001 6.1 1.26 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_tag_post_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_6_tag_post_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.035 0.035 0.92</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <link name="station_6_tag">
+        <pose>6.9 6.1 1.73 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_tag_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.48 .48 .48 1</ambient>
+            <diffuse>.48 .48 .48 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_6_tag_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+      <visual name="task_top"><pose>0 0 .0105 0 0 0</pose><geometry><plane><normal>0 0 1</normal><size>.48 .48</size></plane></geometry><material><ambient>.48 .48 .48 1</ambient><diffuse>.48 .48 .48 1</diffuse></material><visibility_flags>1073741824</visibility_flags></visual></link>
+      <link name="station_6_pedestal">
+        <pose>6.9 6.22 0.9500000000000001 0.0 0.0 3.141592653589793</pose>
+        <visual name="station_6_pedestal_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.12 .21 .28 1</ambient>
+            <diffuse>.12 .21 .28 1</diffuse>
+            <specular>.18 .18 .18 1</specular>
+          </material>
+        </visual>
+        <collision name="station_6_pedestal_collision">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.54 0.24 0.3</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      </model>
     <model name="arena_floor">
       <static>true</static>
       <link name="floor">
@@ -6357,7 +5706,7 @@
           <topic>/competition/uav/image</topic>
           <camera>
             <horizontal_fov>1.2</horizontal_fov>
-            <visibility_mask>1073741823</visibility_mask>
+            <visibility_mask>2147483647</visibility_mask>
             <image>
               <width>618</width>
               <height>264</height>
@@ -6640,7 +5989,7 @@
           <topic>/competition/overview/image</topic>
           <camera>
             <horizontal_fov>0.5</horizontal_fov>
-            <visibility_mask>1073741823</visibility_mask>
+            <visibility_mask>2147483647</visibility_mask>
             <image>
               <width>620</width>
               <height>856</height>
@@ -6678,5 +6027,587 @@
         </sensor>
       </link>
     </model>
-  </world>
+  <model name="demo_target_0">
+      <static>false</static>
+      <pose>2.5 4.3 0.3 0 0 1.5707963267948966</pose>
+      <link name="plate">
+        <pose>.28 0 .28 0 0 0</pose>
+        <inertial>
+          <mass>.04</mass>
+          <inertia>
+            <ixx>0.0015386666666666667</ixx>
+            <iyy>0.0008374166666666665</iyy>
+            <izz>0.0007094166666666668</izz>
+          </inertia>
+        </inertial>
+        <collision name="plate_collision">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="board">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_0">
+          <pose>-0.021 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_1">
+          <pose>-0.024 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_2">
+          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="plate_collision_competition_contact" type="contact">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <contact>
+            <collision>plate_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+      <joint name="knockdown_hinge" type="revolute">
+        <parent>world</parent>
+        <child>plate</child>
+        <pose>0 0 -.25 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.55</upper>
+            <effort>1</effort>
+            <velocity>8</velocity>
+          </limit>
+          <dynamics>
+            <damping>.001</damping>
+            <friction>.0005</friction>
+          </dynamics>
+        </axis>
+      </joint>
+    </model>
+    <model name="demo_target_1">
+      <static>false</static>
+      <pose>4.7 4.3 0.3 0 0 1.5707963267948966</pose>
+      <link name="plate">
+        <pose>.28 0 .28 0 0 0</pose>
+        <inertial>
+          <mass>.04</mass>
+          <inertia>
+            <ixx>0.0015386666666666667</ixx>
+            <iyy>0.0008374166666666665</iyy>
+            <izz>0.0007094166666666668</izz>
+          </inertia>
+        </inertial>
+        <collision name="plate_collision">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="board">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_0">
+          <pose>-0.021 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_1">
+          <pose>-0.024 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_2">
+          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="plate_collision_competition_contact" type="contact">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <contact>
+            <collision>plate_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+      <joint name="knockdown_hinge" type="revolute">
+        <parent>world</parent>
+        <child>plate</child>
+        <pose>0 0 -.25 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.55</upper>
+            <effort>1</effort>
+            <velocity>8</velocity>
+          </limit>
+          <dynamics>
+            <damping>.001</damping>
+            <friction>.0005</friction>
+          </dynamics>
+        </axis>
+      </joint>
+    </model>
+    <model name="demo_target_2">
+      <static>false</static>
+      <pose>6.9 4.3 0.3 0 0 1.5707963267948966</pose>
+      <link name="plate">
+        <pose>.28 0 .28 0 0 0</pose>
+        <inertial>
+          <mass>.04</mass>
+          <inertia>
+            <ixx>0.0015386666666666667</ixx>
+            <iyy>0.0008374166666666665</iyy>
+            <izz>0.0007094166666666668</izz>
+          </inertia>
+        </inertial>
+        <collision name="plate_collision">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="board">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_0">
+          <pose>-0.021 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_1">
+          <pose>-0.024 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_2">
+          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="plate_collision_competition_contact" type="contact">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <contact>
+            <collision>plate_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+      <joint name="knockdown_hinge" type="revolute">
+        <parent>world</parent>
+        <child>plate</child>
+        <pose>0 0 -.25 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.55</upper>
+            <effort>1</effort>
+            <velocity>8</velocity>
+          </limit>
+          <dynamics>
+            <damping>.001</damping>
+            <friction>.0005</friction>
+          </dynamics>
+        </axis>
+      </joint>
+    </model>
+    <model name="demo_target_3">
+      <static>false</static>
+      <pose>2.5 6.5 1.1 0 0 -1.5707963267948966</pose>
+      <link name="plate">
+        <pose>.28 0 .28 0 0 0</pose>
+        <inertial>
+          <mass>.04</mass>
+          <inertia>
+            <ixx>0.0015386666666666667</ixx>
+            <iyy>0.0008374166666666665</iyy>
+            <izz>0.0007094166666666668</izz>
+          </inertia>
+        </inertial>
+        <collision name="plate_collision">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="board">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_0">
+          <pose>-0.021 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_1">
+          <pose>-0.024 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_2">
+          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="plate_collision_competition_contact" type="contact">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <contact>
+            <collision>plate_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+      <joint name="knockdown_hinge" type="revolute">
+        <parent>world</parent>
+        <child>plate</child>
+        <pose>0 0 -.25 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.55</upper>
+            <effort>1</effort>
+            <velocity>8</velocity>
+          </limit>
+          <dynamics>
+            <damping>.001</damping>
+            <friction>.0005</friction>
+          </dynamics>
+        </axis>
+      </joint>
+    </model>
+    <model name="demo_target_4">
+      <static>false</static>
+      <pose>4.7 6.5 1.1 0 0 -1.5707963267948966</pose>
+      <link name="plate">
+        <pose>.28 0 .28 0 0 0</pose>
+        <inertial>
+          <mass>.04</mass>
+          <inertia>
+            <ixx>0.0015386666666666667</ixx>
+            <iyy>0.0008374166666666665</iyy>
+            <izz>0.0007094166666666668</izz>
+          </inertia>
+        </inertial>
+        <collision name="plate_collision">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="board">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_0">
+          <pose>-0.021 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_1">
+          <pose>-0.024 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_2">
+          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="plate_collision_competition_contact" type="contact">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <contact>
+            <collision>plate_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+      <joint name="knockdown_hinge" type="revolute">
+        <parent>world</parent>
+        <child>plate</child>
+        <pose>0 0 -.25 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.55</upper>
+            <effort>1</effort>
+            <velocity>8</velocity>
+          </limit>
+          <dynamics>
+            <damping>.001</damping>
+            <friction>.0005</friction>
+          </dynamics>
+        </axis>
+      </joint>
+    </model>
+    <model name="demo_target_5">
+      <static>false</static>
+      <pose>6.9 6.5 1.1 0 0 -1.5707963267948966</pose>
+      <link name="plate">
+        <pose>.28 0 .28 0 0 0</pose>
+        <inertial>
+          <mass>.04</mass>
+          <inertia>
+            <ixx>0.0015386666666666667</ixx>
+            <iyy>0.0008374166666666665</iyy>
+            <izz>0.0007094166666666668</izz>
+          </inertia>
+        </inertial>
+        <collision name="plate_collision">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="board">
+          <geometry>
+            <box>
+              <size>.035 .46 .50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_0">
+          <pose>-0.021 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_1">
+          <pose>-0.024 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.13</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.25 .27 .29 1</ambient>
+            <diffuse>.25 .27 .29 1</diffuse>
+          </material>
+        </visual>
+        <visual name="bullseye_2">
+          <pose>-0.027000000000000003 0 0 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.055</radius>
+              <length>.003</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.95 .95 .95 1</ambient>
+            <diffuse>.95 .95 .95 1</diffuse>
+          </material>
+        </visual>
+        <sensor name="plate_collision_competition_contact" type="contact">
+          <always_on>true</always_on>
+          <update_rate>1000</update_rate>
+          <contact>
+            <collision>plate_collision</collision>
+          </contact>
+        </sensor>
+      </link>
+      <joint name="knockdown_hinge" type="revolute">
+        <parent>world</parent>
+        <child>plate</child>
+        <pose>0 0 -.25 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.55</upper>
+            <effort>1</effort>
+            <velocity>8</velocity>
+          </limit>
+          <dynamics>
+            <damping>.001</damping>
+            <friction>.0005</friction>
+          </dynamics>
+        </axis>
+      </joint>
+    </model>
+    </world>
 </sdf>

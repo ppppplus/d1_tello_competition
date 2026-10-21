@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>d1_tello_competition</name>
-  <version>1.7.0</version>
+  <version>2.0.0</version>
   <description>D1 EDU and Tello teaching simulation: walking, turning, stairs, shooting and delivery.</description>
   <maintainer email="tianbot@users.noreply.github.com">Course maintainers</maintainer>
   <license>Apache-2.0</license>
@@ -24,5 +24,6 @@
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>rclpy</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
   <export><build_type>ament_cmake</build_type></export>
 </package>
