@@ -67,7 +67,7 @@ def adapt_entry(world, config, entry, fire_window=0):
     for w in entry['windows']:
         a, b = w['center_x']-w['width']/2, w['center_x']+w['width']/2
         low, high = w['center_z']-w['height']/2, w['center_z']+w['height']/2
-        color = '.95 .56 .05 1' if w['id'] == entry['fire_window_id'] else '.15 .48 .74 1'
+        color = '.15 .48 .74 1'  # All windows match; only the red circle identifies the entry.
         for side, x in enumerate((a-.025, b+.025)):
             box(model, f'window_{w["id"]}_side_{side}', (x, front-.095, w['center_z']), (.05, .035, w['height']+.1), color, False)
         for side, z in enumerate((low-.025, high+.025)):
