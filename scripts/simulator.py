@@ -121,7 +121,7 @@ def main():
                     time.sleep(.1)
                     continue
                 result_code = 0 if result['strict_pass'] else 1
-                print(f'Mission: {result["completed_count"]}/3, pass={result["strict_pass"]}, failure={result["failure"]}', flush=True)
+                print(f'Mission: {result["completed_count"]}/{len(config["tasks"])}, pass={result["strict_pass"]}, failure={result["failure"]}', flush=True)
                 break
             if args.max_sim_time and (out / 'mission_state.json').exists():
                 state = json.loads((out / 'mission_state.json').read_text())

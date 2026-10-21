@@ -13,14 +13,14 @@ def randomize(world, config, entry, seed=-1, fire_window=0):
     rng = random.Random(seed)
     # Both floors participate without requiring a descent or a harder gait.
     while True:
-        slots = sorted(rng.sample(range(6), 3))
+        slots = sorted(rng.sample(range(6), 4))
         if slots[0] < 3 <= slots[-1]:
             break
-    roles = ['red', 'green', 'green']
+    roles = ['red', 'red', 'green', 'green']
     rng.shuffle(roles)
     assignment = dict(zip(slots, roles))
     config['seed'] = seed
-    config['task_mode'] = 'random_three_of_six'
+    config['task_mode'] = 'random_four_of_six'
     config['tasks'] = []
     config['stations'] = []
     for slot in range(6):

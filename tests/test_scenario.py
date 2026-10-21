@@ -16,12 +16,12 @@ class Scenarios(unittest.TestCase):
         for seed in range(200):
             w,c,e=self.run_seed(seed)
             self.assertEqual(c,self.run_seed(seed)[1]);self.assertEqual(e,self.run_seed(seed)[2])
-            slots=[t['slot'] for t in c['tasks']];self.assertEqual(len(set(slots)),3)
+            slots=[t['slot'] for t in c['tasks']];self.assertEqual(len(set(slots)),4)
             self.assertLess(min(slots),3);self.assertGreaterEqual(max(slots),3)
-            self.assertEqual(sorted(t['marker_color'] for t in c['tasks']),['green','green','red'])
+            self.assertEqual(sorted(t['marker_color'] for t in c['tasks']),['green','green','red','red'])
             self.assertEqual(sum(t['required_deliveries'] for t in c['tasks']),2)
             self.assertEqual(sum(r[0]=='drop' for r in c['route']),2)
-            self.assertEqual(sum(r[0]=='fire' for r in c['route']),1)
+            self.assertEqual(sum(r[0]=='fire' for r in c['route']),2)
             self.assertEqual(len(c['route']),len(c['stage_meta']))
             for r in c['route']:
                 if r[0]=='walk':self.assertGreaterEqual(r[1],1.);self.assertLessEqual(r[1],9.5)
