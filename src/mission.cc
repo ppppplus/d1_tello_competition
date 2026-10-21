@@ -64,6 +64,14 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   Vec previousAir,previousDog;
   int returnWaypoint=0;
   std::string airPhase="takeoff";
+  bool requiresWindowExit()const{
+    return config.value("landing_mode",std::string("outside"))!="upper_rally";
+  }
+  bool dogAtRally(const sim::EntityComponentManager &ecm)const{
+    auto p=base.WorldPose(ecm);auto v=base.WorldLinearVelocity(ecm);auto q=config["rally_point"];
+    return p&&v&&std::hypot(p->Pos().X()-double(q[0]),p->Pos().Y()-double(q[1]))<.15
+      &&std::abs(p->Pos().Z()-(config.value("rally_surface_z",.8)+.32))<.15&&xy(*v)<.05;
+  }
   bool insideBuilding(const Vec &p)const{
     const auto b=config["entry"]["bounds_xy"];
     return p.X()>double(b[0])&&p.X()<double(b[1])&&p.Y()>double(b[2])&&p.Y()<double(b[3]);
@@ -91,7 +99,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
         airEntering=true;event("uav_window_crossed",{{"window_id",e["fire_window_id"]},{"position",{a.X(),a.Y(),a.Z()}}});
       }
       if(insideBuilding(previousAir)&&!insideBuilding(a)){
-        if(!airEntered||completed!=int(config["tasks"].size())||!throughFront(previousAir,a,false)||!inFireWindow(facadeIntersection(previousAir,a))){finish("uav_invalid_window_exit",ecm);return;}
+        if(!requiresWindowExit()||!airEntered||completed!=int(config["tasks"].size())||!throughFront(previousAir,a,false)||!inFireWindow(facadeIntersection(previousAir,a))){finish("uav_invalid_window_exit",ecm);return;}
         airLeaving=true;event("uav_exit_window_crossed",{{"window_id",e["fire_window_id"]}});
       }
       if(!insideBuilding(previousDog)&&insideBuilding(d)){
@@ -151,12 +159,13 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     if(finished)return;finished=true;command=Vec::Zero;
     geometry_msgs::msg::Twist msg;commands->publish(msg);
     auto p=base.WorldPose(ecm).value_or(Pose());
-    bool entryPass=airEntered&&dogEntered&&airExited;
-    json result={{"task_completed",reason.empty()},{"strict_pass",reason.empty()&&completed==int(config["tasks"].size())&&entryPass},
+    bool entryPass=airEntered&&dogEntered&&(!requiresWindowExit()||airExited);
+    json result={{"task_completed",reason.empty()},{"strict_pass",reason.empty()&&completed==int(config["tasks"].size())&&entryPass&&landedUav&&dogAtRally(ecm)},
       {"failure",reason},{"simulation_seconds",now},{"stage",stage},{"completed_count",completed},
       {"position",{p.Pos().X(),p.Pos().Y(),p.Pos().Z()}},{"yaw",p.Rot().Yaw()},
       {"task_results",tasks},{"mission_events",events},{"stages",stages},{"uav_landed",landedUav},
-      {"entry_validation",{{"passed",entryPass},{"fire_window_id",config["entry"]["fire_window_id"]},{"uav_entered",airEntered},{"d1_entered",dogEntered},{"uav_exited",airExited}}},
+      {"entry_validation",{{"passed",entryPass},{"fire_window_id",config["entry"]["fire_window_id"]},{"uav_entered",airEntered},{"d1_entered",dogEntered},{"uav_exited",airExited},{"window_exit_required",requiresWindowExit()}}},
+      {"rally_validation",{{"dog_at_rally",dogAtRally(ecm)},{"uav_landed",landedUav},{"dog_point",config["rally_point"]},{"uav_point",config["landing_point"]},{"uav_surface_z",config.value("landing_z",0.)}}},
       {"robot_pose_overrides_after_initialization",0},{"external_lift_forces",0},
       {"controller","frozen D1 phase_joint_v12 policy; 50 Hz inference / 1000 Hz PD"},
       {"mission_controller","preset waypoints and known-map observations; no onboard image autonomy"}};
@@ -204,10 +213,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
       event(ok?"task_complete":"task_attempt_failed",{{"delivery_error_m",error}});studentBusy=false;
     }
     if(now>900.)finish("time_limit",ecm);
-    if(completed==int(config["tasks"].size())&&landedUav){
-      auto q=config["rally_point"];auto v=base.WorldLinearVelocity(ecm).value_or(Vec::Zero);
-      if(std::hypot(currentPosition.X()-double(q[0]),currentPosition.Y()-double(q[1]))<.15&&currentPosition.Z()>.8+.23&&xy(v)<.05)finish("",ecm);
-    }
+    if(completed==int(config["tasks"].size())&&landedUav&&dogAtRally(ecm))finish("",ecm);
   }
   void requestAction(const std::string &kind,std_srvs::srv::Trigger::Response &res){
     if(!student||finished||studentBusy){res.message="Requires idle student mode";return;}
@@ -266,7 +272,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
         }
       }
     }else if(kind=="finish"){
-      auto v=base.WorldLinearVelocity(ecm);done=landedUav&&elapsed>=3&&v&&xy(*v)<.05;
+      done=landedUav&&elapsed>=3&&dogAtRally(ecm);
       if(elapsed>double(r[1]))failure="landing_timeout";
     }else {done=elapsed>=3;}
     if(done&&(kind=="walk"||kind=="turn")&&maxDrift>.2)failure="route_accuracy";
@@ -415,14 +421,21 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
           if((contactModel(a,parcel,parcelName,ecm)&&contactLink(b,support,ecm))||(contactModel(b,parcel,parcelName,ecm)&&contactLink(a,support,ecm))){parcelLanded=true;event("parcel_floor_contact",{{"model",parcelName},{"surface",support},{"collision_1",a.name()},{"collision_2",b.name()}});}
         }
         bool airA=contactModel(a,uav.Entity(),"uav",ecm),airB=contactModel(b,uav.Entity(),"uav",ecm);
-        if(airA||airB){const auto &other=airA?b:a;if(contactModel(other,named("arena_floor",ecm),"arena_floor",ecm))touchGround=true;else if(!contactModel(other,uav.Entity(),"uav",ecm))obstacle=true;}
+        if(airA||airB){
+          const auto &other=airA?b:a;auto p=air.WorldPose(ecm);auto q=config["landing_point"];
+          bool atPad=p&&std::hypot(p->Pos().X()-double(q[0]),p->Pos().Y()-double(q[1]))<.25
+            &&std::abs(p->Pos().Z()-config.value("landing_z",0.))<.12;
+          if(contactModel(other,named("arena_floor",ecm),"arena_floor",ecm))touchGround=touchGround||(requiresWindowExit()&&atPad);
+          else if(landing&&atPad&&contactLink(other,config.value("landing_support_link",std::string("floor")),ecm))touchGround=true;
+          else if(!contactModel(other,uav.Entity(),"uav",ecm))obstacle=true;
+        }
         dogWall=dogWall||pair(dog.Entity(),"d1",named("building_envelope",ecm),"building_envelope");
       }return true;
     });
     if(obstacle&&now>1.){finish("uav_obstacle_contact",ecm);return;}
     if(dogWall&&now>1.){finish("d1_building_contact",ecm);return;}
     if(landing&&touchGround&&air.WorldLinearVelocity(ecm).value_or(Vec::Zero).Length()<.1)landingHold+=std::chrono::duration<double>(info.dt).count();else landingHold=0;
-    if(!landedUav&&landingHold>.25){if(!airExited){finish("landing_before_window_exit",ecm);return;}landedUav=true;event("uav_landed_rotors_stopped");}
+    if(!landedUav&&landingHold>.25){if(requiresWindowExit()&&!airExited){finish("landing_before_window_exit",ecm);return;}landedUav=true;event("uav_landed_rotors_stopped",{{"surface",config.value("landing_support_link",std::string("floor"))}});}
   }
 };
 IGNITION_ADD_PLUGIN(D1Mission,sim::System,D1Mission::ISystemConfigure,D1Mission::ISystemPreUpdate,D1Mission::ISystemPostUpdate)

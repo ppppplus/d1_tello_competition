@@ -100,13 +100,19 @@ def adapt_entry(world, config, entry, fire_window=0):
         waypoint([x, front+.85, z], 'window_enter', .35),
         waypoint([x, front+.85, 3.45], 'indoor_climb', .4),
     ] + config['patrol'][1:]
-    config['egress'] = [
-        waypoint([x, front+.85, 3.45], 'return_to_window'),
-        waypoint([x, front+.85, z], 'window_descent', .4),
-        waypoint([x, front-.65, z], 'window_exit', .35),
-        waypoint([*config['landing_point'], z], 'return_to_pad'),
-        waypoint([*config['landing_point'], 0.], 'landing', .35),
-    ]
+    if config.get('landing_mode') == 'upper_rally':
+        config['egress'] = [
+            waypoint([*config['landing_point'], 3.45], 'return_to_upper_rally'),
+            waypoint([*config['landing_point'], config['landing_z']], 'landing', .35),
+        ]
+    else:
+        config['egress'] = [
+            waypoint([x, front+.85, 3.45], 'return_to_window'),
+            waypoint([x, front+.85, z], 'window_descent', .4),
+            waypoint([x, front-.65, z], 'window_exit', .35),
+            waypoint([*config['landing_point'], z], 'return_to_pad'),
+            waypoint([*config['landing_point'], 0.], 'landing', .35),
+        ]
     config['stage_meta'][0]['label'] = 'Tello 穿着火窗入楼并首报目标 · D1 在楼外等待'
     # A longer straight approach leaves the full body clear of the lintel
     # before turning. The rest of the accepted stairs/mission route is kept.

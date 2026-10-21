@@ -2,7 +2,7 @@
 
 包含 D1 EDU 机器狗、发射器、投放仓、无人机、两层地图和预训练步态。
 无人机从楼外起飞，穿过红圆着火标记对应的窗户进入；首报目标后，机器狗从独立地面门进入。
-机器狗完成平地行走、转向、8 级楼梯、1 次打靶、2 次投放及集合；无人机从原窗飞出并返回楼外降落。
+机器狗完成平地行走、转向、8 级楼梯、1 次打靶、2 次投放；两机最终在二层左下角的相邻区域集合，无人机在蓝色区降落。
 **无需训练、PyTorch 或 CUDA。** 源码、地图、模型与推理权重均在本包内，运行时不下载模型。
 
 ![楼外入口：绿色地面门与两排六扇小窗，红圆标出本轮着火窗](docs/entry_facade.png)
@@ -26,7 +26,7 @@ sudo apt install build-essential cmake python3-colcon-common-extensions \
 
 mkdir -p ~/d1_ws/src
 # 将收到的压缩包放入当前目录；解压后为 src/d1_tello_competition
-tar -xzf d1_tello_competition_student_20261021_v1.2.0.tar.gz -C ~/d1_ws/src
+tar -xzf d1_tello_competition_student_20261021_v1.3.0.tar.gz -C ~/d1_ws/src
 cd ~/d1_ws
 colcon build --packages-select d1_tello_competition --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
@@ -43,7 +43,8 @@ ros2 launch d1_tello_competition competition.launch.py
 ```
 
 自动播放完整比赛，约 6 分钟仿真时间。窗口中可拖动、缩放查看场景；Ctrl+C 退出。
-场地为 12 × 10.4 m，二层高 0.8 m，楼梯高 0.1 m、踏面 0.3 m。
+场地为 12 × 10.4 m，二层高 0.8 m、进深 4.0 m；楼梯嵌入二层右侧缺口，梯脚与二层前沿对齐。
+8 级楼梯每级高 0.1 m、踏面 0.3 m、宽 1.4 m，保留上层转向平台。目标列横坐标为 2.0、4.6、7.2 m。
 六个候选位置中固定启用 1 号红靶、4/6 号绿投放点；此版本不随机抽取目标。
 外立面位于 `Y=1.5 m`，机器狗与无人机起点均在楼外。绿色门宽 1.4 m、高 1.05 m，无门槛；
 六扇窗分为上下两排，每排三扇，中心横坐标均为 `X=4/7/10 m`。
@@ -51,7 +52,7 @@ ros2 launch d1_tello_competition competition.launch.py
 六扇窗的尺寸、窗框外形和蓝色材质完全相同，仅用红圆标识着火窗。
 默认下排 2 号窗上方有红圆着火标记，可用 `fire_window:=1` 至 `fire_window:=6` 切换。
 模型尺寸保持原样：无人机含护圈碰撞外廓约 17.8 × 19.3 cm；缩窗后窗宽约为机宽的 3.1 倍。
-选择其他着火窗会同时改变红圆位置、入楼航点、出楼航点和通行判定：
+选择其他着火窗会同时改变红圆位置、入楼航点和通行判定：
 
 ```bash
 ros2 launch d1_tello_competition competition.launch.py fire_window:=1
@@ -119,9 +120,12 @@ ros2 topic echo /competition/state
 
 动作受理后等待 5 秒仿真时间，再从状态确认是否成功；忙碌时拒绝重复动作。
 未完成进门时不受理发射或投放。状态 JSON 的 `entry` 给出所选窗户、门、着火标记和公开几何；
-`uav_entered`、`d1_entered`、`uav_exited` 表示机体已完全通过，`uav_phase` 表示无人机当前阶段。
+`uav_entered`、`d1_entered` 表示机体已完全进入，`uav_phase` 表示无人机当前阶段。
+`uav_exited` 是兼容旧版的离楼记录；本版二楼集合时应为 false，`uav_landed` 为降落状态。
 打靶需要球体真实碰撞并使靶板倒下 ≥ 1 rad；投放需要物资接触指定楼层地面且落点误差 ≤ 0.2 m。
-完成 3 个目标后，D1 到二层集合点 `(5, 6.6)`，停在 0.15 m 范围内，等待无人机降落，生成比赛结果；学生模式限时 900 秒仿真时间。
+完成 3 个目标后，D1 到二层左下角黄色集合点 `(2.7, 7.2)`，停在 0.15 m 范围内；
+Tello 在相邻蓝色集合点 `(1.2, 7.2)` 降落，支撑面高 0.8 m。无人机必须实际接触指定平台并停稳，才记录降落；两机集合后生成比赛结果。
+本版结束时保持在楼内，不要求穿窗返回楼外；学生模式限时 900 秒仿真时间。
 
 ## 4. 可选相机与修改入口
 
@@ -142,6 +146,6 @@ ros2 launch d1_tello_competition competition.launch.py mode:=student cameras:=tr
 教学边界：载荷装置只保留外观，不增加机身质量、惯量和碰撞；发射后的球与投放后的物资有独立物理动力学。
 步态使用仿真状态和已知地图高度；无人机使用预设航点与力控制，不含 PX4、SLAM 或图像识别算法。
 红圆与所选窗户由场景配置关联，演示不声称从图像自主识别着火窗；新增前视图可供学生实现识别。
-外墙有真实碰撞，3.9 m 处有仅碰撞的天花板，俯视教学画面保持可见；二层仍只有半幅平台。
+外墙有真实碰撞，3.9 m 处有仅碰撞的天花板，俯视教学画面保持可见；二层仅覆盖后侧部分区域，右侧留出楼梯缺口。
 无人机在分发版采用基础几何体外观，动力学保留。来源与许可见 [THIRD_PARTY.md](THIRD_PARTY.md)。
-本次穿窗、进门与完整比赛的验证范围见 [入楼流程验收](docs/ENTRY_VALIDATION.md)。
+本次布局与路线的验收见 [地图调整验收](docs/MAP_VALIDATION.md)。旧版穿窗返航流程的历史记录见 [v1.2 入楼验收](docs/ENTRY_VALIDATION.md)。

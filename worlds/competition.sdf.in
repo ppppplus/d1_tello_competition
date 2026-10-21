@@ -458,12 +458,12 @@
         </visual>
       </link>
       <link name="upper_platform">
-        <pose>5.25 7.65 0.4 0 0 0</pose>
+        <pose>4.55 8.1 0.4 0 0 0</pose>
         <visual name="upper_platform_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 4.9 0.8</size>
+              <size>8.5 4 0.8</size>
             </box>
           </geometry>
           <material>
@@ -476,7 +476,7 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 4.9 0.8</size>
+              <size>8.5 4 0.8</size>
             </box>
           </geometry>
           <surface>
@@ -497,12 +497,12 @@
         </sensor>
       </link>
       <link name="upper_surface">
-        <pose>5.25 7.65 0.802 0 0 0</pose>
+        <pose>4.55 8.1 0.802 0 0 0</pose>
         <visual name="upper_surface_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 4.9 0.004</size>
+              <size>8.5 4 0.004</size>
             </box>
           </geometry>
           <material>
@@ -513,12 +513,12 @@
         </visual>
       </link>
       <link name="turn_landing">
-        <pose>10.9 5.9 0.4 0 0 0</pose>
+        <pose>9.5 9.3 0.4 0 0 0</pose>
         <visual name="turn_landing_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.4 1.4 0.8</size>
+              <size>1.4 1.6 0.8</size>
             </box>
           </geometry>
           <material>
@@ -531,7 +531,7 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.4 1.4 0.8</size>
+              <size>1.4 1.6 0.8</size>
             </box>
           </geometry>
           <surface>
@@ -545,12 +545,12 @@
         </collision>
       </link>
       <link name="landing_surface">
-        <pose>10.9 5.9 0.803 0 0 0</pose>
+        <pose>9.5 9.3 0.803 0 0 0</pose>
         <visual name="landing_surface_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.4 1.4 0.006</size>
+              <size>1.4 1.6 0.006</size>
             </box>
           </geometry>
           <material>
@@ -561,7 +561,7 @@
         </visual>
       </link>
       <link name="step_01">
-        <pose>10.9 2.95 0.05 0 0 0</pose>
+        <pose>9.5 6.25 0.05 0 0 0</pose>
         <visual name="step_01_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -593,7 +593,7 @@
         </collision>
       </link>
       <link name="step_edge_01">
-        <pose>10.9 2.818 0.104 0 0 0</pose>
+        <pose>9.5 6.118 0.104 0 0 0</pose>
         <visual name="step_edge_01_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -609,7 +609,7 @@
         </visual>
       </link>
       <link name="step_02">
-        <pose>10.9 3.25 0.1 0 0 0</pose>
+        <pose>9.5 6.55 0.1 0 0 0</pose>
         <visual name="step_02_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -641,7 +641,7 @@
         </collision>
       </link>
       <link name="step_edge_02">
-        <pose>10.9 3.118 0.204 0 0 0</pose>
+        <pose>9.5 6.418 0.204 0 0 0</pose>
         <visual name="step_edge_02_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -657,7 +657,7 @@
         </visual>
       </link>
       <link name="step_03">
-        <pose>10.9 3.55 0.15 0 0 0</pose>
+        <pose>9.5 6.85 0.15 0 0 0</pose>
         <visual name="step_03_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -689,7 +689,7 @@
         </collision>
       </link>
       <link name="step_edge_03">
-        <pose>10.9 3.418 0.304 0 0 0</pose>
+        <pose>9.5 6.718 0.304 0 0 0</pose>
         <visual name="step_edge_03_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -705,7 +705,7 @@
         </visual>
       </link>
       <link name="step_04">
-        <pose>10.9 3.85 0.2 0 0 0</pose>
+        <pose>9.5 7.15 0.2 0 0 0</pose>
         <visual name="step_04_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -737,7 +737,7 @@
         </collision>
       </link>
       <link name="step_edge_04">
-        <pose>10.9 3.718 0.404 0 0 0</pose>
+        <pose>9.5 7.018 0.404 0 0 0</pose>
         <visual name="step_edge_04_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -753,7 +753,7 @@
         </visual>
       </link>
       <link name="step_05">
-        <pose>10.9 4.15 0.25 0 0 0</pose>
+        <pose>9.5 7.45 0.25 0 0 0</pose>
         <visual name="step_05_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -785,7 +785,7 @@
         </collision>
       </link>
       <link name="step_edge_05">
-        <pose>10.9 4.018 0.504 0 0 0</pose>
+        <pose>9.5 7.318 0.504 0 0 0</pose>
         <visual name="step_edge_05_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -801,7 +801,7 @@
         </visual>
       </link>
       <link name="step_06">
-        <pose>10.9 4.45 0.3 0 0 0</pose>
+        <pose>9.5 7.75 0.3 0 0 0</pose>
         <visual name="step_06_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -833,7 +833,7 @@
         </collision>
       </link>
       <link name="step_edge_06">
-        <pose>10.9 4.318 0.604 0 0 0</pose>
+        <pose>9.5 7.618 0.604 0 0 0</pose>
         <visual name="step_edge_06_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -849,7 +849,7 @@
         </visual>
       </link>
       <link name="step_07">
-        <pose>10.9 4.75 0.35 0 0 0</pose>
+        <pose>9.5 8.05 0.35 0 0 0</pose>
         <visual name="step_07_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -881,7 +881,7 @@
         </collision>
       </link>
       <link name="step_edge_07">
-        <pose>10.9 4.618 0.704 0 0 0</pose>
+        <pose>9.5 7.918 0.704 0 0 0</pose>
         <visual name="step_edge_07_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -897,7 +897,7 @@
         </visual>
       </link>
       <link name="step_08">
-        <pose>10.9 5.05 0.4 0 0 0</pose>
+        <pose>9.5 8.35 0.4 0 0 0</pose>
         <visual name="step_08_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -929,7 +929,7 @@
         </collision>
       </link>
       <link name="step_edge_08">
-        <pose>10.9 4.918 0.804 0 0 0</pose>
+        <pose>9.5 8.218 0.804 0 0 0</pose>
         <visual name="step_edge_08_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -945,7 +945,7 @@
         </visual>
       </link>
       <link name="stair_rail_10.2">
-        <pose>10.2 4 0.9 0 -0.283794109 1.57079633</pose>
+        <pose>8.8 7.3 0.9 0 -0.283794109 1.57079633</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -969,7 +969,7 @@
         </collision>
       </link>
       <link name="stair_rail_10.2_post0">
-        <pose>10.2 2.8 0.325 0 0 0</pose>
+        <pose>8.8 6.1 0.325 0 0 0</pose>
         <visual name="stair_rail_10.2_post0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -993,7 +993,7 @@
         </collision>
       </link>
       <link name="stair_rail_10.2_post1">
-        <pose>10.2 5.2 1.025 0 0 0</pose>
+        <pose>8.8 8.5 1.025 0 0 0</pose>
         <visual name="stair_rail_10.2_post1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1017,7 +1017,7 @@
         </collision>
       </link>
       <link name="stair_rail_11.6">
-        <pose>11.6 4 0.9 0 -0.283794109 1.57079633</pose>
+        <pose>10.2 7.3 0.9 0 -0.283794109 1.57079633</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1041,7 +1041,7 @@
         </collision>
       </link>
       <link name="stair_rail_11.6_post0">
-        <pose>11.6 2.8 0.325 0 0 0</pose>
+        <pose>10.2 6.1 0.325 0 0 0</pose>
         <visual name="stair_rail_11.6_post0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1065,7 +1065,7 @@
         </collision>
       </link>
       <link name="stair_rail_11.6_post1">
-        <pose>11.6 5.2 1.025 0 0 0</pose>
+        <pose>10.2 8.5 1.025 0 0 0</pose>
         <visual name="stair_rail_11.6_post1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1089,12 +1089,12 @@
         </collision>
       </link>
       <link name="landing_east">
-        <pose>11.6 5.9 1.25 0 -0 1.57079633</pose>
+        <pose>10.2 9.3 1.25 0 -0 1.570796327</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.4 0.035 0.04</size>
+              <size>1.6 0.035 0.04</size>
             </box>
           </geometry>
           <material>
@@ -1107,13 +1107,13 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>1.4 0.035 0.04</size>
+              <size>1.6 0.035 0.04</size>
             </box>
           </geometry>
         </collision>
       </link>
       <link name="landing_east_post0">
-        <pose>11.6 5.2 1.025 0 0 0</pose>
+        <pose>10.2 8.5 1.025 0 0 0</pose>
         <visual name="landing_east_post0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1137,7 +1137,7 @@
         </collision>
       </link>
       <link name="landing_east_post1">
-        <pose>11.6 6.6 1.025 0 0 0</pose>
+        <pose>10.2 10.1 1.025 0 0 0</pose>
         <visual name="landing_east_post1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1161,7 +1161,7 @@
         </collision>
       </link>
       <link name="landing_north">
-        <pose>10.9 6.6 1.25 0 -0 0</pose>
+        <pose>9.5 10.1 1.25 0 -0 0</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1185,7 +1185,7 @@
         </collision>
       </link>
       <link name="landing_north_post0">
-        <pose>10.2 6.6 1.025 0 0 0</pose>
+        <pose>8.8 10.1 1.025 0 0 0</pose>
         <visual name="landing_north_post0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1209,7 +1209,7 @@
         </collision>
       </link>
       <link name="landing_north_post1">
-        <pose>11.6 6.6 1.025 0 0 0</pose>
+        <pose>10.2 10.1 1.025 0 0 0</pose>
         <visual name="landing_north_post1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1233,12 +1233,12 @@
         </collision>
       </link>
       <link name="platform_front">
-        <pose>5.25 5.2 1.25 0 -0 0</pose>
+        <pose>4.55 6.1 1.25 0 -0 0</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 0.035 0.04</size>
+              <size>8.5 0.035 0.04</size>
             </box>
           </geometry>
           <material>
@@ -1251,13 +1251,13 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 0.035 0.04</size>
+              <size>8.5 0.035 0.04</size>
             </box>
           </geometry>
         </collision>
       </link>
       <link name="platform_front_post0">
-        <pose>0.3 5.2 1.025 0 0 0</pose>
+        <pose>0.3 6.1 1.025 0 0 0</pose>
         <visual name="platform_front_post0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1281,7 +1281,7 @@
         </collision>
       </link>
       <link name="platform_front_post1">
-        <pose>10.2 5.2 1.025 0 0 0</pose>
+        <pose>8.8 6.1 1.025 0 0 0</pose>
         <visual name="platform_front_post1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1305,12 +1305,12 @@
         </collision>
       </link>
       <link name="platform_west">
-        <pose>0.3 7.65 1.25 0 -0 1.57079633</pose>
+        <pose>0.3 8.1 1.25 0 -0 1.570796327</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>4.9 0.035 0.04</size>
+              <size>4 0.035 0.04</size>
             </box>
           </geometry>
           <material>
@@ -1323,13 +1323,13 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>4.9 0.035 0.04</size>
+              <size>4 0.035 0.04</size>
             </box>
           </geometry>
         </collision>
       </link>
       <link name="platform_west_post0">
-        <pose>0.3 5.2 1.025 0 0 0</pose>
+        <pose>0.3 6.1 1.025 0 0 0</pose>
         <visual name="platform_west_post0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1377,12 +1377,12 @@
         </collision>
       </link>
       <link name="platform_north">
-        <pose>5.25 10.1 1.25 0 -0 0</pose>
+        <pose>4.55 10.1 1.25 0 -0 0</pose>
         <visual name="bar_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 0.035 0.04</size>
+              <size>8.5 0.035 0.04</size>
             </box>
           </geometry>
           <material>
@@ -1395,7 +1395,7 @@
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>9.9 0.035 0.04</size>
+              <size>8.5 0.035 0.04</size>
             </box>
           </geometry>
         </collision>
@@ -1425,7 +1425,7 @@
         </collision>
       </link>
       <link name="platform_north_post1">
-        <pose>10.2 10.1 1.025 0 0 0</pose>
+        <pose>8.8 10.1 1.025 0 0 0</pose>
         <visual name="platform_north_post1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1448,80 +1448,8 @@
           </geometry>
         </collision>
       </link>
-      <link name="platform_east">
-        <pose>10.2 8.35 1.25 0 -0 1.57079633</pose>
-        <visual name="bar_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>3.5 0.035 0.04</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="bar_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>3.5 0.035 0.04</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="platform_east_post0">
-        <pose>10.2 6.6 1.025 0 0 0</pose>
-        <visual name="platform_east_post0_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.45</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="platform_east_post0_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.45</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-      <link name="platform_east_post1">
-        <pose>10.2 10.1 1.025 0 0 0</pose>
-        <visual name="platform_east_post1_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.45</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.12 .21 .28 1</ambient>
-            <diffuse>.12 .21 .28 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-        <collision name="platform_east_post1_collision">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.035 0.035 0.45</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
       <link name="approach_shaft">
-        <pose>10.9 2.35 0.012 0 0 1.57079633</pose>
+        <pose>9.5 5.65 0.012 0 0 1.57079633</pose>
         <visual name="approach_shaft_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1537,7 +1465,7 @@
         </visual>
       </link>
       <link name="approach_head-1">
-        <pose>10.96 2.5 0.012 0 0 2.22079633</pose>
+        <pose>9.56 5.8 0.012 0 0 2.22079633</pose>
         <visual name="approach_head-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1553,7 +1481,7 @@
         </visual>
       </link>
       <link name="approach_head1">
-        <pose>10.84 2.5 0.012 0 0 0.920796327</pose>
+        <pose>9.44 5.8 0.012 0 0 0.920796327</pose>
         <visual name="approach_head1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1569,7 +1497,7 @@
         </visual>
       </link>
       <link name="turn_up_shaft">
-        <pose>10.9 5.55 0.815 0 0 1.57079633</pose>
+        <pose>9.5 8.85 0.815 0 0 1.57079633</pose>
         <visual name="turn_up_shaft_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1585,7 +1513,7 @@
         </visual>
       </link>
       <link name="turn_up_head-1">
-        <pose>10.96 5.7 0.815 0 0 2.22079633</pose>
+        <pose>9.56 9 0.815 0 0 2.22079633</pose>
         <visual name="turn_up_head-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1601,7 +1529,7 @@
         </visual>
       </link>
       <link name="turn_up_head1">
-        <pose>10.84 5.7 0.815 0 0 0.920796327</pose>
+        <pose>9.44 9 0.815 0 0 0.920796327</pose>
         <visual name="turn_up_head1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1617,7 +1545,7 @@
         </visual>
       </link>
       <link name="turn_left_shaft">
-        <pose>10.55 5.95 0.815 0 0 3.14159265</pose>
+        <pose>9.15 9.25 0.815 0 0 3.14159265</pose>
         <visual name="turn_left_shaft_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1633,7 +1561,7 @@
         </visual>
       </link>
       <link name="turn_left_head-1">
-        <pose>10.4 6.01 0.815 0 0 3.79159265</pose>
+        <pose>9 9.31 0.815 0 0 3.79159265</pose>
         <visual name="turn_left_head-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1649,7 +1577,7 @@
         </visual>
       </link>
       <link name="turn_left_head1">
-        <pose>10.4 5.89 0.815 0 0 2.49159265</pose>
+        <pose>9 9.19 0.815 0 0 2.49159265</pose>
         <visual name="turn_left_head1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1665,7 +1593,7 @@
         </visual>
       </link>
       <link name="upper_entry_shaft">
-        <pose>9.65 5.95 0.815 0 0 3.14159265</pose>
+        <pose>8.25 9.25 0.815 0 0 3.14159265</pose>
         <visual name="upper_entry_shaft_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1681,7 +1609,7 @@
         </visual>
       </link>
       <link name="upper_entry_head-1">
-        <pose>9.5 6.01 0.815 0 0 3.79159265</pose>
+        <pose>8.1 9.31 0.815 0 0 3.79159265</pose>
         <visual name="upper_entry_head-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1697,7 +1625,7 @@
         </visual>
       </link>
       <link name="upper_entry_head1">
-        <pose>9.5 5.89 0.815 0 0 2.49159265</pose>
+        <pose>8.1 9.19 0.815 0 0 2.49159265</pose>
         <visual name="upper_entry_head1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1763,7 +1691,7 @@
         </collision>
       </link>
       <link name="station_1_back">
-        <pose>2.0 4.15 0.125 0.0 0.0 0.0</pose>
+        <pose>2 4.15 0.125 0 0 0</pose>
         <visual name="station_1_back_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1803,7 +1731,7 @@
         </visual>
       </link>
       <link name="station_1_tag_post">
-        <pose>2.35 4.0 0.46 0.0 0.0 0.0</pose>
+        <pose>2.35 4 0.46 0 0 0</pose>
         <visual name="station_1_tag_post_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1907,7 +1835,7 @@
         </collision>
       </link>
       <link name="station_2_side-1">
-        <pose>4.35 3.6 0.325 0 0 0</pose>
+        <pose>3.95 3.6 0.325 0 0 0</pose>
         <visual name="station_2_side-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1932,7 +1860,7 @@
         </collision>
       </link>
       <link name="station_2_side1">
-        <pose>5.65 3.6 0.325 0 0 0</pose>
+        <pose>5.25 3.6 0.325 0 0 0</pose>
         <visual name="station_2_side1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1957,7 +1885,7 @@
         </collision>
       </link>
       <link name="station_2_back">
-        <pose>5 4.15 0.325 0 0 0</pose>
+        <pose>4.6 4.15 0.325 0 0 0</pose>
         <visual name="station_2_back_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1981,7 +1909,7 @@
         </collision>
       </link>
       <link name="station_2_pad">
-        <pose>5 3.3 0.012 0 0 0</pose>
+        <pose>4.6 3.3 0.012 0 0 0</pose>
         <visual name="station_2_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -1997,7 +1925,7 @@
         </visual>
       </link>
       <link name="station_2_tag_post">
-        <pose>5.24 4 0.46 0 0 0</pose>
+        <pose>4.84 4 0.46 0 0 0</pose>
         <visual name="station_2_tag_post_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2021,7 +1949,7 @@
         </collision>
       </link>
       <link name="station_2_tag">
-        <pose>5 4 0.93 0 0 0</pose>
+        <pose>4.6 4 0.93 0 0 0</pose>
         <visual name="station_2_tag_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2045,7 +1973,7 @@
         </collision>
       </link>
       <link name="station_2_digit_a">
-        <pose>5 4.15 0.942 0 0 0</pose>
+        <pose>4.6 4.15 0.942 0 0 0</pose>
         <visual name="station_2_digit_a_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2061,7 +1989,7 @@
         </visual>
       </link>
       <link name="station_2_digit_b">
-        <pose>5.09 4.075 0.942 0 0 0</pose>
+        <pose>4.69 4.075 0.942 0 0 0</pose>
         <visual name="station_2_digit_b_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2077,7 +2005,7 @@
         </visual>
       </link>
       <link name="station_2_digit_d">
-        <pose>5 3.85 0.942 0 0 0</pose>
+        <pose>4.6 3.85 0.942 0 0 0</pose>
         <visual name="station_2_digit_d_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2093,7 +2021,7 @@
         </visual>
       </link>
       <link name="station_2_digit_e">
-        <pose>4.91 3.925 0.942 0 0 0</pose>
+        <pose>4.51 3.925 0.942 0 0 0</pose>
         <visual name="station_2_digit_e_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2109,7 +2037,7 @@
         </visual>
       </link>
       <link name="station_2_digit_g">
-        <pose>5 4 0.942 0 0 0</pose>
+        <pose>4.6 4 0.942 0 0 0</pose>
         <visual name="station_2_digit_g_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2125,7 +2053,7 @@
         </visual>
       </link>
       <link name="station_3_side-1">
-        <pose>7.35 3.6 0.325 0 0 0</pose>
+        <pose>6.55 3.6 0.325 0 0 0</pose>
         <visual name="station_3_side-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2150,7 +2078,7 @@
         </collision>
       </link>
       <link name="station_3_side1">
-        <pose>8.65 3.6 0.325 0 0 0</pose>
+        <pose>7.85 3.6 0.325 0 0 0</pose>
         <visual name="station_3_side1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2175,7 +2103,7 @@
         </collision>
       </link>
       <link name="station_3_back">
-        <pose>8.0 4.15 0.125 0.0 0.0 0.0</pose>
+        <pose>7.2 4.15 0.125 0 0 0</pose>
         <visual name="station_3_back_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2199,7 +2127,7 @@
         </collision>
       </link>
       <link name="station_3_pad">
-        <pose>8 3.3 0.012 0 0 0</pose>
+        <pose>7.2 3.3 0.012 0 0 0</pose>
         <visual name="station_3_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2215,7 +2143,7 @@
         </visual>
       </link>
       <link name="station_3_tag_post">
-        <pose>8.35 4.0 0.46 0.0 0.0 0.0</pose>
+        <pose>7.55 4 0.46 0 0 0</pose>
         <visual name="station_3_tag_post_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2239,7 +2167,7 @@
         </collision>
       </link>
       <link name="station_3_tag">
-        <pose>8 4 0.93 0 0 0</pose>
+        <pose>7.2 4 0.93 0 0 0</pose>
         <visual name="station_3_tag_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2263,7 +2191,7 @@
         </collision>
       </link>
       <link name="station_3_digit_a">
-        <pose>8 4.15 0.942 0 0 0</pose>
+        <pose>7.2 4.15 0.942 0 0 0</pose>
         <visual name="station_3_digit_a_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2279,7 +2207,7 @@
         </visual>
       </link>
       <link name="station_3_digit_b">
-        <pose>8.09 4.075 0.942 0 0 0</pose>
+        <pose>7.29 4.075 0.942 0 0 0</pose>
         <visual name="station_3_digit_b_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2295,7 +2223,7 @@
         </visual>
       </link>
       <link name="station_3_digit_c">
-        <pose>8.09 3.925 0.942 0 0 0</pose>
+        <pose>7.29 3.925 0.942 0 0 0</pose>
         <visual name="station_3_digit_c_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2311,7 +2239,7 @@
         </visual>
       </link>
       <link name="station_3_digit_d">
-        <pose>8 3.85 0.942 0 0 0</pose>
+        <pose>7.2 3.85 0.942 0 0 0</pose>
         <visual name="station_3_digit_d_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2327,7 +2255,7 @@
         </visual>
       </link>
       <link name="station_3_digit_g">
-        <pose>8 4 0.942 0 0 0</pose>
+        <pose>7.2 4 0.942 0 0 0</pose>
         <visual name="station_3_digit_g_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2343,7 +2271,7 @@
         </visual>
       </link>
       <link name="station_3_pedestal">
-        <pose>8 3.88 0.15 0 0 0</pose>
+        <pose>7.2 3.88 0.15 0 0 0</pose>
         <visual name="station_3_pedestal_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2569,7 +2497,7 @@
         </visual>
       </link>
       <link name="station_5_side-1">
-        <pose>4.35 8.7 1.125 0 0 0</pose>
+        <pose>3.95 8.7 1.125 0 0 0</pose>
         <visual name="station_5_side-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2594,7 +2522,7 @@
         </collision>
       </link>
       <link name="station_5_side1">
-        <pose>5.65 8.7 1.125 0 0 0</pose>
+        <pose>5.25 8.7 1.125 0 0 0</pose>
         <visual name="station_5_side1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2619,7 +2547,7 @@
         </collision>
       </link>
       <link name="station_5_back">
-        <pose>5.0 9.25 0.925 0.0 0.0 0.0</pose>
+        <pose>4.6 9.25 0.925 0 0 0</pose>
         <visual name="station_5_back_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2643,7 +2571,7 @@
         </collision>
       </link>
       <link name="station_5_pad">
-        <pose>5 8.4 0.812 0 0 0</pose>
+        <pose>4.6 8.4 0.812 0 0 0</pose>
         <visual name="station_5_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2659,7 +2587,7 @@
         </visual>
       </link>
       <link name="station_5_tag_post">
-        <pose>5.3500000000000005 9.1 1.26 0.0 0.0 0.0</pose>
+        <pose>4.95 9.1 1.26 0 0 0</pose>
         <visual name="station_5_tag_post_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2683,7 +2611,7 @@
         </collision>
       </link>
       <link name="station_5_tag">
-        <pose>5 9.1 1.73 0 0 0</pose>
+        <pose>4.6 9.1 1.73 0 0 0</pose>
         <visual name="station_5_tag_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2707,7 +2635,7 @@
         </collision>
       </link>
       <link name="station_5_digit_a">
-        <pose>5 9.25 1.742 0 0 0</pose>
+        <pose>4.6 9.25 1.742 0 0 0</pose>
         <visual name="station_5_digit_a_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2723,7 +2651,7 @@
         </visual>
       </link>
       <link name="station_5_digit_c">
-        <pose>5.09 9.025 1.742 0 0 0</pose>
+        <pose>4.69 9.025 1.742 0 0 0</pose>
         <visual name="station_5_digit_c_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2739,7 +2667,7 @@
         </visual>
       </link>
       <link name="station_5_digit_d">
-        <pose>5 8.95 1.742 0 0 0</pose>
+        <pose>4.6 8.95 1.742 0 0 0</pose>
         <visual name="station_5_digit_d_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2755,7 +2683,7 @@
         </visual>
       </link>
       <link name="station_5_digit_f">
-        <pose>4.91 9.175 1.742 0 0 0</pose>
+        <pose>4.51 9.175 1.742 0 0 0</pose>
         <visual name="station_5_digit_f_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2771,7 +2699,7 @@
         </visual>
       </link>
       <link name="station_5_digit_g">
-        <pose>5 9.1 1.742 0 0 0</pose>
+        <pose>4.6 9.1 1.742 0 0 0</pose>
         <visual name="station_5_digit_g_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2787,7 +2715,7 @@
         </visual>
       </link>
       <link name="station_5_pedestal">
-        <pose>5 8.98 0.95 0 0 0</pose>
+        <pose>4.6 8.98 0.95 0 0 0</pose>
         <visual name="station_5_pedestal_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2811,7 +2739,7 @@
         </collision>
       </link>
       <link name="station_6_side-1">
-        <pose>7.35 8.7 1.125 0 0 0</pose>
+        <pose>6.55 8.7 1.125 0 0 0</pose>
         <visual name="station_6_side-1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2836,7 +2764,7 @@
         </collision>
       </link>
       <link name="station_6_side1">
-        <pose>8.65 8.7 1.125 0 0 0</pose>
+        <pose>7.85 8.7 1.125 0 0 0</pose>
         <visual name="station_6_side1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2861,7 +2789,7 @@
         </collision>
       </link>
       <link name="station_6_back">
-        <pose>8 9.25 1.125 0 0 0</pose>
+        <pose>7.2 9.25 1.125 0 0 0</pose>
         <visual name="station_6_back_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2885,7 +2813,7 @@
         </collision>
       </link>
       <link name="station_6_pad">
-        <pose>8 8.4 0.812 0 0 0</pose>
+        <pose>7.2 8.4 0.812 0 0 0</pose>
         <visual name="station_6_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2901,7 +2829,7 @@
         </visual>
       </link>
       <link name="station_6_tag_post">
-        <pose>8.24 9.1 1.26 0 0 0</pose>
+        <pose>7.44 9.1 1.26 0 0 0</pose>
         <visual name="station_6_tag_post_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2925,7 +2853,7 @@
         </collision>
       </link>
       <link name="station_6_tag">
-        <pose>8 9.1 1.73 0 0 0</pose>
+        <pose>7.2 9.1 1.73 0 0 0</pose>
         <visual name="station_6_tag_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2949,7 +2877,7 @@
         </collision>
       </link>
       <link name="station_6_digit_a">
-        <pose>8 9.25 1.742 0 0 0</pose>
+        <pose>7.2 9.25 1.742 0 0 0</pose>
         <visual name="station_6_digit_a_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2965,7 +2893,7 @@
         </visual>
       </link>
       <link name="station_6_digit_c">
-        <pose>8.09 9.025 1.742 0 0 0</pose>
+        <pose>7.29 9.025 1.742 0 0 0</pose>
         <visual name="station_6_digit_c_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2981,7 +2909,7 @@
         </visual>
       </link>
       <link name="station_6_digit_d">
-        <pose>8 8.95 1.742 0 0 0</pose>
+        <pose>7.2 8.95 1.742 0 0 0</pose>
         <visual name="station_6_digit_d_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -2997,7 +2925,7 @@
         </visual>
       </link>
       <link name="station_6_digit_e">
-        <pose>7.91 9.025 1.742 0 0 0</pose>
+        <pose>7.11 9.025 1.742 0 0 0</pose>
         <visual name="station_6_digit_e_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -3013,7 +2941,7 @@
         </visual>
       </link>
       <link name="station_6_digit_f">
-        <pose>7.91 9.175 1.742 0 0 0</pose>
+        <pose>7.11 9.175 1.742 0 0 0</pose>
         <visual name="station_6_digit_f_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -3029,7 +2957,7 @@
         </visual>
       </link>
       <link name="station_6_digit_g">
-        <pose>8 9.1 1.742 0 0 0</pose>
+        <pose>7.2 9.1 1.742 0 0 0</pose>
         <visual name="station_6_digit_g_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -3077,7 +3005,7 @@
         </visual>
       </link>
       <link name="upper_rally_pad">
-        <pose>5 6.6 .812 0 0 0</pose>
+        <pose>2.7 7.2 0.812 0 0 0</pose>
         <visual name="upper_rally_pad_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
@@ -3091,10 +3019,25 @@
           </material>
         </visual>
       </link>
+    <link name="upper_uav_rally_pad">
+        <pose>1.2 7.2 0.812 0 0 0</pose>
+        <visual name="upper_uav_rally_pad_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.1 1.1 .02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.08 .62 .90 1</ambient>
+            <diffuse>.08 .62 .90 1</diffuse>
+          </material>
+        </visual>
+      </link>
     </model>
     <model name="demo_target_0">
       <static>false</static>
-      <pose>2.0 3.6 0.3 0 0 1.5707963267948966</pose>
+      <pose>2 3.6 0.3 0 0 1.570796327</pose>
       <link name="plate">
         <pose>.28 0 .28 0 0 0</pose>
         <inertial>
@@ -3191,7 +3134,7 @@
     </model>
     <model name="demo_target_2">
       <static>false</static>
-      <pose>8.0 3.6 0.3 0 0 1.5707963267948966</pose>
+      <pose>7.2 3.6 0.3 0 0 1.570796327</pose>
       <link name="plate">
         <pose>.28 0 .28 0 0 0</pose>
         <inertial>
@@ -3288,7 +3231,7 @@
     </model>
     <model name="demo_target_4">
       <static>false</static>
-      <pose>5.0 8.7 1.1 0 0 1.5707963267948966</pose>
+      <pose>4.6 8.7 1.1 0 0 1.570796327</pose>
       <link name="plate">
         <pose>.28 0 .28 0 0 0</pose>
         <inertial>
