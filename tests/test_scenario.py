@@ -37,6 +37,18 @@ class Scenarios(unittest.TestCase):
             if role in ('uav','overview','fpv','dog'):
                 visible=bool(int(sensor.findtext('camera/visibility_mask'))&flag)
                 self.assertEqual(visible,role in ('uav','overview'))
+    def test_transparent_solid_ceiling(self):
+        from entry_scene import adapt_entry
+        w,c,e=self.run_seed(0)
+        adapt_entry(w,c,e)
+        roof=w.find("model[@name='building_envelope']/link[@name='ceiling']")
+        pose=list(map(float,roof.findtext('pose').split()))
+        size=list(map(float,roof.findtext('collision/geometry/box/size').split()))
+        self.assertAlmostEqual(pose[2]-size[2]/2,3.9)
+        self.assertAlmostEqual(size[2],.08)
+        self.assertEqual(roof.findall('visual'),[])
+        self.assertEqual(roof.findtext('sensor/contact/collision'),'ceiling_collision')
+        self.assertEqual(size[:2],[10.28,9.18-1.5])
     def test_window_override(self):
         for n in range(1,7):self.assertEqual(self.run_seed(0,n)[2]['fire_window_id'],n)
     def test_color_is_only_on_top(self):

@@ -436,7 +436,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void PostUpdate(const sim::UpdateInfo &info,const sim::EntityComponentManager &ecm)override{
     if(info.paused||finished||!base.Valid(ecm))return;
-    bool touchGround=false,obstacle=false,dogWall=false;
+    bool touchGround=false,obstacle=false,dogWall=false,ceilingContact=false;
     ecm.Each<sim::components::ContactSensorData>([&](const sim::Entity &,const sim::components::ContactSensorData *data){
       for(const auto &c:data->Data().contact()){
         if(c.position_size()==0)continue;const auto &a=c.collision1(),&b=c.collision2();
@@ -450,6 +450,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
         bool airA=contactModel(a,uav.Entity(),"uav",ecm),airB=contactModel(b,uav.Entity(),"uav",ecm);
         if(airA||airB){
           const auto &other=airA?b:a;auto p=air.WorldPose(ecm);auto q=config["landing_point"];
+          ceilingContact=ceilingContact||contactLink(other,"ceiling",ecm);
           bool atPad=p&&std::hypot(p->Pos().X()-double(q[0]),p->Pos().Y()-double(q[1]))<.25
             &&std::abs(p->Pos().Z()-config.value("landing_z",0.))<.12;
           if(contactModel(other,named("arena_floor",ecm),"arena_floor",ecm))touchGround=touchGround||(requiresWindowExit()&&atPad);
@@ -459,6 +460,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
         dogWall=dogWall||pair(dog.Entity(),"d1",named("building_envelope",ecm),"building_envelope");
       }return true;
     });
+    if(ceilingContact&&now>1.){auto p=air.WorldPose(ecm).value();event("uav_ceiling_contact",{{"position",{p.Pos().X(),p.Pos().Y(),p.Pos().Z()}},{"ceiling_height",config["entry"].value("ceiling_height",3.9)}});finish("uav_ceiling_contact",ecm);return;}
     if(obstacle&&now>1.){finish("uav_obstacle_contact",ecm);return;}
     if(dogWall&&now>1.){finish("d1_building_contact",ecm);return;}
     if(landing&&touchGround&&air.WorldLinearVelocity(ecm).value_or(Vec::Zero).Length()<.1)landingHold+=std::chrono::duration<double>(info.dt).count();else landingHold=0;

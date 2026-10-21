@@ -59,11 +59,21 @@ def adapt_entry(world, config, entry, fire_window=0):
     box(model, 'west_wall', (x0, (front+back)/2, height/2), (thickness, back-front, height), '.66 .70 .75 1')
     box(model, 'east_wall', (x1, (front+back)/2, height/2), (thickness, back-front, height), '.66 .70 .75 1')
     box(model, 'north_wall', ((x0+x1)/2, back, height/2), (x1-x0, thickness, height), '.66 .70 .75 1')
-    # Collision-only ceiling keeps the overhead teaching camera unobstructed.
+    # No visual geometry: optically transparent, but a solid physical box.
+    ceiling_height = entry.get('ceiling_height', height)
+    ceiling_thickness = entry.get('ceiling_thickness', .08)
+    if not (max(w['center_z']+w['height']/2 for w in entry['windows']) < ceiling_height <= height and ceiling_thickness > 0):
+        raise ValueError('Ceiling must clear all windows and close below the wall top')
+    entry['ceiling_height'] = ceiling_height
+    entry['ceiling_thickness'] = ceiling_thickness
     ceiling = element(model, 'link', name='ceiling')
-    element(ceiling, 'pose', f'{(x0+x1)/2} {(front+back)/2} {height+.04} 0 0 0')
+    element(ceiling, 'pose', f'{(x0+x1)/2} {(front+back)/2} {ceiling_height+ceiling_thickness/2} 0 0 0')
     obj = element(ceiling, 'collision', name='ceiling_collision')
-    element(element(element(obj, 'geometry'), 'box'), 'size', f'{x1-x0} {back-front} .08')
+    element(element(element(obj, 'geometry'), 'box'), 'size', f'{x1-x0} {back-front} {ceiling_thickness}')
+    sensor = element(ceiling, 'sensor', name='ceiling_contact', type='contact')
+    element(sensor, 'always_on', 'true')
+    element(sensor, 'update_rate', 1000)
+    element(element(sensor, 'contact'), 'collision', 'ceiling_collision')
     for w in entry['windows']:
         a, b = w['center_x']-w['width']/2, w['center_x']+w['width']/2
         low, high = w['center_z']-w['height']/2, w['center_z']+w['height']/2

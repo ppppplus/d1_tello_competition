@@ -62,5 +62,7 @@
   "uav_margin_xy": 0.14,
   "uav_margin_z": 0.08,
   "dog_half_length": 0.48,
-  "dog_half_width": 0.24
+  "dog_half_width": 0.24,
+  "ceiling_height": 3.9,
+  "ceiling_thickness": 0.08
 }

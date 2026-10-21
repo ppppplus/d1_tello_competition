@@ -26,7 +26,7 @@ sudo apt install build-essential cmake python3-colcon-common-extensions python3-
 
 mkdir -p ~/d1_ws/src
 # 将收到的压缩包放入当前目录；解压后为 src/d1_tello_competition
-tar -xzf d1_tello_competition_student_20261021_v2.0.1.tar.gz -C ~/d1_ws/src
+tar -xzf d1_tello_competition_student_20261021_v2.0.2.tar.gz -C ~/d1_ws/src
 cd ~/d1_ws
 colcon build --packages-select d1_tello_competition --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
@@ -175,6 +175,6 @@ ros2 launch d1_tello_competition competition.launch.py mode:=student cameras:=tr
 教学边界：载荷装置只保留外观，不增加机身质量、惯量和碰撞；发射后的球与投放后的物资有独立物理动力学。
 步态使用仿真状态和已知地图高度；无人机飞行使用预设航点与力控制，不含 PX4 或 SLAM。`reference` 报告使用受位置约束的模拟俯视传感器；`external` 报告由学生节点提供，附带一个简单 RGB 颜色识别示例。
 红圆与所选窗户由场景配置关联，演示不声称从图像自主识别着火窗；新增前视图可供学生实现识别。
-外墙有真实碰撞，3.9 m 处有仅碰撞的天花板，俯视教学画面保持可见；二层仅覆盖后侧部分区域，右侧留出楼梯缺口。
+外墙有真实碰撞；`config/entry.json` 的 `ceiling_height: 3.9` 为天花板下表面高度，`ceiling_thickness: 0.08` 为实体厚度。天花板只有碰撞体、没有可视面，因此完全透明，不遮挡俯视教学画面；无人机不能穿过，接触时记录 `uav_ceiling_contact` 并按原有障碍物碰撞规则结束比赛。二层仅覆盖后侧部分区域，右侧留出楼梯缺口。
 无人机在分发版采用基础几何体外观，动力学保留。来源与许可见 [THIRD_PARTY.md](THIRD_PARTY.md)。
 本次布局与路线的验收见 [地图调整验收](docs/MAP_VALIDATION.md)。旧版穿窗返航流程的历史记录见 [v1.2 入楼验收](docs/ENTRY_VALIDATION.md)。
