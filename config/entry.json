@@ -2,9 +2,9 @@
   "required": true,
   "bounds_xy": [
     0.0,
-    12.0,
+    10.28,
     1.5,
-    10.4
+    9.18
   ],
   "wall_thickness": 0.16,
   "wall_height": 3.9,
