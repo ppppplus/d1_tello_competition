@@ -49,7 +49,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   std::vector<int> deliveredTo;
   Vec airPosition;
   bool student=false, studentBusy=false;
-  std::string pendingAction;
+  std::string pendingAction,kitMesh;
   Vec currentPosition;
   double actionStarted=0;
   std::set<int> solved;
@@ -183,7 +183,10 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     std::ostringstream s;
     s<<"<sdf version='1.8'><model name='"<<name<<"'><pose>"<<pose<<"</pose><link name='body'><inertial><mass>"<<(sphere?.003:.05)<<"</mass><inertia><ixx>.00001</ixx><iyy>.00001</iyy><izz>.00001</izz></inertia></inertial>";
     std::string shape=sphere?"<sphere><radius>.022</radius></sphere>":"<box><size>.05 .044 .03</size></box>";
-    s<<"<collision name='object'><geometry>"<<shape<<"</geometry><surface><friction><ode><mu>.7</mu><mu2>.7</mu2></ode></friction></surface></collision><visual name='visible'><geometry>"<<shape<<"</geometry><material><ambient>1 .65 .05 1</ambient><diffuse>1 .65 .05 1</diffuse></material></visual></link></model></sdf>";
+    s<<"<collision name='object'><geometry>"<<shape<<"</geometry><surface><friction><ode><mu>.7</mu><mu2>.7</mu2></ode></friction></surface></collision><visual name='visible'><geometry>";
+    if(sphere)s<<shape;else s<<"<mesh><uri>"<<kitMesh<<"</uri></mesh>";
+    s<<"</geometry>";if(sphere)s<<"<material><ambient>1 .65 .05 1</ambient><diffuse>1 .65 .05 1</diffuse></material>";
+    s<<"</visual></link></model></sdf>";
     sdf::Root root;auto errors=root.LoadSdfString(s.str());if(!errors.empty())throw std::runtime_error(errors.front().Message());
     auto entity=creator->CreateEntities(root.Model());creator->SetParent(entity,world);
     auto link=sim::Link(sim::Model(entity).LinkByName(ecm,"body"));link.EnableVelocityChecks(ecm);
@@ -198,7 +201,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void drop(sim::EntityComponentManager &ecm){
     dropped=true;auto p=base.WorldPose(ecm).value();parcelName="cargo_"+std::to_string(active)+"_"+std::to_string(delivered);
-    parcel=spawn(parcelName,false,Pose(p.CoordPositionAdd({-.42,deliveredTo.at(active)>0?.07:0.,.237}),p.Rot()),ecm);
+    parcel=spawn(parcelName,false,Pose(p.CoordPositionAdd({-.42,0.,.237}),p.Rot()),ecm);
     initializeParcel=true;event("drop",{{"model",parcelName}});++delivered;
     auto visual=ecm.EntityByComponents(sim::components::Name("payload_parcel_"+std::to_string(delivered-1)));
     if(visual!=sim::kNullEntity)ecm.RequestRemoveEntity(visual,true);
@@ -212,10 +215,10 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void report(int slot,const std::string &color,const std::string &source){
     if(slot<0||slot>=6||!airEntered||finished)return;
-    if(color!="red"&&color!="green"&&color!="blue"&&color!="gray")return;
+    if(color!="red"&&color!="green"&&color!="gray")return;
     auto marker=config["stations"][slot]["marker_position"];
     if(std::hypot(airPosition.X()-double(marker[0]),airPosition.Y()-double(marker[1]))>.6||airPosition.Z()<double(marker[2])+.6)return;
-    auto item=config["stations"][slot];item["marker_color"]=color;item["action"]=color=="red"?"fire":color=="gray"?"none":"drop";item["required_deliveries"]=color=="blue"?2:color=="green"?1:0;item["source"]=source;
+    auto item=config["stations"][slot];item["marker_color"]=color;item["action"]=color=="red"?"fire":color=="gray"?"none":"drop";item["required_deliveries"]=color=="green"?1:0;item["source"]=source;
     observations[slot]=item;
     for(int i=0;i<int(config["tasks"].size());++i)if(config["tasks"][i]["slot"]==slot)reported[i]=true;
     event("uav_target_report",{{"slot",slot},{"marker_color",color},{"source",source}});
@@ -375,7 +378,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
  public:
   void Configure(const sim::Entity &e,const std::shared_ptr<const sdf::Element> &sdf,sim::EntityComponentManager &ecm,sim::EventManager &manager)override{
-    world=e;std::ifstream(sdf->Get<std::string>("config"))>>config;out=config["output"];route=config["route"];meta=config["stage_meta"];
+    world=e;kitMesh=sdf->Get<std::string>("kit_mesh");std::ifstream(sdf->Get<std::string>("config"))>>config;out=config["output"];route=config["route"];meta=config["stage_meta"];
     student=config.value("mode",std::string("demo"))=="student";reported.resize(config["tasks"].size(),false);deliveredTo.resize(config["tasks"].size(),0);creator=std::make_unique<sim::SdfEntityCreator>(ecm,manager);
     context=std::make_shared<rclcpp::Context>();context->init(0,nullptr);node=std::make_shared<rclcpp::Node>("d1_competition",rclcpp::NodeOptions().context(context));
     rclcpp::ExecutorOptions options;options.context=context;

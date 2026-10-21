@@ -4231,40 +4231,13 @@
         </visual>
         <visual name="payload_parcel_0">
           <pose>-0.327 0 0.237 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.05 0.044 0.03</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.85 .55 .12 1</ambient>
-            <diffuse>.85 .55 .12 1</diffuse>
-          </material>
-        </visual>
+          <geometry><mesh><uri>@SHARE@/assets/medical_kit.dae</uri></mesh></geometry></visual>
         <visual name="payload_parcel_1">
           <pose>-0.23700000000000002 0 0.237 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.05 0.044 0.03</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.85 .55 .12 1</ambient>
-            <diffuse>.85 .55 .12 1</diffuse>
-          </material>
-        </visual>
+          <geometry><mesh><uri>@SHARE@/assets/medical_kit.dae</uri></mesh></geometry></visual>
         <visual name="payload_parcel_2">
           <pose>-0.147 0 0.237 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.05 0.044 0.03</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.85 .55 .12 1</ambient>
-            <diffuse>.85 .55 .12 1</diffuse>
-          </material>
-        </visual>
+          <geometry><mesh><uri>@SHARE@/assets/medical_kit.dae</uri></mesh></geometry></visual>
         <sensor name="fpv_camera" type="camera">
           <pose>.30 0 .045 0 0 0</pose>
           <always_on>true</always_on>
@@ -5975,7 +5948,7 @@
     </model>
     <plugin name="D1Mission" filename="libD1Mission.so">
       <config>@OUTPUT@/config.json</config>
-    </plugin>
+    <kit_mesh>@SHARE@/assets/medical_kit.dae</kit_mesh></plugin>
     <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>

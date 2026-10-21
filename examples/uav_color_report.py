@@ -36,7 +36,8 @@ class Reporter(Node):
         rgb=np.median(crop,axis=(0,1)).astype(float)
         if m.encoding=='bgr8':rgb=rgb[::-1]
         dominant=int(np.argmax(rgb));others=np.delete(rgb,dominant)
-        color=('red','green','blue')[dominant] if rgb[dominant]>1.6*max(others.max(),1.) and rgb[dominant]>35 else 'gray'
+        if dominant==2 and rgb[2]>1.6*max(rgb[0],rgb[1],1.):return
+        color=('red','green','gray')[dominant] if rgb[dominant]>1.6*max(others.max(),1.) and rgb[dominant]>35 else 'gray'
         key=(slot,color);self.count=self.count+1 if key==self.last else 1;self.last=key
         if self.count<3:return
         self.pub.publish(String(data=json.dumps(dict(slot=slot,marker_color=color))))

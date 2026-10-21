@@ -5,7 +5,7 @@ import random
 import secrets
 
 COLORS = {'red': '.88 .06 .06 1', 'green': '.04 .72 .22 1',
-          'blue': '.04 .22 .92 1', 'gray': '.48 .48 .48 1'}
+          'gray': '.48 .48 .48 1'}
 
 
 def randomize(world, config, entry, seed=-1, fire_window=0):
@@ -16,7 +16,7 @@ def randomize(world, config, entry, seed=-1, fire_window=0):
         slots = sorted(rng.sample(range(6), 3))
         if slots[0] < 3 <= slots[-1]:
             break
-    roles = ['red', 'green', 'blue']
+    roles = ['red', 'green', 'green']
     rng.shuffle(roles)
     assignment = dict(zip(slots, roles))
     config['seed'] = seed
@@ -34,7 +34,7 @@ def randomize(world, config, entry, seed=-1, fire_window=0):
         config['stations'].append(station)
         if color != 'gray':
             config['tasks'].append(dict(station, color='red' if color=='red' else 'green',
-                                        marker_color=color, required_deliveries=0 if color=='red' else (1 if color=='green' else 2)))
+                                        marker_color=color, required_deliveries=0 if color=='red' else 1))
         tag=world.find("model[@name='compact_two_level_arena']/link[@name='station_%d_tag']/visual[@name='task_top']" % (slot+1))
         for channel in ('ambient','diffuse'):
             tag.find('material/'+channel).text=COLORS[color]
