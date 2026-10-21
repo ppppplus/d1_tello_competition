@@ -26,7 +26,7 @@ sudo apt install build-essential cmake python3-colcon-common-extensions \
 
 mkdir -p ~/d1_ws/src
 # 将收到的压缩包放入当前目录；解压后为 src/d1_tello_competition
-tar -xzf d1_tello_competition_student_20261021_v1.4.0.tar.gz -C ~/d1_ws/src
+tar -xzf d1_tello_competition_student_20261021_v1.5.0.tar.gz -C ~/d1_ws/src
 cd ~/d1_ws
 colcon build --packages-select d1_tello_competition --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
@@ -42,9 +42,9 @@ source ~/d1_ws/install/setup.bash
 ros2 launch d1_tello_competition competition.launch.py
 ```
 
-自动播放完整比赛，约 6 分钟仿真时间。窗口中可拖动、缩放查看场景；Ctrl+C 退出。
-场地为 12 × 10.4 m，二层高 0.8 m、进深 4.0 m；楼梯嵌入二层右后侧缺口，机器狗绕至后侧梯脚，朝图中下方上楼。
-二层范围为 Y=5.1–9.1 m，后侧保留 1.3 m 通道。
+自动播放完整比赛，约 5 分钟仿真时间。窗口中可拖动、缩放查看场景；Ctrl+C 退出。
+场地为 12 × 10.4 m，二层高 0.8 m、进深 4.0 m；楼梯嵌入二层右侧缺口，低端入口朝俯视图下侧，机器狗朝图中上方上楼。
+二层范围为 Y=5.1–9.1 m；梯脚在 Y=5.1 m，高端转向平台在 Y=7.5–9.1 m。
 8 级楼梯每级高 0.1 m、踏面 0.3 m、宽 1.4 m，保留上层转向平台。目标列横坐标为 2.5、4.7、6.9 m。
 1–3 号目标移至 Y=4.3 m，4–6 号目标位于二层下侧 Y=6.5 m，开口朝图中上方。
 1 号目标左边界 X=1.8225 m，在门洞右边界 X=1.7 m 以右；最右窗框边界 X=7.95 m，在楼梯左侧 X=8.8 m 以内。
