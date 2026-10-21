@@ -26,7 +26,7 @@ sudo apt install build-essential cmake python3-colcon-common-extensions python3-
 
 mkdir -p ~/d1_ws/src
 # 将收到的压缩包放入当前目录；解压后为 src/d1_tello_competition
-tar -xzf d1_tello_competition_student_20261021_v2.0.0.tar.gz -C ~/d1_ws/src
+tar -xzf d1_tello_competition_student_20261021_v2.0.1.tar.gz -C ~/d1_ws/src
 cd ~/d1_ws
 colcon build --packages-select d1_tello_competition --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash

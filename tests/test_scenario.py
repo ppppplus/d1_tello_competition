@@ -28,7 +28,7 @@ class Scenarios(unittest.TestCase):
             seen.update((t['slot'],t['marker_color']) for t in c['tasks']);windows.add(e['fire_window_id'])
         self.assertEqual(len(seen),18);self.assertEqual(windows,set(range(1,7)))
     def test_camera_information_separation(self):
-        flag=1<<30
+        flag=1<<25
         for v in self.world.findall('.//visual'):
             if v.get('name')=='task_top':self.assertEqual(int(v.findtext('visibility_flags')),flag)
         for sensor in self.world.findall('.//sensor'):
