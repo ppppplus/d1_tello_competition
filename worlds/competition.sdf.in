@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sdf version="1.8">
   <world name="d1_competition">
     <gravity>0 0 -9.80665</gravity>
@@ -10,12 +9,12 @@
     <model name="compact_two_level_arena">
       <static>true</static>
       <link name="grid_x0">
-        <pose>0.02 5.2 0.003 0 0 0</pose>
+        <pose>0.02 4.63 0.003 0 0 0</pose>
         <visual name="grid_x0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -26,12 +25,12 @@
         </visual>
       </link>
       <link name="grid_x1">
-        <pose>1 5.2 0.003 0 0 0</pose>
+        <pose>1 4.63 0.003 0 0 0</pose>
         <visual name="grid_x1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -42,12 +41,12 @@
         </visual>
       </link>
       <link name="grid_x2">
-        <pose>2 5.2 0.003 0 0 0</pose>
+        <pose>2 4.63 0.003 0 0 0</pose>
         <visual name="grid_x2_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -58,12 +57,12 @@
         </visual>
       </link>
       <link name="grid_x3">
-        <pose>3 5.2 0.003 0 0 0</pose>
+        <pose>3 4.63 0.003 0 0 0</pose>
         <visual name="grid_x3_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -74,12 +73,12 @@
         </visual>
       </link>
       <link name="grid_x4">
-        <pose>4 5.2 0.003 0 0 0</pose>
+        <pose>4 4.63 0.003 0 0 0</pose>
         <visual name="grid_x4_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -90,12 +89,12 @@
         </visual>
       </link>
       <link name="grid_x5">
-        <pose>5 5.2 0.003 0 0 0</pose>
+        <pose>5 4.63 0.003 0 0 0</pose>
         <visual name="grid_x5_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -106,12 +105,12 @@
         </visual>
       </link>
       <link name="grid_x6">
-        <pose>6 5.2 0.003 0 0 0</pose>
+        <pose>6 4.63 0.003 0 0 0</pose>
         <visual name="grid_x6_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -122,12 +121,12 @@
         </visual>
       </link>
       <link name="grid_x7">
-        <pose>7 5.2 0.003 0 0 0</pose>
+        <pose>7 4.63 0.003 0 0 0</pose>
         <visual name="grid_x7_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -138,12 +137,12 @@
         </visual>
       </link>
       <link name="grid_x8">
-        <pose>8 5.2 0.003 0 0 0</pose>
+        <pose>8 4.63 0.003 0 0 0</pose>
         <visual name="grid_x8_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -154,12 +153,12 @@
         </visual>
       </link>
       <link name="grid_x9">
-        <pose>9 5.2 0.003 0 0 0</pose>
+        <pose>9 4.63 0.003 0 0 0</pose>
         <visual name="grid_x9_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -170,44 +169,12 @@
         </visual>
       </link>
       <link name="grid_x10">
-        <pose>10 5.2 0.003 0 0 0</pose>
+        <pose>10 4.63 0.003 0 0 0</pose>
         <visual name="grid_x10_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.008 10.36 0.004</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.56 .62 .64 1</ambient>
-            <diffuse>.56 .62 .64 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="grid_x11">
-        <pose>11 5.2 0.003 0 0 0</pose>
-        <visual name="grid_x11_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.008 10.36 0.004</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.56 .62 .64 1</ambient>
-            <diffuse>.56 .62 .64 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="grid_x12">
-        <pose>11.98 5.2 0.003 0 0 0</pose>
-        <visual name="grid_x12_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.008 10.36 0.004</size>
+              <size>0.008 9.22 0.004</size>
             </box>
           </geometry>
           <material>
@@ -218,12 +185,12 @@
         </visual>
       </link>
       <link name="grid_y0">
-        <pose>6 0.02 0.003 0 0 0</pose>
+        <pose>5.18 0.02 0.003 0 0 0</pose>
         <visual name="grid_y0_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -234,12 +201,12 @@
         </visual>
       </link>
       <link name="grid_y1">
-        <pose>6 1 0.003 0 0 0</pose>
+        <pose>5.18 1 0.003 0 0 0</pose>
         <visual name="grid_y1_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -250,12 +217,12 @@
         </visual>
       </link>
       <link name="grid_y2">
-        <pose>6 2 0.003 0 0 0</pose>
+        <pose>5.18 2 0.003 0 0 0</pose>
         <visual name="grid_y2_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -266,12 +233,12 @@
         </visual>
       </link>
       <link name="grid_y3">
-        <pose>6 3 0.003 0 0 0</pose>
+        <pose>5.18 3 0.003 0 0 0</pose>
         <visual name="grid_y3_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -282,12 +249,12 @@
         </visual>
       </link>
       <link name="grid_y4">
-        <pose>6 4 0.003 0 0 0</pose>
+        <pose>5.18 4 0.003 0 0 0</pose>
         <visual name="grid_y4_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -298,12 +265,12 @@
         </visual>
       </link>
       <link name="grid_y5">
-        <pose>6 5 0.003 0 0 0</pose>
+        <pose>5.18 5 0.003 0 0 0</pose>
         <visual name="grid_y5_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -314,12 +281,12 @@
         </visual>
       </link>
       <link name="grid_y6">
-        <pose>6 6 0.003 0 0 0</pose>
+        <pose>5.18 6 0.003 0 0 0</pose>
         <visual name="grid_y6_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -330,12 +297,12 @@
         </visual>
       </link>
       <link name="grid_y7">
-        <pose>6 7 0.003 0 0 0</pose>
+        <pose>5.18 7 0.003 0 0 0</pose>
         <visual name="grid_y7_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -346,12 +313,12 @@
         </visual>
       </link>
       <link name="grid_y8">
-        <pose>6 8 0.003 0 0 0</pose>
+        <pose>5.18 8 0.003 0 0 0</pose>
         <visual name="grid_y8_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -362,28 +329,12 @@
         </visual>
       </link>
       <link name="grid_y9">
-        <pose>6 9 0.003 0 0 0</pose>
+        <pose>5.18 9 0.003 0 0 0</pose>
         <visual name="grid_y9_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.96 0.008 0.004</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.56 .62 .64 1</ambient>
-            <diffuse>.56 .62 .64 1</diffuse>
-            <specular>.18 .18 .18 1</specular>
-          </material>
-        </visual>
-      </link>
-      <link name="grid_y10">
-        <pose>6 10 0.003 0 0 0</pose>
-        <visual name="grid_y10_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>11.96 0.008 0.004</size>
+              <size>10.32 0.008 0.004</size>
             </box>
           </geometry>
           <material>
@@ -394,12 +345,12 @@
         </visual>
       </link>
       <link name="boundary_south">
-        <pose>6 0.04 0.008 0 0 0</pose>
+        <pose>5.18 0.04 0.008 0 0 0</pose>
         <visual name="boundary_south_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.92 0.08 0.016</size>
+              <size>10.28 0.08 0.016</size>
             </box>
           </geometry>
           <material>
@@ -410,12 +361,12 @@
         </visual>
       </link>
       <link name="boundary_north">
-        <pose>6 10.36 0.008 0 0 0</pose>
+        <pose>5.18 9.22 0.008 0 0 0</pose>
         <visual name="boundary_north_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>11.92 0.08 0.016</size>
+              <size>10.28 0.08 0.016</size>
             </box>
           </geometry>
           <material>
@@ -426,12 +377,12 @@
         </visual>
       </link>
       <link name="boundary_west">
-        <pose>0.04 5.2 0.008 0 0 0</pose>
+        <pose>0.04 4.63 0.008 0 0 0</pose>
         <visual name="boundary_west_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.08 10.32 0.016</size>
+              <size>0.08 9.18 0.016</size>
             </box>
           </geometry>
           <material>
@@ -442,12 +393,12 @@
         </visual>
       </link>
       <link name="boundary_east">
-        <pose>11.96 5.2 0.008 0 0 0</pose>
+        <pose>10.32 4.63 0.008 0 0 0</pose>
         <visual name="boundary_east_visual">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.08 10.32 0.016</size>
+              <size>0.08 9.18 0.016</size>
             </box>
           </geometry>
           <material>
@@ -3331,10 +3282,10 @@
       <link name="floor">
         <pose>6 5.2 -0.075 0 0 0</pose>
         <visual name="floor_visual">
-          <pose>0 0 0 0 0 0</pose>
+          <pose>-0.82 -0.57 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>12 10.4 0.15</size>
+              <size>10.36 9.26 0.15</size>
             </box>
           </geometry>
           <material>

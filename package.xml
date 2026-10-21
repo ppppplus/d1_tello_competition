@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>d1_tello_competition</name>
-  <version>1.6.0</version>
+  <version>1.6.1</version>
   <description>D1 EDU and Tello teaching simulation: walking, turning, stairs, shooting and delivery.</description>
   <maintainer email="tianbot@users.noreply.github.com">Course maintainers</maintainer>
   <license>Apache-2.0</license>
