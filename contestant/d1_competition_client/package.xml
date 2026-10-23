@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>d1_competition_client</name><version>1.0.0</version>
+  <description>Contestant ROS 2 interfaces and empty controller skeleton.</description>
+  <maintainer email="tianbot@users.noreply.github.com">Competition maintainers</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>rclpy</exec_depend><exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend><exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend><exec_depend>std_srvs</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

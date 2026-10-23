@@ -24,7 +24,7 @@ def boolean(value):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--mode', choices=['demo', 'student'], default='demo')
+    parser.add_argument('--mode', choices=['demo', 'student'], default='student')
     parser.add_argument('--gui', type=boolean, default=True)
     parser.add_argument('--cameras', type=boolean, default=False)
     parser.add_argument('--rate', type=float, default=1.)

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(d1_competition_client)
+find_package(ament_cmake REQUIRED)
+install(PROGRAMS scripts/contestant_node.py DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY docs DESTINATION share/${PROJECT_NAME})
+install(FILES README.md LICENSE DESTINATION share/${PROJECT_NAME})
+ament_package()

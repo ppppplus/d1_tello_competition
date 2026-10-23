@@ -7,7 +7,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     arguments = {
-        'mode': ('demo', 'demo: complete reference mission; student: external cmd_vel and payload services'),
+        'mode': ('student', 'demo: complete reference mission; student: external cmd_vel and payload services'),
         'gui': ('true', 'Open the Gazebo GUI'),
         'cameras': ('false', 'Enable six cameras and ROS image bridges; requires graphics'),
         'rate': ('1.0', 'Requested real-time factor; 0 runs as fast as possible'),
