@@ -5,24 +5,16 @@
 
 ## 安装与启动
 
-环境：Ubuntu 22.04、ROS 2 Humble。仿真与冻结步态由组织方服务器运行，本包不提供独立仿真器，不需要 GPU 或训练框架。
+两个包都在本仓库，学生可在本机运行完整仿真。克隆、依赖和编译方法见 [仓库 README](../../README.md)。
+
+启动仿真后运行：
 
 ```bash
-source /opt/ros/humble/setup.bash
-sudo apt install python3-colcon-common-extensions ros-humble-ament-cmake \
-  ros-humble-rclpy ros-humble-geometry-msgs ros-humble-nav-msgs \
-  ros-humble-std-msgs ros-humble-sensor-msgs ros-humble-std-srvs
-mkdir -p ~/d1_ws/src
-# 将收到的 d1_competition_client 目录放入 ~/d1_ws/src/
-cd ~/d1_ws
-colcon build --packages-select d1_competition_client
-source install/setup.bash
-# 按组织方给定的域号设置；同网段且 DDS 网络可达
-export ROS_DOMAIN_ID=171
+source ~/d1_ws/install/setup.bash
 ros2 run d1_competition_client contestant_node.py --ros-args -p use_sim_time:=true
 ```
 
-收到里程计和比赛状态后，节点分别打印连接成功。默认持续发布零速度，不会自主运动或完成任务。选手自行实现 `scripts/contestant_node.py`，也可使用其他 ROS 2 节点。
+默认只发布两台机器人的零速度，不会自主执行任务。选手自行实现 `scripts/contestant_node.py`，也可使用其他 ROS 2 节点。
 
 ## 接口
 
@@ -32,6 +24,7 @@ ros2 run d1_competition_client contestant_node.py --ros-args -p use_sim_time:=tr
 | `/d1/cmd_vel` | `geometry_msgs/msg/Twist` | 机身坐标：x 前进、y 左移、angular.z 左转 |
 | `/d1/odom` | `nav_msgs/msg/Odometry` | world 位姿，机身坐标速度 |
 | `/d1/joint_states` | `sensor_msgs/msg/JointState` | 关节状态 |
+| `/uav/cmd_vel` | `geometry_msgs/msg/Twist` | 世界坐标速度、偏航角速度 |
 | `/uav/odom` | `nav_msgs/msg/Odometry` | 无人机世界位姿 |
 | `/competition/uav/image` | `sensor_msgs/msg/Image` | 无人机俯视 RGB |
 | `/competition/uav_front/image` | `sensor_msgs/msg/Image` | 无人机前视 RGB |
@@ -46,6 +39,8 @@ ros2 run d1_competition_client contestant_node.py --ros-args -p use_sim_time:=tr
 
 速度建议以 20–50 Hz 发布，0.4 秒仿真时间未收到新命令则停止。已验证控制范围：前进 ≤ 0.30 m/s、转向 ≤ 0.50 rad/s、上楼前进 ≤ 0.22 m/s。建议先停稳再原地转向；侧移、后退和下楼不在已验收范围。这些是底层控制能力说明，比赛要求见规则文档。
 
-## 当前比赛接口范围
+## 无人机控制约定
 
-冻结步态在组织方仿真进程内执行，选手通过速度命令控制机器狗，不需要获得或训练底层权重。无人机穿窗巡航目前仍由组织方预设控制器执行，尚未提供选手无人机飞行指令接口；选手负责基于图像报告任务，并实现机器狗规划与作业。请勿将本版理解为已经支持选手自主控制两台机器人的飞行与行走。
+`/uav/cmd_vel` 为 `geometry_msgs/msg/Twist`：`linear.x/y/z` 是 **world 坐标系**速度（m/s），`angular.z` 是偏航角速度（rad/s）。初始朝向为 +Y。水平各轴限幅 ±0.8 m/s，垂直 ±0.45 m/s，偏航 ±0.8 rad/s；超过 0.4 秒仿真时间未收到指令则目标速度和偏航角速度归零。零速度表示速度阻尼悬停，不锁定位置。靠近地面下降会产生真实接触，裁判依规则判断降落。
+
+无人机不会自动起飞或巡航，学生需要自行控制穿窗与搜索。完成任务后应自行飞往集合区下降并停稳。底层稳定器和冻结步态属于仿真能力，不包含任务解法。

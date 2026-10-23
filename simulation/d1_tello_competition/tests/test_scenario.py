@@ -20,11 +20,8 @@ class Scenarios(unittest.TestCase):
             self.assertLess(min(slots),3);self.assertGreaterEqual(max(slots),3)
             self.assertEqual(sorted(t['marker_color'] for t in c['tasks']),['green','green','red','red'])
             self.assertEqual(sum(t['required_deliveries'] for t in c['tasks']),2)
-            self.assertEqual(sum(r[0]=='drop' for r in c['route']),2)
-            self.assertEqual(sum(r[0]=='fire' for r in c['route']),2)
-            self.assertEqual(len(c['route']),len(c['stage_meta']))
-            for r in c['route']:
-                if r[0]=='walk':self.assertGreaterEqual(r[1],1.);self.assertLessEqual(r[1],9.5)
+            for key in ('route','stage_meta','patrol','egress'):
+                self.assertNotIn(key,c)
             seen.update((t['slot'],t['marker_color']) for t in c['tasks']);windows.add(e['fire_window_id'])
         self.assertEqual(len(seen),12);self.assertEqual(windows,set(range(1,7)))
     def test_camera_information_separation(self):

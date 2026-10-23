@@ -24,7 +24,6 @@ def boolean(value):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--mode', choices=['demo', 'student'], default='student')
     parser.add_argument('--gui', type=boolean, default=True)
     parser.add_argument('--cameras', type=boolean, default=False)
     parser.add_argument('--rate', type=float, default=1.)
@@ -32,7 +31,6 @@ def main():
     parser.add_argument('--max-sim-time', type=float, default=0.)
     parser.add_argument('--exit-on-finish', type=boolean, default=False)
     parser.add_argument('--seed', type=int, default=-1)
-    parser.add_argument('--scout-mode', choices=['auto', 'reference', 'external'], default='auto')
     parser.add_argument('--fire-window', type=int, choices=range(7), default=0)
     parser.add_argument('--camera-views', default='all')
     parser.add_argument('--camera-fps', type=int, choices=range(1, 61), default=20)
@@ -50,7 +48,7 @@ def main():
     if hashlib.sha256((share / 'policy/actor.bin').read_bytes()).hexdigest() != manifest['actor_sha256']:
         raise RuntimeError('Policy checksum mismatch')
     config = json.loads((share / 'config/mission.json').read_text())
-    config.update(output=str(out), mode=args.mode, scout_mode=('reference' if args.mode=='demo' else 'external') if args.scout_mode=='auto' else args.scout_mode)
+    config.update(output=str(out), mode='student', scout_mode='external')
     text = (share / 'worlds/competition.sdf.in').read_text()
     # Resolve paths as XML text so install directories containing & also work.
     tree = ET.ElementTree(ET.fromstring(text))
@@ -100,7 +98,7 @@ def main():
         raise KeyboardInterrupt
 
     signal.signal(signal.SIGTERM, interrupted)
-    print(f'Run directory: {out}\nMode: {args.mode}', flush=True)
+    print(f'Run directory: {out}\nMode: external contestant control', flush=True)
     result_code = 0
     try:
         server = start(['ign', 'gazebo', '-s', '-r', str(out / 'world.sdf')], 'gazebo')

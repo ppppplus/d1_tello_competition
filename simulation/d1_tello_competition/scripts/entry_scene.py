@@ -1,4 +1,4 @@
-"""Build physical facade openings and matching reference entry/exit routes."""
+"""Build physical facade openings and public sensors."""
 import copy
 import math
 import xml.etree.ElementTree as ET
@@ -98,45 +98,13 @@ def adapt_entry(world, config, entry, fire_window=0):
     element(material, 'emissive', '.4 0 0 1')
     entry['fire_marker_position'] = [selected['center_x'], front-thickness/2-.012, marker_z]
     config['entry'] = entry
-    x, z = selected['center_x'], selected['center_z']
-
-    def waypoint(position, phase, speed=.8):
-        return dict(position=position, phase=phase, speed=speed, task=-1)
-
-    config['patrol'] = [
-        waypoint([*config['uav_initial_pose'][:2], z], 'takeoff'),
-        waypoint([x, front-1.8, z], 'fire_window_align'),
-        waypoint([x, front-.65, z], 'window_approach', .35),
-        waypoint([x, front+.85, z], 'window_enter', .35),
-        waypoint([x, front+.85, 3.45], 'indoor_climb', .4),
-    ] + config['patrol'][1:]
-    if config.get('landing_mode') == 'upper_rally':
-        config['egress'] = [
-            waypoint([*config['landing_point'], 3.45], 'return_to_upper_rally'),
-            waypoint([*config['landing_point'], config['landing_z']], 'landing', .35),
-        ]
-    else:
-        config['egress'] = [
-            waypoint([x, front+.85, 3.45], 'return_to_window'),
-            waypoint([x, front+.85, z], 'window_descent', .4),
-            waypoint([x, front-.65, z], 'window_exit', .35),
-            waypoint([*config['landing_point'], z], 'return_to_pad'),
-            waypoint([*config['landing_point'], 0.], 'landing', .35),
-        ]
-    config['stage_meta'][0]['label'] = 'Tello 穿着火窗入楼并首报目标 · D1 在楼外等待'
-    # A longer straight approach leaves the full body clear of the lintel
-    # before turning. The rest of the accepted stairs/mission route is kept.
-    config['route'][3][2] = front+.7
-    config['route'][7][2] = front+.7
-    config['stage_meta'][3]['label'] = 'D1 从独立地面门走入楼内'
-    config['stage_meta'][7]['label'] = 'D1 门内转向后前往 1 号目标'
     for name, key in (('d1', 'initial_pose'), ('uav', 'uav_initial_pose')):
         pose = config[key]
         if x0 <= pose[0] <= x1 and front <= pose[1] <= back:
             raise ValueError(f'{name} must start outside the building')
         world.find(f"model[@name='{name}']/pose").text = ' '.join(map(str, pose))
     # Forward RGB camera lets students observe the red fire circle. The
-    # reference uses configured waypoints; it does not claim visual recognition.
+    # Flight and recognition are supplied by the contestant.
     uav_pose = config['uav_initial_pose']
     uav_pose[-1] = math.pi/2
     world.find("model[@name='uav']/pose").text = ' '.join(map(str, uav_pose))

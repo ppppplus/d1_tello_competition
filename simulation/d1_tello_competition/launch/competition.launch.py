@@ -7,7 +7,6 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     arguments = {
-        'mode': ('student', 'demo: complete reference mission; student: external cmd_vel and payload services'),
         'gui': ('true', 'Open the Gazebo GUI'),
         'cameras': ('false', 'Enable six cameras and ROS image bridges; requires graphics'),
         'rate': ('1.0', 'Requested real-time factor; 0 runs as fast as possible'),
@@ -16,7 +15,6 @@ def generate_launch_description():
         'exit_on_finish': ('false', 'Stop the simulator when result.json is written'),
         'fire_window': ('0', 'Fire window 1 through 6; 0 randomizes each run'),
         'seed': ('-1', 'Random seed; -1 chooses a new seed each run'),
-        'scout_mode': ('auto', 'auto: reference in demo, external image reports in student; reference/external override'),
         'camera_views': ('all', 'all or comma-separated overview,dog,uav,fpv,uav_front,entry'),
         'camera_fps': ('20', 'Native camera sample rate, 1 through 60 Hz'),
     }

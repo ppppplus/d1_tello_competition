@@ -47,13 +47,15 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr reportSub;
   json observations=json::array({nullptr,nullptr,nullptr,nullptr,nullptr,nullptr});
   std::vector<int> deliveredTo;
-  Vec airPosition;
+  Vec airPosition,airCommand=Vec::Zero;
+  double airCommandTime=-100.,airYawRate=0.,airHeading=M_PI/2;
+  rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr airCommandSub;
   bool student=false, studentBusy=false;
   std::string pendingAction,kitMesh;
   Vec currentPosition;
   double actionStarted=0;
   std::set<int> solved;
-  json config,route,meta,events=json::array(),stages=json::array(),tasks=json::array();
+  json config,route=json::array(),meta=json::array(),events=json::array(),stages=json::array(),tasks=json::array();
   std::string out;int stage=0,active=-1,completed=0,delivered=0,waypoint=0;
   double now=0,start=0,next=0,nextLog=0,hold=0,landingHold=0,maxDrift=0;
   Vec stageStart,command;bool entered=false,finished=false,scout=false,landedUav=false;
@@ -153,15 +155,6 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     auto p=sim::Joint(sim::Model(e).JointByName(ecm,"knockdown_hinge")).Position(ecm);
     return p&&!p->empty()?p->at(0):0.;
   }
-  void enter(const sim::EntityComponentManager &ecm){
-    if(stage>=int(route.size()))return;
-    int task=meta[stage].value("task",-1);
-    if(task>=0&&task!=active){active=task;fired=dropped=hit=parcelLanded=false;ball=parcel=sim::kNullEntity;}
-    if(route[stage][0]=="fire"||route[stage][0]=="drop"){fired=dropped=hit=parcelLanded=false;}
-    stageStart=base.WorldPose(ecm)->Pos();start=now;maxDrift=0;entered=true;
-    std::cout<<std::fixed<<std::setprecision(2)<<now<<" stage "<<stage<<" "<<meta[stage]["label"]<<std::endl;
-    event("stage_enter",{{"stage",stage},{"label",meta[stage]["label"]},{"kind",route[stage][0]}});
-  }
   void finish(const std::string &reason,const sim::EntityComponentManager &ecm){
     if(finished)return;finished=true;command=Vec::Zero;
     geometry_msgs::msg::Twist msg;commands->publish(msg);
@@ -175,7 +168,7 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
       {"rally_validation",{{"dog_at_rally",dogAtRally(ecm)},{"uav_landed",landedUav},{"dog_point",config["rally_point"]},{"uav_point",config["landing_point"]},{"uav_surface_z",config.value("landing_z",0.)}}},
       {"robot_pose_overrides_after_initialization",0},{"external_lift_forces",0},
       {"controller","frozen D1 phase_joint_v12 policy; 50 Hz inference / 1000 Hz PD"},
-      {"mission_controller","preset waypoints and known-map observations; no onboard image autonomy"}};
+      {"mission_controller","external contestant commands and vision reports; no reference mission"}};
     std::ofstream(out+"/result.json")<<result.dump(2)<<'\n';actors.flush();missionTrace.flush();
     std::cout<<"Mission finished: "<<reason<<" completed="<<completed<<std::endl;
   }
@@ -258,90 +251,19 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     active=best;fired=dropped=hit=parcelLanded=false;ball=parcel=sim::kNullEntity;
     studentBusy=true;pendingAction=kind;res.success=true;res.message="Accepted for "+config["tasks"][best]["id"].get<std::string>()+"; inspect /competition/state after 5 simulated seconds";
   }
-  void drive(sim::EntityComponentManager &ecm){
-    if(!entered)enter(ecm);if(stage>=int(route.size())){finish("",ecm);return;}
-    const auto r=route[stage];std::string kind=r[0],failure;bool done=false;
-    double elapsed=now-start;auto p=base.WorldPose(ecm).value();double yaw=p.Rot().Yaw();command=Vec::Zero;
-    if(kind=="walk"){
-      double heading=r[3],cs=std::cos(heading),sn=std::sin(heading);
-      double remain=(double(r[1])-p.Pos().X())*cs+(double(r[2])-p.Pos().Y())*sn;
-      double cross=-(p.Pos().X()-double(r[1]))*sn+(p.Pos().Y()-double(r[2]))*cs;
-      double tolerance=meta[stage].value("task",-1)>=0?.04:.08;
-      maxDrift=std::max(maxDrift,std::abs(cross));done=remain<tolerance&&std::abs(cross)<.15;
-      double speed=meta[stage].value("view",std::string("walk"))=="stairs"?.22:.30;
-      double f=clip(remain*.8,.065,speed),side=clip(-cross*.7,-.10,.10);
-      double wx=cs*f-sn*side,wy=sn*f+cs*side;
-      command.Set(std::cos(yaw)*wx+std::sin(yaw)*wy,-std::sin(yaw)*wx+std::cos(yaw)*wy,clip(1.5*wrap(heading-yaw),-.5,.5));
-      if(maxDrift>.45)failure="route_drift";if(elapsed>double(r[5]))failure="walk_timeout";
-      if(done&&p.Pos().Z()<double(r[4])+.23)failure="wrong_floor";
-    }else if(kind=="turn"){
-      double e=wrap(double(r[1])-yaw);maxDrift=std::max(maxDrift,xy(p.Pos()-stageStart));
-      double w=clip(1.5*e,-.5,.5);if(std::abs(e)>.055&&std::abs(w)<.13)w=std::copysign(.13,e);
-      command.Z()=w;done=std::abs(e)<.055;
-      if(maxDrift>.35)failure="turn_drift";if(elapsed>30)failure="turn_timeout";
-    }else if(kind=="scout"){done=scout;if(elapsed>double(r[1]))failure="scout_timeout";}
-    else if(kind=="await_target"){done=reported.at(int(r[1]));if(elapsed>double(r[2]))failure="target_report_timeout";}
-    else if(kind=="wait")done=elapsed>=double(r[1]);
-    else if(kind=="fire"||kind=="drop"){
-      if(elapsed>1.){if(kind=="fire"&&!fired)fire(ecm);if(kind=="drop"&&!dropped){if(delivered>=3){finish("inventory_empty",ecm);return;}drop(ecm);}}
-      done=elapsed>=double(r[1]);
-      if(done){
-        if(kind=="fire"&&(!hit||plateAngle(active,ecm)<1.))failure="target_not_knocked_down";
-        double error=-1.;
-        if(kind=="drop"){
-          auto pp=sim::Link(sim::Model(parcel).LinkByName(ecm,"body")).WorldPose(ecm);
-          if(!pp||!parcelLanded)failure="parcel_not_landed";
-          else {auto t=config["tasks"][active]["delivery_point"];error=std::hypot(pp->Pos().X()-double(t[0]),pp->Pos().Y()-double(t[1]));if(error>.2)failure="delivery_accuracy";}
-        }
-        if(failure.empty()){
-          credit(error);
-        }
-      }
-    }else if(kind=="finish"){
-      done=landedUav&&elapsed>=3&&dogAtRally(ecm);
-      if(elapsed>double(r[1]))failure="landing_timeout";
-    }else {done=elapsed>=3;}
-    if(done&&(kind=="walk"||kind=="turn")&&maxDrift>.2)failure="route_accuracy";
-    if(!failure.empty()){finish(failure,ecm);return;}
-    if(done){
-      stages.push_back({{"stage",stage},{"kind",kind},{"duration",elapsed},{"max_drift",maxDrift},{"position",{p.Pos().X(),p.Pos().Y(),p.Pos().Z()}}});
-      ++stage;entered=false;command=Vec::Zero;if(stage>=int(route.size()))finish("",ecm);else enter(ecm);
-    }
-    geometry_msgs::msg::Twist msg;msg.linear.x=command.X();msg.linear.y=command.Y();msg.angular.z=command.Z();commands->publish(msg);
-  }
   void fly(double dt,sim::EntityComponentManager &ecm){
     auto p=air.WorldPose(ecm);auto v=air.WorldLinearVelocity(ecm);auto w=air.WorldAngularVelocity(ecm);if(!p||!v||!w)return;
-    Vec goal(2.6,.85,3.45);landing=false;double speed=.8;
-    if(now<1.){auto q=config["uav_initial_pose"];goal.Set(q[0],q[1],q[2]);}
-    else if(waypoint<int(config["patrol"].size())){
-      auto wp=config["patrol"][waypoint],q=wp["position"];goal.Set(q[0],q[1],q[2]);
-      airPhase=wp.value("phase",std::string("indoor_search"));speed=wp.value("speed",.8);
-      if((goal-p->Pos()).Length()<.07&&v->Length()<.08)hold+=dt;else hold=0;
-      if(hold>=.7){
-        event("uav_waypoint_reached",{{"index",waypoint}});int task=wp["task"];
-        if(wp.contains("slot")&&config.value("scout_mode",std::string("reference"))=="reference"){int slot=wp["slot"];report(slot,config["station_colors"][slot],"reference_overhead_sensor");}
-        ++waypoint;hold=0;
-      }
-    }else if(completed==int(config["tasks"].size())){
-      const auto &path=config["egress"];int i=std::min(returnWaypoint,int(path.size())-1);
-      auto wp=path[i],q=wp["position"];goal.Set(q[0],q[1],q[2]);speed=wp.value("speed",.8);airPhase=wp["phase"];
-      landing=airPhase=="landing";
-      if(!landing){
-        if((goal-p->Pos()).Length()<.07&&v->Length()<.08)hold+=dt;else hold=0;
-        if(hold>=.7){event("uav_return_waypoint_reached",{{"index",i},{"phase",airPhase}});++returnWaypoint;hold=0;}
-      }
-    }else if(active>=0){airPhase="indoor_escort";auto q=config["tasks"][active]["position"];goal.Set(q[0],q[1],3.45);}
-    else{
-      // A student may still be planning after the scout finishes its patrol.
-      // Wait inside instead of falling back to the outdoor takeoff position.
-      auto q=config["patrol"].back()["position"];goal.Set(q[0],q[1],q[2]);airPhase="indoor_waiting";
-    }
+    Vec desired = now-airCommandTime<=.4 ? airCommand : Vec::Zero;
+    airHeading=wrap(airHeading+(now-airCommandTime<=.4?airYawRate:0.)*dt);
+    airPhase=landedUav?"landed":"external_control";
+    auto pad=config["landing_point"];
+    landing=airEntered&&completed==int(config["tasks"].size())&&
+      std::hypot(p->Pos().X()-double(pad[0]),p->Pos().Y()-double(pad[1]))<.25;
     if(!landedUav){
-      auto e=goal-p->Pos();Vec desired(clip(e.X(),-speed,speed),clip(e.Y(),-speed,speed),clip(e.Z(),-.45,.45));
       auto acc=3.5*(desired-*v);for(int i=0;i<3;i++)acc[i]=clip(acc[i],-2.,2.);
       // AddWorldWrench takes a world-frame torque. Euler roll/pitch errors
       // cannot be used directly after yawing the body to face the facade.
-      constexpr double heading=M_PI/2;
+      const double heading=airHeading;
       double forward=std::cos(heading)*acc.X()+std::sin(heading)*acc.Y();
       double left=-std::sin(heading)*acc.X()+std::cos(heading)*acc.Y();
       ignition::math::Quaterniond desiredAttitude(-left/9.80665,forward/9.80665,heading);
@@ -356,8 +278,8 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
   void log(const sim::EntityComponentManager &ecm){
     auto p=base.WorldPose(ecm);if(!p||p->Pos().Length()<.1)return;
-    std::string phase=stage<int(route.size())?route[stage][0].get<std::string>():"complete";
-    std::string view=stage<int(meta.size())?meta[stage].value("view",std::string("walk")):"finish";
+    std::string phase=finished?"complete":"external_control";
+    std::string view=finished?"finish":(p->Pos().Z()>.5?"stairs":"walk");
     json state={{"time",now},{"stage",stage},{"phase",phase},{"view",view},{"stage_elapsed",now-start},{"active_task",active},
       {"completed_count",completed},{"delivered_count",delivered},{"hit",hit},{"dropped",dropped},{"landed",parcelLanded},{"uav_landed",landedUav},{"events",events}};
     state["mode"]=student?"student":"demo";state["targets"]=json::array();state["reported"]=json::array();for(const auto &o:observations){state["reported"].push_back(!o.is_null());if(!o.is_null())state["targets"].push_back(o);}state["stations"]=config["stations"];state["remaining_parcels"]=3-delivered;state["task_results"]=tasks;state["action_busy"]=studentBusy;state["finished"]=finished;
@@ -378,8 +300,8 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
   }
  public:
   void Configure(const sim::Entity &e,const std::shared_ptr<const sdf::Element> &sdf,sim::EntityComponentManager &ecm,sim::EventManager &manager)override{
-    world=e;kitMesh=sdf->Get<std::string>("kit_mesh");std::ifstream(sdf->Get<std::string>("config"))>>config;out=config["output"];route=config["route"];meta=config["stage_meta"];
-    student=config.value("mode",std::string("demo"))=="student";reported.resize(config["tasks"].size(),false);deliveredTo.resize(config["tasks"].size(),0);creator=std::make_unique<sim::SdfEntityCreator>(ecm,manager);
+    world=e;kitMesh=sdf->Get<std::string>("kit_mesh");std::ifstream(sdf->Get<std::string>("config"))>>config;out=config["output"];
+    student=true;reported.resize(config["tasks"].size(),false);deliveredTo.resize(config["tasks"].size(),0);creator=std::make_unique<sim::SdfEntityCreator>(ecm,manager);
     context=std::make_shared<rclcpp::Context>();context->init(0,nullptr);node=std::make_shared<rclcpp::Node>("d1_competition",rclcpp::NodeOptions().context(context));
     rclcpp::ExecutorOptions options;options.context=context;
     executor=std::make_shared<rclcpp::executors::SingleThreadedExecutor>(options);executor->add_node(node);
@@ -387,7 +309,13 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     airOdom=node->create_publisher<nav_msgs::msg::Odometry>("/uav/odom",10);
     statePub=node->create_publisher<std_msgs::msg::String>("/competition/state",rclcpp::QoS(1).transient_local());
     for(std::string kind:{"fire","drop"})services.push_back(node->create_service<std_srvs::srv::Trigger>("/d1/"+kind,[this,kind](const std::shared_ptr<std_srvs::srv::Trigger::Request>,std::shared_ptr<std_srvs::srv::Trigger::Response> response){requestAction(kind,*response);}));
-    reportSub=node->create_subscription<std_msgs::msg::String>("/uav/target_report",10,[this](const std_msgs::msg::String::SharedPtr msg){if(config.value("scout_mode",std::string("reference"))!="external")return;try{auto r=json::parse(msg->data);report(r.at("slot").get<int>(),r.at("marker_color").get<std::string>(),"student_vision");}catch(const json::exception &){event("malformed_report");}});
+    airCommandSub=node->create_subscription<geometry_msgs::msg::Twist>("/uav/cmd_vel",1,[this](const geometry_msgs::msg::Twist::SharedPtr msg){
+      if(finished||landedUav)return;
+      if(!std::isfinite(msg->linear.x)||!std::isfinite(msg->linear.y)||!std::isfinite(msg->linear.z)||!std::isfinite(msg->angular.z))return;
+      airCommand.Set(clip(msg->linear.x,-.8,.8),clip(msg->linear.y,-.8,.8),clip(msg->linear.z,-.45,.45));
+      airYawRate=clip(msg->angular.z,-.8,.8);airCommandTime=now;
+    });
+    reportSub=node->create_subscription<std_msgs::msg::String>("/uav/target_report",10,[this](const std_msgs::msg::String::SharedPtr msg){try{auto r=json::parse(msg->data);report(r.at("slot").get<int>(),r.at("marker_color").get<std::string>(),"student_vision");}catch(const json::exception &){event("malformed_report");}});
     actors.open(out+"/actors.jsonl");missionTrace.open(out+"/mission_trace.csv");missionTrace<<"time,stage,x,y,z,completed_count\n";
   }
   void PreUpdate(const sim::UpdateInfo &info,sim::EntityComponentManager &ecm)override{
@@ -416,20 +344,20 @@ class D1Mission: public sim::System,public sim::ISystemConfigure,public sim::ISy
     if(initializeParcel){auto link=sim::Link(sim::Model(parcel).LinkByName(ecm,"body"));auto p=link.WorldPose(ecm);if(p&&p->Pos().Length()>.1){link.SetLinearVelocity(ecm,p->Rot().RotateVectorReverse(base.WorldLinearVelocity(ecm).value_or(Vec::Zero)));velocityCommands.push_back(link.Entity());initializeParcel=false;event("parcel_released",{{"model",parcelName}});}}
     if(!finished){
       auto p=base.WorldPose(ecm).value();if(now>1.5&&(p.Rot().RotateVector(Vec(0,0,1)).Z()<.55||p.Pos().Z()<.15)){finish("fall",ecm);}
-      fly(dt,ecm);if(!finished&&now+1e-8>=next){next=now+.02;currentPosition=base.WorldPose(ecm)->Pos();executor->spin_some();if(student)studentStep(ecm);else drive(ecm);}
+      fly(dt,ecm);if(!finished&&now+1e-8>=next){next=now+.02;currentPosition=base.WorldPose(ecm)->Pos();executor->spin_some();studentStep(ecm);}
     }
     if(now+1e-8>=nextLog){nextLog=now+.02;log(ecm);}
     // Only massless inventory visuals move on the conveyor. The parcel gets
     // its own physical body at the outlet and never receives pose commands.
-    bool feeding=stage<int(route.size())&&route[stage][0]=="drop"&&!dropped;
-    double feed=feeding?clip(now-start,0.,1.)*.093:0.;
+    bool feeding=studentBusy&&dropped;
+    double feed=feeding?clip(now-actionStarted,0.,1.)*.093:0.;
     for(int i=delivered;i<3;i++){
       auto v=ecm.EntityByComponents(sim::components::Name("payload_parcel_"+std::to_string(i)));
       if(v!=sim::kNullEntity)ecm.SetComponentData<sim::components::Pose>(v,Pose(-.327+.09*(i-delivered)-feed,0,.237,0,0,0));
     }
     auto camera=named("dog_camera",ecm);if(camera!=sim::kNullEntity){
       auto target=base.WorldPose(ecm)->Pos()+Vec(0,0,.14);Vec offset(-1.25,-1.8,1.08);
-      std::string view=stage<int(meta.size())?meta[stage].value("view",std::string("walk")):"finish";
+      std::string view=finished?"finish":(base.WorldPose(ecm)->Pos().Z()>.5?"stairs":"walk");
       if(view=="stairs")offset.Set(2.,-2.8,1.8);
       if(view=="fire"&&active>=0){auto t=config["tasks"][active]["position"];target.Y()=(target.Y()+double(t[1])+.28)/2;target.Z()=double(t[2])+.6;offset.Set(-2.1,-1.3,1.15);}
       if(view=="drop")offset.Set(1.4,-1.55,.95);

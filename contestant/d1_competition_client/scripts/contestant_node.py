@@ -10,6 +10,7 @@ class Contestant(Node):
     def __init__(self):
         super().__init__('contestant', automatically_declare_parameters_from_overrides=True)
         self.velocity = self.create_publisher(Twist, '/d1/cmd_vel', 1)
+        self.air_velocity = self.create_publisher(Twist, '/uav/cmd_vel', 1)
         self.odom = None
         self.state = None
         self.create_subscription(Odometry, '/d1/odom', self.on_odom, 10)
@@ -29,6 +30,7 @@ class Contestant(Node):
     def tick(self):
         # Implement perception, planning and control here. Default: zero velocity.
         self.velocity.publish(Twist())
+        self.air_velocity.publish(Twist())
 
 def main():
     rclpy.init()
@@ -40,6 +42,7 @@ def main():
     finally:
         if rclpy.ok():
             node.velocity.publish(Twist())
+            node.air_velocity.publish(Twist())
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
