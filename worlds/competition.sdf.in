@@ -2709,19 +2709,6 @@
             <izz>0.099224580552022074</izz>
           </inertia>
         </inertial>
-        <visual name="BASE_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/BASE_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="BASE_LINK_collision_1">
           <pose>0 0 0 0.0 0.0 0.0</pose>
           <geometry>
@@ -2744,6 +2731,25 @@
           <contact>
             <collision>BASE_LINK_collision_1</collision>
           </contact>
+        </sensor>
+        <sensor name="fpv_camera" type="camera">
+          <pose>.30 0 .045 0 0 0</pose>
+          <always_on>true</always_on>
+          <update_rate>20</update_rate>
+          <topic>/competition/fpv/image</topic>
+          <camera>
+            <horizontal_fov>1.2</horizontal_fov>
+            <visibility_mask>1040187391</visibility_mask>
+            <image>
+              <width>618</width>
+              <height>264</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>60</far>
+            </clip>
+          </camera>
         </sensor>
         <visual name="payload_launcher_base_original_bottom_plate">
           <geometry>
@@ -4231,32 +4237,496 @@
         </visual>
         <visual name="payload_parcel_0">
           <pose>-0.327 0 0.237 0 0 0</pose>
-          <geometry><mesh><uri>@SHARE@/assets/medical_kit.dae</uri></mesh></geometry></visual>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/medical_kit.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
         <visual name="payload_parcel_1">
           <pose>-0.23700000000000002 0 0.237 0 0 0</pose>
-          <geometry><mesh><uri>@SHARE@/assets/medical_kit.dae</uri></mesh></geometry></visual>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/medical_kit.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
         <visual name="payload_parcel_2">
           <pose>-0.147 0 0.237 0 0 0</pose>
-          <geometry><mesh><uri>@SHARE@/assets/medical_kit.dae</uri></mesh></geometry></visual>
-        <sensor name="fpv_camera" type="camera">
-          <pose>.30 0 .045 0 0 0</pose>
-          <always_on>true</always_on>
-          <update_rate>20</update_rate>
-          <topic>/competition/fpv/image</topic>
-          <camera>
-            <horizontal_fov>1.2</horizontal_fov>
-            <visibility_mask>1040187391</visibility_mask>
-            <image>
-              <width>618</width>
-              <height>264</height>
-              <format>R8G8B8</format>
-            </image>
-            <clip>
-              <near>0.01</near>
-              <far>60</far>
-            </clip>
-          </camera>
-        </sensor>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/medical_kit.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="official_body_126">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_126.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_127">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_127.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_128">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_128.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_129">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_129.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_130">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_130.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_131">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_131.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_132">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_132.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_133">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_133.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_134">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_134.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_135">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_135.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_136">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_136.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_137">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_137.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_138">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_138.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_139">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_139.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_140">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_140.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_141">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_141.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_142">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_142.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_143">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_143.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_144">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_144.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_145">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_145.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_146">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_146.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_147">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_147.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_148">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_148.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_149">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_149.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_150">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_150.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.035 .055 .085 1</ambient>
+            <diffuse>.035 .055 .085 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_151">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_151.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_152">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_152.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.095 .105 .115 1</ambient>
+            <diffuse>.095 .105 .115 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_153">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_153.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.055 .062 .07 1</ambient>
+            <diffuse>.055 .062 .07 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_154">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_154.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.09 .10 .11 1</ambient>
+            <diffuse>.09 .10 .11 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_155">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_155.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_156">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_156.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_157">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_157.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_158">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_158.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.16 .17 .18 1</ambient>
+            <diffuse>.16 .17 .18 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_159">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_159.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.64 .65 .64 1</ambient>
+            <diffuse>.64 .65 .64 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_160">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_160.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.04 .73 .85 1</ambient>
+            <diffuse>.04 .73 .85 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
+        <visual name="official_body_161">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/d1_official_visual/part_161.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.14 .14 .14 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="FL_ABAD_JOINT" type="revolute">
         <pose relative_to="BASE_LINK">0.17449 0.062 0 0 0 0</pose>
@@ -4290,19 +4760,6 @@
             <izz>0.00054102144000000001</izz>
           </inertia>
         </inertial>
-        <visual name="FL_ABAD_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FL_ABAD_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="FL_ABAD_LINK_collision_1">
           <pose>-0.02 -0.04 0 1.5707963267948963 0.0 0.0</pose>
           <geometry>
@@ -4327,6 +4784,20 @@
             <collision>FL_ABAD_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="FL_ABAD_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FL_ABAD_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="FL_HIP_JOINT" type="revolute">
         <pose relative_to="FL_ABAD_LINK">0 0.097412 0 0 0 0</pose>
@@ -4360,19 +4831,6 @@
             <izz>0.0032561192000000001</izz>
           </inertia>
         </inertial>
-        <visual name="FL_HIP_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FL_HIP_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="FL_HIP_LINK_collision_1">
           <pose>0 0 -0.1 3.141592653589793 1.5707963267948966 3.141592653589793</pose>
           <geometry>
@@ -4396,6 +4854,20 @@
             <collision>FL_HIP_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="FL_HIP_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FL_HIP_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="FL_KNEE_JOINT" type="revolute">
         <pose relative_to="FL_HIP_LINK">0 0 -0.2 0 0 0</pose>
@@ -4429,32 +4901,6 @@
             <izz>8.0176323049753207e-05</izz>
           </inertia>
         </inertial>
-        <visual name="FL_KNEE_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FL_KNEE_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.62255 0.62255 0.62255 1</diffuse>
-            <ambient>0.62255 0.62255 0.62255 1</ambient>
-          </material>
-        </visual>
-        <visual name="FL_KNEE_LINK_fixed_joint_lump__FL_FOOT_LINK_visual_1">
-          <pose>0 0 -0.21366 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FL_FOOT_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="FL_KNEE_LINK_collision_1">
           <pose>0.008 0 -0.06 0.0 0.0 0.0</pose>
           <geometry>
@@ -4526,6 +4972,34 @@
             <collision>FL_KNEE_LINK_foot_4</collision>
           </contact>
         </sensor>
+        <visual name="FL_KNEE_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FL_KNEE_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
+        <visual name="FL_KNEE_LINK_fixed_joint_lump__FL_FOOT_LINK_visual_1">
+          <pose>0 0 -0.21366 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FL_FOOT_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 .72 .025 1</ambient>
+            <diffuse>1 .72 .025 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="FR_ABAD_JOINT" type="revolute">
         <pose relative_to="BASE_LINK">0.17449 -0.062 0 0 0 0</pose>
@@ -4559,19 +5033,6 @@
             <izz>0.00054102144000000001</izz>
           </inertia>
         </inertial>
-        <visual name="FR_ABAD_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FR_ABAD_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="FR_ABAD_LINK_collision_1">
           <pose>-0.02 0.04 0 1.5707963267948963 0.0 0.0</pose>
           <geometry>
@@ -4596,6 +5057,20 @@
             <collision>FR_ABAD_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="FR_ABAD_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FR_ABAD_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="FR_HIP_JOINT" type="revolute">
         <pose relative_to="FR_ABAD_LINK">0 -0.097399 0 0 0 0</pose>
@@ -4629,19 +5104,6 @@
             <izz>0.0032698206999999999</izz>
           </inertia>
         </inertial>
-        <visual name="FR_HIP_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FR_HIP_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="FR_HIP_LINK_collision_1">
           <pose>0 0 -0.1 3.141592653589793 1.5707963267948966 3.141592653589793</pose>
           <geometry>
@@ -4665,6 +5127,20 @@
             <collision>FR_HIP_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="FR_HIP_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FR_HIP_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="FR_KNEE_JOINT" type="revolute">
         <pose relative_to="FR_HIP_LINK">0 0 -0.2 0 0 0</pose>
@@ -4698,32 +5174,6 @@
             <izz>8.0176323049753207e-05</izz>
           </inertia>
         </inertial>
-        <visual name="FR_KNEE_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FR_KNEE_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.62255 0.62255 0.62255 1</diffuse>
-            <ambient>0.62255 0.62255 0.62255 1</ambient>
-          </material>
-        </visual>
-        <visual name="FR_KNEE_LINK_fixed_joint_lump__FR_FOOT_LINK_visual_1">
-          <pose>0 0 -0.21366 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/FR_FOOT_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="FR_KNEE_LINK_collision_1">
           <pose>0.008 0 -0.06 0.0 0.0 0.0</pose>
           <geometry>
@@ -4795,6 +5245,34 @@
             <collision>FR_KNEE_LINK_foot_4</collision>
           </contact>
         </sensor>
+        <visual name="FR_KNEE_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FR_KNEE_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
+        <visual name="FR_KNEE_LINK_fixed_joint_lump__FR_FOOT_LINK_visual_1">
+          <pose>0 0 -0.21366 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/FR_FOOT_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 .72 .025 1</ambient>
+            <diffuse>1 .72 .025 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="RL_ABAD_JOINT" type="revolute">
         <pose relative_to="BASE_LINK">-0.17449 0.062 0 0 0 0</pose>
@@ -4828,19 +5306,6 @@
             <izz>0.00054102144000000001</izz>
           </inertia>
         </inertial>
-        <visual name="RL_ABAD_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RL_ABAD_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="RL_ABAD_LINK_collision_1">
           <pose>0.02 -0.04 0 1.5707963267948963 0.0 0.0</pose>
           <geometry>
@@ -4865,6 +5330,20 @@
             <collision>RL_ABAD_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="RL_ABAD_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RL_ABAD_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="RL_HIP_JOINT" type="revolute">
         <pose relative_to="RL_ABAD_LINK">0 0.097412 0 0 0 0</pose>
@@ -4898,19 +5377,6 @@
             <izz>0.0032561192000000001</izz>
           </inertia>
         </inertial>
-        <visual name="RL_HIP_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RL_HIP_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="RL_HIP_LINK_collision_1">
           <pose>0 0 -0.1 3.141592653589793 1.5707963267948966 3.141592653589793</pose>
           <geometry>
@@ -4934,6 +5400,20 @@
             <collision>RL_HIP_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="RL_HIP_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RL_HIP_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="RL_KNEE_JOINT" type="revolute">
         <pose relative_to="RL_HIP_LINK">0 0 -0.2 0 0 0</pose>
@@ -4967,32 +5447,6 @@
             <izz>8.0176323049753207e-05</izz>
           </inertia>
         </inertial>
-        <visual name="RL_KNEE_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RL_KNEE_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.62255 0.62255 0.62255 1</diffuse>
-            <ambient>0.62255 0.62255 0.62255 1</ambient>
-          </material>
-        </visual>
-        <visual name="RL_KNEE_LINK_fixed_joint_lump__RL_FOOT_LINK_visual_1">
-          <pose>0 0 -0.21366 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RL_FOOT_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="RL_KNEE_LINK_collision_1">
           <pose>0.008 0 -0.06 0.0 0.0 0.0</pose>
           <geometry>
@@ -5064,6 +5518,34 @@
             <collision>RL_KNEE_LINK_foot_4</collision>
           </contact>
         </sensor>
+        <visual name="RL_KNEE_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RL_KNEE_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
+        <visual name="RL_KNEE_LINK_fixed_joint_lump__RL_FOOT_LINK_visual_1">
+          <pose>0 0 -0.21366 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RL_FOOT_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 .72 .025 1</ambient>
+            <diffuse>1 .72 .025 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="RR_ABAD_JOINT" type="revolute">
         <pose relative_to="BASE_LINK">-0.17449 -0.062 0 0 0 0</pose>
@@ -5097,19 +5579,6 @@
             <izz>0.00054102144000000001</izz>
           </inertia>
         </inertial>
-        <visual name="RR_ABAD_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RR_ABAD_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="RR_ABAD_LINK_collision_1">
           <pose>0.02 0.04 0 1.5707963267948963 0.0 0.0</pose>
           <geometry>
@@ -5134,6 +5603,20 @@
             <collision>RR_ABAD_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="RR_ABAD_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RR_ABAD_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.53 .56 .58 1</ambient>
+            <diffuse>.53 .56 .58 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="RR_HIP_JOINT" type="revolute">
         <pose relative_to="RR_ABAD_LINK">0 -0.0974 0 0 0 0</pose>
@@ -5167,19 +5650,6 @@
             <izz>0.0032698206999999999</izz>
           </inertia>
         </inertial>
-        <visual name="RR_HIP_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RR_HIP_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="RR_HIP_LINK_collision_1">
           <pose>0 0 -0.1 3.141592653589793 1.5707963267948966 3.141592653589793</pose>
           <geometry>
@@ -5203,6 +5673,20 @@
             <collision>RR_HIP_LINK_collision_1</collision>
           </contact>
         </sensor>
+        <visual name="RR_HIP_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RR_HIP_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <joint name="RR_KNEE_JOINT" type="revolute">
         <pose relative_to="RR_HIP_LINK">0 0 -0.2 0 0 0</pose>
@@ -5236,32 +5720,6 @@
             <izz>8.0176323049753207e-05</izz>
           </inertia>
         </inertial>
-        <visual name="RR_KNEE_LINK_visual">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RR_KNEE_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.62255 0.62255 0.62255 1</diffuse>
-            <ambient>0.62255 0.62255 0.62255 1</ambient>
-          </material>
-        </visual>
-        <visual name="RR_KNEE_LINK_fixed_joint_lump__RR_FOOT_LINK_visual_1">
-          <pose>0 0 -0.21366 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>@SHARE@/assets/meshes/RR_FOOT_LINK.STL</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <diffuse>0.941175 0.941175 0.941175 1</diffuse>
-            <ambient>0.941175 0.941175 0.941175 1</ambient>
-          </material>
-        </visual>
         <collision name="RR_KNEE_LINK_collision_1">
           <pose>0.008 0 -0.06 0.0 0.0 0.0</pose>
           <geometry>
@@ -5333,27 +5791,55 @@
             <collision>RR_KNEE_LINK_foot_4</collision>
           </contact>
         </sensor>
+        <visual name="RR_KNEE_LINK_visual">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RR_KNEE_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.84 .835 .81 1</ambient>
+            <diffuse>.84 .835 .81 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
+        <visual name="RR_KNEE_LINK_fixed_joint_lump__RR_FOOT_LINK_visual_1">
+          <pose>0 0 -0.21366 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>@SHARE@/assets/d1_official_visual/RR_FOOT_LINK.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 .72 .025 1</ambient>
+            <diffuse>1 .72 .025 1</diffuse>
+            <specular>.12 .12 .12 1</specular>
+          </material>
+        </visual>
       </link>
       <frame name="imu_joint" attached_to="BASE_LINK">
         <pose>0 0 0 0 -0 0</pose>
       </frame>
-      <frame name="imu_link" attached_to="imu_joint"/>
+      <frame name="imu_link" attached_to="imu_joint" />
       <frame name="FL_FOOT_JOINT" attached_to="FL_KNEE_LINK">
         <pose>0 0 -0.21366 0 -0 0</pose>
       </frame>
-      <frame name="FL_FOOT_LINK" attached_to="FL_FOOT_JOINT"/>
+      <frame name="FL_FOOT_LINK" attached_to="FL_FOOT_JOINT" />
       <frame name="FR_FOOT_JOINT" attached_to="FR_KNEE_LINK">
         <pose>0 0 -0.21366 0 -0 0</pose>
       </frame>
-      <frame name="FR_FOOT_LINK" attached_to="FR_FOOT_JOINT"/>
+      <frame name="FR_FOOT_LINK" attached_to="FR_FOOT_JOINT" />
       <frame name="RL_FOOT_JOINT" attached_to="RL_KNEE_LINK">
         <pose>0 0 -0.21366 0 -0 0</pose>
       </frame>
-      <frame name="RL_FOOT_LINK" attached_to="RL_FOOT_JOINT"/>
+      <frame name="RL_FOOT_LINK" attached_to="RL_FOOT_JOINT" />
       <frame name="RR_FOOT_JOINT" attached_to="RR_KNEE_LINK">
         <pose>0 0 -0.21366 0 -0 0</pose>
       </frame>
-      <frame name="RR_FOOT_LINK" attached_to="RR_FOOT_JOINT"/>
+      <frame name="RR_FOOT_LINK" attached_to="RR_FOOT_JOINT" />
       <pose>1 0.85 0.42 0 0 0</pose>
       <self_collide>false</self_collide>
       <plugin name="D1CompetitionPolicy" filename="libD1CompetitionPolicy.so">

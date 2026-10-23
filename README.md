@@ -9,6 +9,10 @@
 
 [查看地图俯视图：半幅二层、一层及右侧楼梯](docs/map_top.png) · [急救箱外观](docs/medical_kit_closeup.png)
 
+默认采用新版 D1 外观：机身与头部来自智元官方 STEP，腿部沿用原网格并做平滑着色，颜色参考官方照片。仅更新显示几何，碰撞体、质量、惯量、关节与预训练策略保持不变；发射器和投放仓继续保留。该外观已完成平地行走、转向和连续八阶上楼验证。
+
+[查看新版机器狗外观](docs/d1_official_appearance.png)。模型随包安装，无需额外下载或 CAD 工具；资源来源见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+
 ## 1. 安装与编译
 
 适用 **Ubuntu 22.04 + ROS 2 Humble + Gazebo Fortress（ign gazebo / Gazebo 6）**。

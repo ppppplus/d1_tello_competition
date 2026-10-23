@@ -5,7 +5,8 @@
 
 | 资源 | 来源及版本 | 许可与通知 |
 | --- | --- | --- |
-| D1 EDU 外观与动力学描述 | [rl_sar_zoo](https://github.com/fan-ziqi/rl_sar_zoo)，提交 `7dd30bdc7806898950b354260655d5a7f0ce844e`；显示网格经过减面，动力学保留 | 上游 d1_description 的 package.xml 声明 Apache-2.0，副本见 licenses/d1_description.package.xml |
+| D1 EDU 腿部显示网格与动力学描述 | [rl_sar_zoo](https://github.com/fan-ziqi/rl_sar_zoo)，提交 `7dd30bdc7806898950b354260655d5a7f0ce844e`；显示网格经过减面，动力学保留 | 上游 d1_description 的 package.xml 声明 Apache-2.0，副本见 licenses/d1_description.package.xml |
+| D1 EDU 官方机身与头部显示几何 | [智元官方外观三维模型](https://www.agibot.com.cn/filepage/328.html)，STEP 派生的 COLLADA 网格；来源校验值及坐标转换见 assets/d1_official_visual/provenance.json | 官方下载资料未附明确的再分发许可证；保留厂商权利，不纳入本仓库 Apache-2.0 授权 |
 | 控制约定参考 | [rl_sar](https://github.com/fan-ziqi/rl_sar)，提交 `376d42c9b128f963ab08579762d5a216a976ce39` | licenses/Apache-2.0.txt；随包 actor.bin 是课程另行训练的策略，不是上游原权重 |
 | 发射器 CAD 派生显示网格 | [autonomous-foam-launcher](https://github.com/noahfitzgerald/autonomous-foam-launcher)，提交 `853fafbf0a58a74d14dda0a3bc2a52c311350220`；Noah Fitzgerald、Kevin Jung、Aidan Schwing / Cal Poly ME405 | MIT，licenses/launcher-MIT.txt |
 | 输送机 CAD 裁剪及减面网格 | [conveyor_demo](https://github.com/rokokoo/conveyor_demo)，提交 `59d8d987080ceb917de0d25737459291234419c5` | GPL-3.0，licenses/conveyor-GPL-3.0.txt；派生网格为 assets/meshes/943fd6720567_conveyor_head.stl |
