@@ -1,7 +1,7 @@
 # 仿真与裁判包
 
 本包为学生本机开发提供 Gazebo 仿真、D1 官方外观、载荷装置、冻结步态、无人机速度与姿态稳定控制、随机任务及裁判判定。
-安装、双包构建与运行方法见 [仓库 README](../../README.md)，比赛要求见 [规则文档](../../contestant/d1_competition_client/docs/COMPETITION_RULES.md)。
+安装、双包构建与运行方法见 [仓库 README](../README.md)，比赛要求见 [规则文档](../d1_competition_client/docs/COMPETITION_RULES.md)。
 
 本包不包含自动比赛解法：没有机器狗参考路线、无人机穿窗/巡航航点、模拟颜色报告或完整作业示例。控制输入由选手包发送；不传命令时等待，不会自动完成比赛。
 

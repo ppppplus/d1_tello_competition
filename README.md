@@ -4,10 +4,10 @@
 
 | ROS 2 包 | 目录 | 内容 |
 | --- | --- | --- |
-| `d1_tello_competition` | [simulation/d1_tello_competition](simulation/d1_tello_competition/README.md) | Gazebo、模型、冻结步态、无人机底层控制、随机场景、裁判真值与判定 |
-| `d1_competition_client` | [contestant/d1_competition_client](contestant/d1_competition_client/README.md) | ROS 2 接口、零速度节点骨架、规则与场地图 |
+| `d1_tello_competition` | [d1_tello_competition](d1_tello_competition/README.md) | Gazebo、模型、冻结步态、无人机底层控制、随机场景、裁判真值与判定 |
+| `d1_competition_client` | [d1_competition_client](d1_competition_client/README.md) | ROS 2 接口、零速度节点骨架、规则与场地图 |
 
-比赛要求统一见 [比赛规则](contestant/d1_competition_client/docs/COMPETITION_RULES.md)。
+比赛要求统一见 [比赛规则](d1_competition_client/docs/COMPETITION_RULES.md)。
 
 ## 安装与编译
 

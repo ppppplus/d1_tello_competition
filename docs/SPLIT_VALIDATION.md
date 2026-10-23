@@ -4,8 +4,8 @@
 
 ## 当前结构
 
-- `simulation/d1_tello_competition`：仿真、模型、冻结步态、无人机速度稳定器、裁判真值与判定。
-- `contestant/d1_competition_client`：公开接口、双机零速度骨架、规则与场地图。
+- `d1_tello_competition`：仿真、模型、冻结步态、无人机速度稳定器、裁判真值与判定。
+- `d1_competition_client`：公开接口、双机零速度骨架、规则与场地图。
 
 两个包一起构建、在学生本机运行。当前文件树已删除完整示例程序、机器狗任务路线生成与执行器、无人机预设穿窗/巡航路线、自动真值颜色报告，以及 demo/reference 启动入口。学生负责双机任务层控制。
 
