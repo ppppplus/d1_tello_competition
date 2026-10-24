@@ -29,7 +29,7 @@ def randomize(world, config, entry, seed=-1, fire_window=0):
         station = dict(id='target_'+str(slot+1), slot=slot, position=[x,y,z],
                        marker_position=[x,y+direction*.4,z+.942],
                        delivery_point=[x,y-direction*.3,z],
-                       support_link='floor' if slot<3 else 'upper_platform')
+                       support_link=f'station_{slot+1}_pad')
         config['stations'].append(station)
         if color != 'gray':
             config['tasks'].append(dict(station, color='red' if color=='red' else 'green',

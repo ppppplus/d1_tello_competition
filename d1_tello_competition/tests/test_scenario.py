@@ -46,6 +46,22 @@ class Scenarios(unittest.TestCase):
         self.assertEqual(roof.findall('visual'),[])
         self.assertEqual(roof.findtext('sensor/contact/collision'),'ceiling_collision')
         self.assertEqual(size[:2],[10.28,9.18-1.5])
+    def test_delivery_support_matches_visible_pad(self):
+        for slot in range(6):
+            pad=self.world.find("model[@name='compact_two_level_arena']/link[@name='station_%d_pad']" % (slot+1))
+            self.assertEqual(pad.findtext('visual/geometry/box/size'),pad.findtext('collision/geometry/box/size'))
+            self.assertEqual(pad.findtext('sensor/contact/collision'),pad.find('collision').get('name'))
+            terrain=json.loads((ROOT/'config/terrain.json').read_text())['surfaces']
+            surface=next(s for s in terrain if s['name']=='station_%d_pad' % (slot+1))
+            z=float(pad.findtext('pose').split()[2]);height=float(pad.findtext('collision/geometry/box/size').split()[2])
+            self.assertAlmostEqual(surface['top_z'],z+height/2)
+            self.assertAlmostEqual(surface['top_z'],(.8 if slot>=3 else 0)+.001)
+
+        for seed in range(20):
+            _,c,_=self.run_seed(seed)
+            for task in c['tasks']:
+                self.assertEqual(task['support_link'],'station_%d_pad' % (task['slot']+1))
+
     def test_window_override(self):
         for n in range(1,7):self.assertEqual(self.run_seed(0,n)[2]['fire_window_id'],n)
     def test_color_is_only_on_top(self):
