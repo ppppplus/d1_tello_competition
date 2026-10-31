@@ -11,17 +11,16 @@
 
 ## 安装与编译
 
-环境：Ubuntu 22.04、ROS 2 Humble、Gazebo Fortress。先安装 ROS 2 Humble 和 Gazebo Fortress 软件源，再安装依赖：
+环境：ROS2Go（Ubuntu 22.04、ROS 2 Humble）。ROS2Go 已预装其余依赖，只需补装 Gazebo Fortress 及开发包：
+
+```bash
+sudo apt install -y ignition-fortress libignition-gazebo6-dev
+```
+
+随后克隆并编译：
 
 ```bash
 source /opt/ros/humble/setup.bash
-sudo apt update
-sudo apt install build-essential cmake python3-colcon-common-extensions python3-numpy \
-  ignition-fortress libignition-gazebo6-dev libeigen3-dev nlohmann-json3-dev \
-  ros-humble-ament-cmake ros-humble-rclcpp ros-humble-rclpy \
-  ros-humble-geometry-msgs ros-humble-nav-msgs ros-humble-sensor-msgs \
-  ros-humble-rosgraph-msgs ros-humble-std-msgs ros-humble-std-srvs \
-  ros-humble-launch-ros ros-humble-ament-index-python
 mkdir -p ~/d1_ws/src
 cd ~/d1_ws/src
 git clone --single-branch --depth 1 -b competition/contestant-organizer-split \

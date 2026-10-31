@@ -17,3 +17,7 @@ ROS 2 / Gazebo / Eigen 等通过系统包安装，不打包其二进制依赖。
 品牌名称用于说明仿真对象，本包不是厂商官方 SDK，也不用于实机控制。
 
 急救箱显示网格 `assets/medical_kit.dae` 为本项目原创几何模型，使用本包 Apache-2.0 许可。
+
+无人机显示几何移植自本工作区 `tello_sim/tello_competition/models/tello_training/model_camera.sdf`（白黑训练外观，非官方精确模型），采用 BSD-3-Clause；许可见 `licenses/tello_sim-BSD-3-Clause.txt`。仅移植 visual，未移植 PX4 / ROS 1 插件，质量、惯量、碰撞、关节与相机参数保持原值。
+
+圆润机身、上盖及连续护桨圈 `assets/tello_visual/*.dae` 为原创参数化网格，采用本包 Apache-2.0 许可；外观参考与生成方法见该目录的 SOURCE.md。未使用网络仓库中的网格或贴图。

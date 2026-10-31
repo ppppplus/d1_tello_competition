@@ -5921,31 +5921,7 @@
           </inertia>
         </inertial>
         <gravity>1</gravity>
-        <velocity_decay/>
-        <visual name="tello_body">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>.10 .08 .025</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.85 .85 .88 1</ambient>
-            <diffuse>.85 .85 .88 1</diffuse>
-          </material>
-        </visual>
-        <visual name="front_camera_lens">
-          <pose>.052 0 .005 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>.006 .02 .012</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>.15 .15 .18 1</ambient>
-            <diffuse>.15 .15 .18 1</diffuse>
-          </material>
-        </visual>
+        <velocity_decay />
         <collision name="body">
           <pose>0 0 -0.004 0 0 0</pose>
           <geometry>
@@ -6225,56 +6201,276 @@
             </clip>
           </camera>
         </sensor>
-        <visual name="guard_0_display">
-          <pose>0.0425 -0.05 .008 0 0 0</pose>
+        <visual name="body">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
-            <cylinder>
-              <radius>.0465</radius>
-              <length>.004</length>
-            </cylinder>
+            <mesh>
+              <uri>@SHARE@/assets/tello_visual/body.dae</uri>
+            </mesh>
           </geometry>
           <material>
-            <ambient>.3 .3 .32 1</ambient>
-            <diffuse>.3 .3 .32 1</diffuse>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
           </material>
         </visual>
-        <visual name="guard_1_display">
-          <pose>-0.0425 0.05 .008 0 0 0</pose>
+        <visual name="white_cover">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
-            <cylinder>
-              <radius>.0465</radius>
-              <length>.004</length>
-            </cylinder>
+            <mesh>
+              <uri>@SHARE@/assets/tello_visual/cover.dae</uri>
+            </mesh>
           </geometry>
           <material>
-            <ambient>.3 .3 .32 1</ambient>
-            <diffuse>.3 .3 .32 1</diffuse>
+            <ambient>.88 .89 .90 1</ambient>
+            <diffuse>.88 .89 .90 1</diffuse>
           </material>
         </visual>
-        <visual name="guard_2_display">
-          <pose>0.0425 0.05 .008 0 0 0</pose>
+        <visual name="front_lens">
+          <pose>0.036 0 0.005 0 1.5707963267948966 0</pose>
           <geometry>
             <cylinder>
-              <radius>.0465</radius>
-              <length>.004</length>
+              <radius>0.004</radius>
+              <length>0.002</length>
             </cylinder>
           </geometry>
           <material>
-            <ambient>.3 .3 .32 1</ambient>
-            <diffuse>.3 .3 .32 1</diffuse>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
           </material>
         </visual>
-        <visual name="guard_3_display">
-          <pose>-0.0425 -0.05 .008 0 0 0</pose>
+        <visual name="arm_0">
+          <pose>0.02125 -0.025 0.002 0 0 -0.866302262552679</pose>
+          <geometry>
+            <box>
+              <size>0.06562202374203344 0.007 0.006</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="motor_0">
+          <pose>0.0425 -0.05 0.009 0 0 0</pose>
           <geometry>
             <cylinder>
-              <radius>.0465</radius>
-              <length>.004</length>
+              <radius>0.008</radius>
+              <length>0.022</length>
             </cylinder>
           </geometry>
           <material>
-            <ambient>.3 .3 .32 1</ambient>
-            <diffuse>.3 .3 .32 1</diffuse>
+            <ambient>.30 .32 .34 1</ambient>
+            <diffuse>.30 .32 .34 1</diffuse>
+          </material>
+        </visual>
+        <visual name="foot_0">
+          <pose>0.0425 -0.05 -0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="arm_1">
+          <pose>-0.02125 0.025 0.002 0 0 2.2752903910371143</pose>
+          <geometry>
+            <box>
+              <size>0.06562202374203344 0.007 0.006</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="motor_1">
+          <pose>-0.0425 0.05 0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.008</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.30 .32 .34 1</ambient>
+            <diffuse>.30 .32 .34 1</diffuse>
+          </material>
+        </visual>
+        <visual name="foot_1">
+          <pose>-0.0425 0.05 -0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="arm_2">
+          <pose>0.02125 0.025 0.002 0 0 0.866302262552679</pose>
+          <geometry>
+            <box>
+              <size>0.06562202374203344 0.007 0.006</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="motor_2">
+          <pose>0.0425 0.05 0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.008</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.30 .32 .34 1</ambient>
+            <diffuse>.30 .32 .34 1</diffuse>
+          </material>
+        </visual>
+        <visual name="foot_2">
+          <pose>0.0425 0.05 -0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="arm_3">
+          <pose>-0.02125 -0.025 0.002 0 0 -2.2752903910371143</pose>
+          <geometry>
+            <box>
+              <size>0.06562202374203344 0.007 0.006</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="motor_3">
+          <pose>-0.0425 -0.05 0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.008</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.30 .32 .34 1</ambient>
+            <diffuse>.30 .32 .34 1</diffuse>
+          </material>
+        </visual>
+        <visual name="foot_3">
+          <pose>-0.0425 -0.05 -0.009 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.022</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="rounded_guard_0">
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/tello_visual/guard_0.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="rounded_guard_1">
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/tello_visual/guard_1.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="rounded_guard_2">
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/tello_visual/guard_2.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="rounded_guard_3">
+          <geometry>
+            <mesh>
+              <uri>@SHARE@/assets/tello_visual/guard_3.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="lens_bezel">
+          <pose>0.036 0 0.003 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.0048</radius>
+              <length>0.002</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.12 .13 .15 1</ambient>
+            <diffuse>.12 .13 .15 1</diffuse>
+          </material>
+        </visual>
+        <visual name="lens_glass">
+          <pose>0.0372 0 0.003 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.0035</radius>
+              <length>0.0008</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.015 .035 .055 1</ambient>
+            <diffuse>.015 .035 .055 1</diffuse>
+          </material>
+        </visual>
+        <visual name="status_led">
+          <pose>0.0358 -0.009 0.003 0 1.57079632679 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.0012</radius>
+              <length>0.0006</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.15 .75 .25 1</ambient>
+            <diffuse>.15 .75 .25 1</diffuse>
           </material>
         </visual>
       </link>
@@ -6293,17 +6489,30 @@
           </inertia>
         </inertial>
         <gravity>1</gravity>
-        <velocity_decay/>
+        <velocity_decay />
         <visual name="propeller">
-          <pose>0 0 0 0 0 0</pose>
+          <pose>0 0 0 0 0 0.0</pose>
           <geometry>
             <box>
-              <size>.07 .012 .002</size>
+              <size>0.0762 0.007 0.0018</size>
             </box>
           </geometry>
           <material>
-            <ambient>.15 .15 .18 1</ambient>
-            <diffuse>.15 .15 .18 1</diffuse>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="hub">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.004</radius>
+              <length>0.004</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
           </material>
         </visual>
       </link>
@@ -6338,17 +6547,30 @@
           </inertia>
         </inertial>
         <gravity>1</gravity>
-        <velocity_decay/>
+        <velocity_decay />
         <visual name="propeller">
-          <pose>0 0 0 0 0 0</pose>
+          <pose>0 0 0 0 0 0.7</pose>
           <geometry>
             <box>
-              <size>.07 .012 .002</size>
+              <size>0.0762 0.007 0.0018</size>
             </box>
           </geometry>
           <material>
-            <ambient>.15 .15 .18 1</ambient>
-            <diffuse>.15 .15 .18 1</diffuse>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="hub">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.004</radius>
+              <length>0.004</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
           </material>
         </visual>
       </link>
@@ -6383,17 +6605,30 @@
           </inertia>
         </inertial>
         <gravity>1</gravity>
-        <velocity_decay/>
+        <velocity_decay />
         <visual name="propeller">
-          <pose>0 0 0 0 0 0</pose>
+          <pose>0 0 0 0 0 1.4</pose>
           <geometry>
             <box>
-              <size>.07 .012 .002</size>
+              <size>0.0762 0.007 0.0018</size>
             </box>
           </geometry>
           <material>
-            <ambient>.15 .15 .18 1</ambient>
-            <diffuse>.15 .15 .18 1</diffuse>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="hub">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.004</radius>
+              <length>0.004</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
           </material>
         </visual>
       </link>
@@ -6428,17 +6663,30 @@
           </inertia>
         </inertial>
         <gravity>1</gravity>
-        <velocity_decay/>
+        <velocity_decay />
         <visual name="propeller">
-          <pose>0 0 0 0 0 0</pose>
+          <pose>0 0 0 0 0 2.0999999999999996</pose>
           <geometry>
             <box>
-              <size>.07 .012 .002</size>
+              <size>0.0762 0.007 0.0018</size>
             </box>
           </geometry>
           <material>
-            <ambient>.15 .15 .18 1</ambient>
-            <diffuse>.15 .15 .18 1</diffuse>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
+          </material>
+        </visual>
+        <visual name="hub">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.004</radius>
+              <length>0.004</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>.025 .028 .032 1</ambient>
+            <diffuse>.025 .028 .032 1</diffuse>
           </material>
         </visual>
       </link>
